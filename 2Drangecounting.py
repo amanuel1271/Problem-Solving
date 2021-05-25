@@ -28,7 +28,7 @@ def binary_search(arr,x):
 
 
 
-########################################
+
 def classify(ori_arr,x,y_of_x):
     
     index = 0
@@ -60,7 +60,7 @@ def classify(ori_arr,x,y_of_x):
 
 
 
-####################################
+
 def store_indice(y_of_x,all_y,indice_list):
         index = 0
         len__ = len(all_y)
@@ -104,7 +104,7 @@ def store_indice(y_of_x,all_y,indice_list):
 
 
 
-###########################
+
 class Solution(object):
 
     def __init__(self, points):
