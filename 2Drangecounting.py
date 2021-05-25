@@ -43,18 +43,13 @@ def classify(ori_arr,x,y_of_x):
         while (ori_arr[index][0] == value[0]):
                 
             new_list.append(ori_arr[index][1])
-                
-            if index < len_ - 1:
-                index += 1
-            else:
-                broke = True
+            index += 1
+            
+            if index == len_:
                 break
                     
         x.append(value[0])
         y_of_x.append(sorted(new_list))
-            
-        if (broke):
-            index += 1
 
 
 
