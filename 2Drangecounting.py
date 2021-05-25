@@ -1,6 +1,5 @@
 def binary_search(arr,x):
     
-
     if len(arr) == 0 or x < arr[0]:
         return 0
         
@@ -13,13 +12,10 @@ def binary_search(arr,x):
         n = (left + right)
         n  = n // 2
         
-        if x >= arr[n]:
-            
-            left = n
+        if x >= arr[n]:  
+           left = n
         else:
-            
             right = n
-        
         
     return right
 
@@ -69,11 +65,9 @@ def store_indice(y_of_x,all_y,indice_list):
                 the_list = y_of_x[index]
                 
                 if elem <= the_list[0]:
-                
                     indice_list[index][i] = 0
                     
                 elif elem > the_list[-1]:
-                
                     indice_list[index][i] = another_len
                     
                 else:
@@ -86,6 +80,7 @@ def store_indice(y_of_x,all_y,indice_list):
                             break
                         
                         j += 1
+                
                 i += 1
                 
             index += 1
@@ -135,7 +130,6 @@ class Solution(object):
         upper_most = rect[1][1]
         
         x1 = binary_search(self.store_x,right_most)
-
         x0 = binary_search(self.store_x,left_most - 1)
             
         initial_loop = True
@@ -146,7 +140,6 @@ class Solution(object):
             if (initial_loop):
                 y1 = binary_search(self.all_y,upper_most)
                 y0 = binary_search(self.all_y,lower_most - 1)
-                
                 
                 save_y0  = y0
                 save_y1 = y1
@@ -159,6 +152,7 @@ class Solution(object):
                 y1 = self.index_info[i][save_y1]
                 y0 = self.index_info[i][save_y0]
 
+                
             count += (y1 - y0)
             
             
