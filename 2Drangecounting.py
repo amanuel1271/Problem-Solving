@@ -6,9 +6,7 @@ def binary_search(arr,x):
     right = len(arr)
     
     while( left + 1 < right):
-        n = (left + right)
-        n  = n // 2
-        
+        n = (left + right)//2
         if x >= arr[n]:  
            left = n
         else:
