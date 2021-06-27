@@ -46,10 +46,10 @@ def classify(ori_arr,x,y_of_x):
 def store_indice(y_of_x,all_y,indice_list):
         index = 0
         len__ = len(all_y)
-        for (;index < len(y_of_x); index++):
+        while (index < len(y_of_x)):
             i = 0
             another_len = len(y_of_x[index])
-           for (;i < len__ + 1;i++):
+            while (i < len__ + 1):
                 if i == len__:
                     indice_list[index][i] = another_len
                     break 
@@ -61,16 +61,20 @@ def store_indice(y_of_x,all_y,indice_list):
                     indice_list[index][i] = another_len 
                 else:
                     j = 0
-                    for (;j < another_len; j++):
+                    while (j < another_len):
                         if elem <= the_list[j]:
                             indice_list[index][i] = j
-                            break;
+                            break
+                        j += 1
+                i += 1 
+            index += 1
             
 
 
 
-
+###########################
 class Solution(object):
+
     def __init__(self, points):
         self.points = points
         self.store_x = []
