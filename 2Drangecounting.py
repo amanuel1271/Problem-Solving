@@ -46,10 +46,10 @@ def classify(ori_arr,x,y_of_x):
 def store_indice(y_of_x,all_y,indice_list):
         index = 0
         len__ = len(all_y)
-        while (index < len(y_of_x)):
+        for (;index < len(y_of_x); index++):
             i = 0
             another_len = len(y_of_x[index])
-            while (i < len__ + 1):
+           for (;i < len__ + 1;i++):
                 if i == len__:
                     indice_list[index][i] = another_len
                     break 
@@ -61,13 +61,10 @@ def store_indice(y_of_x,all_y,indice_list):
                     indice_list[index][i] = another_len 
                 else:
                     j = 0
-                    while (j < another_len):
+                    for (;j < another_len; j++):
                         if elem <= the_list[j]:
                             indice_list[index][i] = j
-                            break
-                        j += 1
-                i += 1 
-            index += 1
+                            break;
             
 
 
