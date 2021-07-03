@@ -1,6 +1,4 @@
 
-
-
 def binary_search(arr,x):
     if len(arr) == 0 or x < arr[0]:
         return 0
@@ -14,9 +12,6 @@ def binary_search(arr,x):
         else:
             right = n
     return right
-
-
-
 
 
 def classify(ori_arr,x,y_of_x):
@@ -37,10 +32,6 @@ def classify(ori_arr,x,y_of_x):
         y_of_x.append(sorted(new_list))
         if (exit_loop):
             index += 1
-
-
-
-
 
 
 def store_indice(y_of_x,all_y,indice_list):
@@ -70,9 +61,6 @@ def store_indice(y_of_x,all_y,indice_list):
             index += 1
             
 
-
-
-###########################
 class Solution(object):
 
     def __init__(self, points):
@@ -90,12 +78,6 @@ class Solution(object):
             self.index_info.append(y)
         store_indice(self.store_y_of_cor_x,self.all_y,self.index_info)
         
-
-
-
-
-
-
 
 
 
