@@ -4,6 +4,7 @@ def binary_search(arr,x):
         return 0
     left = 0
     right = len(arr)
+    
     while( left + 1 < right):
         n = (left + right)
         n  = n // 2
@@ -11,12 +12,14 @@ def binary_search(arr,x):
             left = n
         else:
             right = n
+            
     return right
 
 
 def classify(ori_arr,x,y_of_x):
     index = 0
     len_ = len(ori_arr)
+    
     while  index < len_:
         value = ori_arr[index]
         new_list = []
@@ -28,6 +31,7 @@ def classify(ori_arr,x,y_of_x):
             else:
                 exit_loop = True
                 break
+                
         x.append(value[0])
         y_of_x.append(sorted(new_list))
         if (exit_loop):
@@ -37,6 +41,7 @@ def classify(ori_arr,x,y_of_x):
 def store_indice(y_of_x,all_y,indice_list):
         index = 0
         len__ = len(all_y)
+        
         while (index < len(y_of_x)):
             i = 0
             another_len = len(y_of_x[index])
@@ -44,8 +49,10 @@ def store_indice(y_of_x,all_y,indice_list):
                 if i == len__:
                     indice_list[index][i] = another_len
                     break 
+                    
                 elem =  all_y[i]
                 the_list = y_of_x[index]
+                
                 if elem <= the_list[0]:
                     indice_list[index][i] = 0  
                 elif elem > the_list[-1]:
@@ -56,8 +63,11 @@ def store_indice(y_of_x,all_y,indice_list):
                         if elem <= the_list[j]:
                             indice_list[index][i] = j
                             break
+                            
                         j += 1
+                        
                 i += 1 
+                
             index += 1
             
 
@@ -96,6 +106,7 @@ class Solution(object):
         initial_loop = True
         
         for i in range(x0,x1):
+            
             if (initial_loop):
                 y1 = binary_search(self.all_y,upper_most)
                 y0 = binary_search(self.all_y,lower_most - 1)
