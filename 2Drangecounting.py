@@ -45,6 +45,7 @@ def store_indice(y_of_x,all_y,indice_list):
         while (index < len(y_of_x)):
             i = 0
             another_len = len(y_of_x[index])
+            
             while (i < len__ + 1):
                 if i == len__:
                     indice_list[index][i] = another_len
@@ -59,6 +60,7 @@ def store_indice(y_of_x,all_y,indice_list):
                     indice_list[index][i] = another_len 
                 else:
                     j = 0
+                    
                     while (j < another_len):
                         if elem <= the_list[j]:
                             indice_list[index][i] = j
@@ -121,6 +123,7 @@ class Solution(object):
                 y0 = self.index_info[i][save_y0]
                 
             count += (y1 - y0) 
+            
         return count
 
 
