@@ -70,12 +70,14 @@ class Solution(object):
         self.points.sort(key=lambda x: x[0])
         self.all_y = [x[1] for x in self.points]
         self.all_y.sort()
-        classify(self.points,self.store_x,self.store_y_of_cor_x)    
         self.index_info = []
-
+        
+        classify(self.points,self.store_x,self.store_y_of_cor_x)    
+        
         for j in range(len(self.store_y_of_cor_x)):
             y = [0  for i in range(len(self.all_y) + 1)]
             self.index_info.append(y)
+            
         store_indice(self.store_y_of_cor_x,self.all_y,self.index_info)
         
 
@@ -106,6 +108,7 @@ class Solution(object):
             else:
                 y1 = self.index_info[i][save_y1]
                 y0 = self.index_info[i][save_y0]
+                
             count += (y1 - y0) 
         return count
 
