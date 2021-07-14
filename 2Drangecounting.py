@@ -74,6 +74,7 @@ class Solution(object):
         self.points = points
         self.store_x = []
         self.store_y_of_cor_x = []
+        
         self.points.sort(key=lambda x: x[0])
         self.all_y = [x[1] for x in self.points]
         self.all_y.sort()
@@ -102,14 +103,14 @@ class Solution(object):
         
         initial_loop = True      
         
-        for i in range(x0,x1):            
+        for i in range(x0,x1): 
+            
             if (initial_loop):
                 y1 = binary_search(self.all_y,upper_most)
                 y0 = binary_search(self.all_y,lower_most - 1)
                 
                 save_y0  = y0
                 save_y1 = y1
-                
                 y1 = self.index_info[i][y1]
                 y0 = self.index_info[i][y0]
                 initial_loop = False
