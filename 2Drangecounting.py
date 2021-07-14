@@ -9,7 +9,6 @@ def binary_search(arr,x):
     
     while left + 1 < right:
         n = (left + right) // 2
-        
         if x >= arr[n]:
             left = n
         else:
@@ -61,8 +60,6 @@ def store_indice(y_of_x,all_y,indice_list):
                 elif elem > the_list[-1]:
                     indice_list[index][i] = another_len 
                 else:
-                    j = 0
-                    
                     for j in range(another_len):
                         if elem <= the_list[j]:
                             indice_list[index][i] = j
