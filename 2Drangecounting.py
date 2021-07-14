@@ -1,5 +1,6 @@
 
 def binary_search(arr,x):
+    
     if len(arr) == 0 or x < arr[0]:
         return 0
     
@@ -7,8 +8,8 @@ def binary_search(arr,x):
     right = len(arr)
     
     while( left + 1 < right):
-        n = (left + right)
-        n  = n // 2
+        n = (left + right) // 2
+        
         if x >= arr[n]:
             left = n
         else:
@@ -20,6 +21,7 @@ def binary_search(arr,x):
 
 
 def classify(ori_arr,x,y_of_x):
+    
     index = 0
     len_ = len(ori_arr)
     
@@ -47,6 +49,7 @@ def classify(ori_arr,x,y_of_x):
             
 
 def store_indice(y_of_x,all_y,indice_list):
+    
         index = 0
         len__ = len(all_y)
         
