@@ -7,7 +7,7 @@ def binary_search(arr,x):
     left = 0
     right = len(arr)
     
-    while( left + 1 < right):
+    while left + 1 < right:
         n = (left + right) // 2
         
         if x >= arr[n]:
@@ -22,10 +22,9 @@ def binary_search(arr,x):
 
 def classify(ori_arr,x,y_of_x):
     
-    index = 0
     len_ = len(ori_arr)
     
-    while  index < len_:
+    for index in range(len_):
         value = ori_arr[index]
         new_list = []
         exit_loop = False
@@ -33,31 +32,24 @@ def classify(ori_arr,x,y_of_x):
         while (ori_arr[index][0] == value[0]):   
             new_list.append(ori_arr[index][1]) 
             
-            if index < len_ - 1:
-                index += 1
-            else:
+            if index == len_ - 1:
                 exit_loop = True
                 break 
                 
         x.append(value[0])
         y_of_x.append(sorted(new_list))
-        
-        if (exit_loop):
-            index += 1
 
             
             
 
 def store_indice(y_of_x,all_y,indice_list):
     
-        index = 0
         len__ = len(all_y)
         
-        while (index < len(y_of_x)):
-            i = 0
+        for index in range(len(y_of_x)):
             another_len = len(y_of_x[index])
             
-            while (i < len__ + 1):
+            for i in range(len__ + 1):
                 if i == len__:
                     indice_list[index][i] = another_len
                     break 
@@ -71,15 +63,10 @@ def store_indice(y_of_x,all_y,indice_list):
                 else:
                     j = 0
                     
-                    while (j < another_len):
+                    for j in range(another_len):
                         if elem <= the_list[j]:
                             indice_list[index][i] = j
-                            break 
-                        j += 1  
-                        
-                i += 1  
-                
-            index += 1
+                            break
             
 
             
