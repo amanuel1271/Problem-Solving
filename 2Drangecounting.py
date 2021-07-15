@@ -26,13 +26,11 @@ def classify(ori_arr,x,y_of_x):
     for index in range(len_):
         value = ori_arr[index]
         new_list = []
-        exit_loop = False
         
         while (ori_arr[index][0] == value[0]):   
             new_list.append(ori_arr[index][1]) 
             
             if index == len_ - 1:
-                exit_loop = True
                 break 
                 
         x.append(value[0])
