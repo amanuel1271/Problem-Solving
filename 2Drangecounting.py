@@ -1,7 +1,7 @@
 
-def BinarySearch(arr,x):
+def BinarySearch(arr,elem):
     
-    if len(arr) == 0 or x < arr[0]:
+    if len(arr) == 0 or elem < arr[0]:
         return 0
     
     left = 0
@@ -9,7 +9,7 @@ def BinarySearch(arr,x):
     
     while left + 1 < right:
         n = (left + right) // 2
-        if x >= arr[n]:
+        if elem >= arr[n]:
             left = n
         else:
             right = n 
