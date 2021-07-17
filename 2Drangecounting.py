@@ -85,13 +85,16 @@ class Solution(object):
         right_most = rect[0][1]
         lower_most = rect[1][0]
         upper_most = rect[1][1]
+        
         x1 = BinarySearch(self.store_x,right_most)
         x0 = BinarySearch(self.store_x,left_most - 1)
-        initial_loop = True      
+        initial_loop = True  
+        
         for i in range(x0,x1): 
             if (initial_loop):
                 y1 = BinarySearch(self.all_y,upper_most)
                 y0 = BinarySearch(self.all_y,lower_most - 1)
+                
                 save_y0  = y0
                 save_y1 = y1
                 y1 = self.index_info[i][y1]
@@ -100,6 +103,7 @@ class Solution(object):
             else:
                 y1 = self.index_info[i][save_y1]
                 y0 = self.index_info[i][save_y0] 
+                
             count += (y1 - y0) 
             
         return count
