@@ -1,12 +1,9 @@
 
 def BinarySearch(arr,elem):
-    
     if len(arr) == 0 or elem < arr[0]:
         return 0
-    
     left = 0
     right = len(arr)
-    
     while left + 1 < right:
         n = (left + right) // 2
         if elem >= arr[n]:
@@ -22,11 +19,9 @@ def BinarySearch(arr,elem):
 def Classify(ori_arr,x,y_of_x):
     
     len_ = len(ori_arr)
-    
     for index in range(len_):
         value = ori_arr[index]
         new_list = []
-        
         while (ori_arr[index][0] == value[0]):   
             new_list.append(ori_arr[index][1]) 
             
@@ -40,12 +35,9 @@ def Classify(ori_arr,x,y_of_x):
             
 
 def StoreIndice(y_of_x,all_y,indice_list):
-    
         len__ = len(all_y)
-        
         for index in range(len(y_of_x)):
             another_len = len(y_of_x[index])
-            
             for i in range(len__ + 1):
                 if i == len__:
                     indice_list[index][i] = another_len
@@ -77,9 +69,7 @@ class Solution(object):
         self.all_y = [x[1] for x in self.points]
         self.all_y.sort()
         self.index_info = []
-        
         Classify(self.points,self.store_x,self.store_y_of_cor_x)  
-        
         for j in range(len(self.store_y_of_cor_x)):
             y = [0  for i in range(len(self.all_y) + 1)]
             self.index_info.append(y)    
@@ -95,18 +85,13 @@ class Solution(object):
         right_most = rect[0][1]
         lower_most = rect[1][0]
         upper_most = rect[1][1]
-        
         x1 = BinarySearch(self.store_x,right_most)
         x0 = BinarySearch(self.store_x,left_most - 1)
-        
         initial_loop = True      
-        
         for i in range(x0,x1): 
-            
             if (initial_loop):
                 y1 = BinarySearch(self.all_y,upper_most)
                 y0 = BinarySearch(self.all_y,lower_most - 1)
-                
                 save_y0  = y0
                 save_y1 = y1
                 y1 = self.index_info[i][y1]
@@ -115,7 +100,6 @@ class Solution(object):
             else:
                 y1 = self.index_info[i][save_y1]
                 y0 = self.index_info[i][save_y0] 
-                
             count += (y1 - y0) 
             
         return count
