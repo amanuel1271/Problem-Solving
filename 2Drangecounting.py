@@ -63,17 +63,16 @@ class Solution(object):
     def __init__(self, points):
         self.points = points
         self.store_x = []
-        self.store_y_of_cor_x = []
-        
+        self.store_y_of_cor_x = []        
         self.points.sort(key=lambda x: x[0])
         self.all_y = [x[1] for x in self.points]
         self.all_y.sort()
         self.index_info = []
+        
         Classify(self.points,self.store_x,self.store_y_of_cor_x)  
         for j in range(len(self.store_y_of_cor_x)):
             y = [0  for i in range(len(self.all_y) + 1)]
             self.index_info.append(y)    
-            
         StoreIndice(self.store_y_of_cor_x,self.all_y,self.index_info)
         
 
