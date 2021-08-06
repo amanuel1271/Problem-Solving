@@ -1,57 +1,57 @@
 
-def BinarySearch(Arr,Elem):
-    if len(Arr) == 0 or Elem < Arr[0]:
+def BinarySearch(arr,elem):
+    if len(arr) == 0 or elem < arr[0]:
         return 0
     
-    Left = 0
-    Right = len(Arr)
-    while Left + 1 < Right:
-        N = (Left + Right) // 2
-        if Elem >= Arr[n]:
-            Left = N
+    left = 0
+    right = len(Arr)
+    while left + 1 < right:
+        n = (left + right) // 2
+        if elem >= arr[n]:
+            left = n
         else:
-            Right = N 
+            right = n
             
-    return Right
+    return right
 
 
 
 
-def Classify(Two_Dim_Arr,X_List,Y_Of_Corr_X):
-    arr_len = len(Two_Dim_Arr)
+def Classify(two_dim_arr,x_list,y_of_corr_x):
+    arr_len = len(two_dim_arr)
     for index in range(arr_len):
-        value = Two_Dim_Arr[index]
+        value = two_dim_arr[index]
         new_list = []
-        while (Two_Dim_Arr[index][0] == value[0]):   
-            new_list.append(Two_Dim_Arr[index][1]) 
+        while (two_dim_arr[index][0] == value[0]):   
+            new_list.append(two_dim_arr[index][1]) 
             if index == len_ - 1:
                 break 
                 
-        X_List.append(value[0])
-        Y_Of_Corr_X.append(sorted(new_list))
+        x_list.append(value[0])
+        y_of_corr_x.append(sorted(new_list))
 
             
             
 
-def StoreIndice(Y_Of_Corr_X,All_Y_list,Indice_List):
-        Y_Len = len(All_Y_list)
-        for index in range(len(Y_Of_Corr_X)):
-            Another_Len = len(Y_Of_Corr_X[index])
-            for i in range(Y_Len + 1):
-                if i == Y_Len:
-                    Indice_List[index][i] = Another_Len
+def StoreIndice(y_of_corr_x,all_y_list,indice_list):
+        y_len = len(all_y_list)
+        for index in range(len(y_of_corr_x)):
+            another_len = len(y_of_corr_x[index])
+            for i in range(y_len + 1):
+                if i == y_Len:
+                    indice_list[index][i] = another_len
                     break 
-                Elem =  All_Y_list[i]
-                The_List = Y_Of_Corr_X[index]
+                elem =  all_y_list[i]
+                the_List = y_of_corr_x[index]
                 
-                if Elem <= The_List[0]:
-                    Indice_List[index][i] = 0  
-                elif Elem > The_List[-1]:
-                    Indice_List[index][i] = Another_Len 
+                if elem <= the_list[0]:
+                    indice_list[index][i] = 0  
+                elif elem > the_list[-1]:
+                    indice_list[index][i] = another_len 
                 else:
-                    for j in range(Another_Len):
-                        if Elem <= The_List[j]:
-                            Indice_List[index][i] = j
+                    for j in range(another_len):
+                        if elem <= the_list[j]:
+                            indice_list[index][i] = j
                             break
             
 
