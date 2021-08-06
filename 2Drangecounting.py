@@ -1,10 +1,14 @@
 
+
+## algo midterm problem 
+
+
 def BinarySearch(arr,elem):
     if len(arr) == 0 or elem < arr[0]:
         return 0
     
     left = 0
-    right = len(Arr)
+    right = len(arr)
     while left + 1 < right:
         n = (left + right) // 2
         if elem >= arr[n]:
