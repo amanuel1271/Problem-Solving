@@ -24,6 +24,9 @@ class Solution:
                 starthead = starthead.next
             else:
                 starthead = starthead.next
+                
+        return returnedList
+        
         
         
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
@@ -34,9 +37,8 @@ class Solution:
             return l1
         
         if l1.val < l2.val:
-            self.addList(l1,l2)   
-            return l1
+            return self.addList(l1,l2)   
+            
         else:
-            self.addList(l2,l1)
-            return l2
+            return self.addList(l2,l1)
         
