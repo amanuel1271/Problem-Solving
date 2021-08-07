@@ -9,16 +9,16 @@ public:
         
         int i = 0;
         string returnstr = string("");
-        int len_ = prev.size();
+ 
         
-        while (i < len_){
+        while ( i < prev.size() ){
             char digit = prev[i];
             int count = 1;
+            
             i++;
             
-            while (i < len_ && prev[i] == digit){
-                count++;
-                i++;
+            while ( i < prev.size() && prev[i] == digit){
+                count++; i++;
             }
             
             returnstr += to_string(count) + digit;
