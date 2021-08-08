@@ -39,6 +39,5 @@ class Solution:
         if l1.val < l2.val:
             return self.addList(l1,l2)   
             
-        else:
-            return self.addList(l2,l1)
+        return self.addList(l2,l1)
         
