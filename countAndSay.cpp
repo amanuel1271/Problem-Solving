@@ -8,10 +8,9 @@ public:
  
         int i = 0;
         
-        while (i < prev.size()){
+        while (i++ < prev.size()){
             char digit = prev[i];
             int count = 1;
-            i++;
             
             while (i < prev.size() && prev[i] == digit){
                 count++; i++;
