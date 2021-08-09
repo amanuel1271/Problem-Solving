@@ -9,7 +9,7 @@ public:
         int i = 0;
         
         while (i++ < prev.size()){
-            char digit = prev[i];
+            char digit = prev[i-1];
             int count = 1;
             
             while (i < prev.size() && prev[i] == digit){
