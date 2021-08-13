@@ -3,6 +3,21 @@ class Solution:
         self.dp = {}
         self.dp[1] = 1
         self.dp[2] = 2
+        
+    def memoize(self,n,num,lst,x,count):
+        if num - 1 in self.dp:
+            a = lst[num-1]
+        else:
+            a = self.numTrees(num - 1)
+        if n-num in lst:
+            b = lst[n-num]
+        else:
+            b = self.numTrees(n-num)   
+        count += a * b
+        x[num] = a * b
+            
+        return count
+        
     def numTrees(self, n: int) -> int:
         if n == 1:
             return 1
@@ -18,32 +33,13 @@ class Solution:
                     count += self.dp[n-1]
                 else:
                     count += self.numTrees(n-1)
-
+                    
             elif n % 2 == 0 and num <= n//2: # n is even 
-                if num - 1 in self.dp:
-                    a = self.dp[num-1]
-                else:
-                    a = self.numTrees(num - 1)
-                if n-num in self.dp:
-                    b = self.dp[n-num]
-                else:
-                    b = self.numTrees(n-num)   
-                count += a * b
-                x[num] = a * b
- 
+                count = self.memoize(n,num,self.dp,x,count)
             elif n % 2 == 0 and num > n//2:
                 count += x[n - num + 1]
             elif n % 2 == 1 and num <= (n+1)//2:
-                if num - 1 in self.dp:
-                    a = self.dp[num-1]
-                else:
-                    a = self.numTrees(num - 1)
-                if n-num in self.dp:
-                    b = self.dp[n-num]
-                else:
-                    b = self.numTrees(n-num)  
-                count += a * b
-                x[num] = a * b
+                count = self.memoize(n,num,self.dp,x,count)
             elif n % 2 == 1 and num > (n+1)//2:
                 count += x[n-num+1]
                 
@@ -55,4 +51,5 @@ class Solution:
             
                 
             
+        
         
