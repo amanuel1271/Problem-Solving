@@ -34,13 +34,9 @@ class Solution:
                     count += self.dp[n-1]
                 else:
                     count += self.numTrees(n-1)  
-            elif n % 2 == 0 and num <= n//2: # n is even 
+            elif num <= (n+1)//2:
                 count = self.memoize(n,num,self.dp,x,count)
-            elif n % 2 == 0 and num > n//2:
-                count += x[n - num + 1]
-            elif n % 2 == 1 and num <= (n+1)//2:
-                count = self.memoize(n,num,self.dp,x,count)
-            elif n % 2 == 1 and num > (n+1)//2:
+            elif num > (n+1)//2:
                 count += x[n-num+1]
                 
       
