@@ -10,31 +10,31 @@ class Solution:
             return 2
         
         count = 0
-        x = {}
+        dp_symmetric = {}
         
         for num in range(1,n+1):
+            
             if num == 1 or num == n:
                 if n-1 in self.dp:
                     count += self.dp[n-1]
                 else:
                     count += self.numTrees(n-1)  
+                    
             elif num <= (n+1)//2:
                 if num - 1 in self.dp:
-                    a = self.dp[num - 1]
+                    left_count = self.dp[num - 1]
                 else:
-                    a = self.numTrees(num - 1)
+                    left_count = self.numTrees(num - 1)
                 if n-num in self.dp:
-                    b = lst[n-num]
+                    right_count = self.dp[n-num]
                 else:
-                    b = self.numTrees(n-num)
-            
-                count += a * b
-                x[num] = a * b
-                    
-            else:
-                count += x[n-num+1]
+                    right_count = self.numTrees(n-num)
+                count += left_count * right_count
+                dp_symmetric[num] = left_count * right_count  
                 
-      
+            else:
+                count += dp_symmetric[n-num+1]
+                
         if n not in self.dp:
             self.dp[n] = count
             
