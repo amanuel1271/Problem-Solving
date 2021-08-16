@@ -36,7 +36,7 @@ class Solution:
                     count += self.numTrees(n-1)  
             elif num <= (n+1)//2:
                 count = self.memoize(n,num,self.dp,x,count)
-            elif num > (n+1)//2:
+            else:
                 count += x[n-num+1]
                 
       
