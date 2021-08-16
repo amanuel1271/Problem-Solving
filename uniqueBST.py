@@ -23,7 +23,7 @@ class Solution:
                     a = self.dp[num - 1]
                 else:
                     a = self.numTrees(num - 1)
-                if n-num in lst:
+                if n-num in self.dp:
                     b = lst[n-num]
                 else:
                     b = self.numTrees(n-num)
