@@ -2,23 +2,7 @@ class Solution:
     def __init__(self):
         self.dp = {}
         self.dp[1] = 1
-        self.dp[2] = 2
-        
-    def memoize(self,n,num,lst,x,count):
-        if num - 1 in lst:
-            a = lst[num-1]
-        else:
-            a = self.numTrees(num - 1)
-        if n-num in lst:
-            b = lst[n-num]
-        else:
-            b = self.numTrees(n-num)
-            
-        count += a * b
-        x[num] = a * b
-            
-        return count
-        
+        self.dp[2] = 2    
     def numTrees(self, n: int) -> int:
         if n == 1:
             return 1
@@ -35,7 +19,18 @@ class Solution:
                 else:
                     count += self.numTrees(n-1)  
             elif num <= (n+1)//2:
-                count = self.memoize(n,num,self.dp,x,count)
+                if num - 1 in self.dp:
+                    a = self.dp[num - 1]
+                else:
+                    a = self.numTrees(num - 1)
+                if n-num in lst:
+                    b = lst[n-num]
+                else:
+                    b = self.numTrees(n-num)
+            
+                count += a * b
+                x[num] = a * b
+                    
             else:
                 count += x[n-num+1]
                 
