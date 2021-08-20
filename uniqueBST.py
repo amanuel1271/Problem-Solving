@@ -7,8 +7,7 @@ class Solution:
     def search_dict(self,i):
         if i in self.dp:
             return self.dp[i]
-        else:
-            return self.numTrees(i)
+        return self.numTrees(i)
         
     def numTrees(self, n: int) -> int:
         if n <= 2:
