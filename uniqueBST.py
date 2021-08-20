@@ -2,36 +2,30 @@ class Solution:
     def __init__(self):
         self.dp = {}
         self.dp[1] = 1
-        self.dp[2] = 2    
+        self.dp[2] = 2 
+        
+    def search_dict(self,i):
+        if i in self.dp:
+            return self.dp[i]
+        else:
+            return self.numTrees(i)
+        
     def numTrees(self, n: int) -> int:
-        if n == 1:
-            return 1
-        elif n == 2:
-            return 2
+        if n <= 2:
+            return n
         
         count = 0
         dp_symmetric = {}
         
         for num in range(1,n+1):
-            
             if num == 1 or num == n:
-                if n-1 in self.dp:
-                    count += self.dp[n-1]
-                else:
-                    count += self.numTrees(n-1)  
-                    
-            elif num <= (n+1)//2:
-                if num - 1 in self.dp:
-                    left_count = self.dp[num - 1]
-                else:
-                    left_count = self.numTrees(num - 1)
-                if n-num in self.dp:
-                    right_count = self.dp[n-num]
-                else:
-                    right_count = self.numTrees(n-num)
-                count += left_count * right_count
-                dp_symmetric[num] = left_count * right_count  
+                count += self.search_dict(n-1) 
                 
+            elif num <= (n+1)//2:
+                left_count = self.search_dict(num - 1)
+                right_count = self.search_dict(n - num)
+                count += left_count * right_count
+                dp_symmetric[num] = left_count * right_count    
             else:
                 count += dp_symmetric[n-num+1]
                 
