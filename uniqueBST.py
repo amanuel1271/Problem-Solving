@@ -21,10 +21,8 @@ class Solution:
                 count += self.search_dict(n-1) 
                 
             elif num <= (n+1)//2:
-                left_count = self.search_dict(num - 1)
-                right_count = self.search_dict(n - num)
-                count += left_count * right_count
-                dp_symmetric[num] = left_count * right_count    
+                dp_symmetric[num] = self.search_dict(num - 1) * self.search_dict(n - num)
+                count += dp_symmetric[num]   
             else:
                 count += dp_symmetric[n-num+1]
                 
