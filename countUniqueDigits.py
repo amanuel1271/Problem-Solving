@@ -1,3 +1,5 @@
+
+NINE = 9
 class Solution:
     def __init__(self):
         self.store = {}
@@ -12,9 +14,9 @@ class Solution:
         return count
     
     def count_occur(self,n):
-        count = 9
+        count = NINE ## 9 digits from 1-9
         for i in range(n - 2):
-            count = count * (9 - i)  
+            count = count * (NINE - i)  
         count = count * (n - 1)
         return count
          
@@ -25,17 +27,11 @@ class Solution:
         elif n == 2:
             return 9
         
-        prev_dup = self.find_dup(n - 1)
-        prev_count = self.prev_sum(n - 1)
-            
-        prev_dup -= prev_count
-        
-        cur_dup = prev_dup * 10 
-        self.store[n] = cur_dup + self.count_occur(n)
-        
-        count_2 = self.prev_sum(n)
+        prev_dup = self.find_dup(n - 1)  
+        prev_dup -= self.prev_sum(n - 1)
+        self.store[n] = prev_dup * 10 + self.count_occur(n)
           
-        return self.store[n] + count_2
+        return self.store[n] + self.prev_sum(n)
     
     def countNumbersWithUniqueDigits(self, n: int) -> int:
         return (10 ** n) - self.find_dup(n)
