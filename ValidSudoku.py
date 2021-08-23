@@ -39,8 +39,8 @@ class Solution:
                 return False
             
             i += 1
-            if i == 3:
+            i = i % 3
+            if !i:
                 j += 1
-                i  =  0
                 
         return True
