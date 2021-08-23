@@ -40,7 +40,7 @@ class Solution:
             
             i += 1
             i = i % 3
-            if !i:
+            if  not i:
                 j += 1
                 
         return True
