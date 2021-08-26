@@ -11,9 +11,4 @@ class Solution:
             reversed_i = len_ - i - 1
             dic[reversed_i] = max(dic[reversed_i + 1] + nums[reversed_i],nums[reversed_i])
             
-        max_ = dic[len_]
-        for val in dic.values():
-            if val > max_:
-                max_ = val
-            
-        return max_
+        return max(dic.values())
