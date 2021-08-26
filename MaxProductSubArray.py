@@ -17,13 +17,8 @@ class Solution:
             else:
                 dic[reversed_i] = max(dic_min[reversed_i + 1] * nums[reversed_i],nums[reversed_i])
                 dic_min[reversed_i] = min(dic_min[reversed_i + 1] * nums[reversed_i],nums[reversed_i],dic[reversed_i + 1] * nums[reversed_i])
-                
-                
-            
-        max_ = dic[len_]
-        for val in dic.values():
-            if val > max_:
-                max_ = val
-            
-        return max_
+                   
+        return max(dic.values()):
+           
+    
         
