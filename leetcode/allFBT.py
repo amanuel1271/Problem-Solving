@@ -19,18 +19,17 @@ class Solution:
         output = []
         
         for j in range(1,n):
-            
-            if j % 2 == 1 and (n-1-j)% 2 == 1:
+            if j%2 == 1 and (n-1-j)%2 == 1:
                 if not j in self.dic:
                     self.dic[j]  = self.allPossibleFBT(j)     
                 if not n-1-j in self.dic:
                     self.dic[n-1-j]  = self.allPossibleFBT(n-1-j)  
-                    
                 for tree_1 in self.dic[j]:
                     for tree_2 in self.dic[n-1-j]:
-                        x1 = TreeNode(0,tree_1,tree_2)
-                        if not x1 in output:
-                            output.append(x1)   
+                        tree = TreeNode(0,tree_1,tree_2)
+                        if not tree in output:
+                            output.append(tree)
+                        
                             
         self.dic[n] = output
         return output
