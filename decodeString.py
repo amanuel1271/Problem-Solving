@@ -10,7 +10,7 @@ class Solution:
                 final_string += s[i]
                 i += 1
 
-            if i >= len(s):
+            if i == len(s):
                 break
                 
             num_st = ''
