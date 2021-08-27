@@ -16,16 +16,18 @@ class Solution:
         elif n == 3:
             return self.dic[3]
         output = []
+        
         for j in range(1,n):
             if j % 2 == 1 and (n-1-j) % 2 == 1:
                 if not j in self.dic:
                     self.dic[j]  = self.allPossibleFBT(j)     
                 if not n-1-j in self.dic:
-                    self.dic[n-1-j]  = self.allPossibleFBT(n-1-j)  
+                    self.dic[n-1-j]  = self.allPossibleFBT(n-1-j) 
+                    
                 for tree_1 in self.dic[j]:
                     for tree_2 in self.dic[n-1-j]:
-                        tree = TreeNode(0,tree_1,tree_2)
-                        output.append(tree)                  
+                        output.append(TreeNode(0,tree_1,tree_2))  
+                        
         self.dic[n] = output
         return output
                 
