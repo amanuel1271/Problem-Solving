@@ -7,8 +7,7 @@
 
 class Solution:
     def __init__(self):
-        self.dic = {1:[TreeNode(0)],3:[TreeNode(0,TreeNode(),TreeNode())]}
-        
+        self.dic = {1:[TreeNode(0)],3:[TreeNode(0,TreeNode(),TreeNode())]}  
     def allPossibleFBT(self, n: int) -> List[Optional[TreeNode]]:
         if n == 1:
             return self.dic[1]
@@ -17,9 +16,8 @@ class Solution:
         elif n == 3:
             return self.dic[3]
         output = []
-        
         for j in range(1,n):
-            if j%2 == 1 and (n-1-j)%2 == 1:
+            if j % 2 == 1 and (n-1-j) % 2 == 1:
                 if not j in self.dic:
                     self.dic[j]  = self.allPossibleFBT(j)     
                 if not n-1-j in self.dic:
@@ -27,13 +25,14 @@ class Solution:
                 for tree_1 in self.dic[j]:
                     for tree_2 in self.dic[n-1-j]:
                         tree = TreeNode(0,tree_1,tree_2)
-                        if not tree in output:
-                            output.append(tree)
-                        
-                            
+                        output.append(tree)                  
         self.dic[n] = output
         return output
                 
+        
+        
+        
+        
         
         
         
