@@ -1,11 +1,8 @@
 class Solution:
     def decodeString(self, s: str) -> str:
-        i = 0
-        final_string = ''
-
+        i,final_string= 0,''
         
         while i < len(s):
-        
             while i < len(s) and not s[i].isdigit():
                 final_string += s[i]
                 i += 1
@@ -14,7 +11,6 @@ class Solution:
                 break
                 
             num_st = ''
-            
             while s[i] != "[":
                 num_st += s[i]
                 i += 1
@@ -23,8 +19,7 @@ class Solution:
             num = int(num_st)
             i += 1
             list_ = []
-
-
+            
             while i < len(s) and (s[i] != ']' or list_):
                 recurse_string += s[i]
                 if s[i] == "[":
@@ -33,7 +28,6 @@ class Solution:
                     list_.pop(0)
                 i += 1
     
-
             final_string += num * self.decodeString(recurse_string)
             i += 1
         
