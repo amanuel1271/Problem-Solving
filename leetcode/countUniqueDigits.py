@@ -1,5 +1,4 @@
 
-NINE = 9
 class Solution:
     def __init__(self):
         self.store = {0:0,1:0,2:9}
@@ -11,9 +10,10 @@ class Solution:
         return count
     
     def count_occur(self,n):
-        count = NINE ## 9 digits from 1-9
+        count = 9
         for i in range(n - 2):
-            count = count * (NINE - i)  
+            count = count * (9 - i)  
+            
         count = count * (n - 1)
         return count
          
