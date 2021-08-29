@@ -28,7 +28,7 @@ class Solution:
         if root.right:
             return root,right_tail
         
-        return root,root
+        return root,right_tail
             
     def flatten(self, root: Optional[TreeNode]) -> None:
         """
