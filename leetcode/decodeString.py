@@ -6,7 +6,7 @@ class Solution:
             while i < len(s) and not s[i].isdigit():
                 final_string += s[i]
                 i += 1
-
+         
             if i == len(s):
                 break
                 
