@@ -4,10 +4,8 @@ class Solution:
             return nums[0]
         
         len_  = len(nums) - 1
-        dic = {}
-        dic_min = {}
-        dic[len_] = nums[-1]
-        dic_min[len_] = nums[-1]
+        dic,dic_min = {},{}
+        dic[len_],dic_min[len_] = nums[-1],nums[-1]
         
         for i in range(len_):
             reversed_i = len_ - i - 1
