@@ -11,10 +11,10 @@ class BSTIterator:
         self.inorder(root)
         self.iterator = [self.iterator[0] - 1] + self.iterator
         self.index = 0
+        
     def inorder(self,root):
         if not root:
             return 
-        
         self.inorder(root.left)
         self.iterator.append(root.val)
         self.inorder(root.right)
