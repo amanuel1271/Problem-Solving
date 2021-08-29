@@ -25,9 +25,6 @@ class Solution:
             if root.right:
                 right_head,right_tail =  self.rearrange(root.right) 
                 
-        if root.right:
-            return root,right_tail
-        
         return root,right_tail
             
     def flatten(self, root: Optional[TreeNode]) -> None:
