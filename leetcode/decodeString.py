@@ -24,7 +24,7 @@ class Solution:
                 recurse_string += s[i]
                 if s[i] == "[":
                     bracket_list_.append('[')
-                if s[i] == ']' and list_:
+                if s[i] == ']' and bracket_list_:
                     bracket_list_.pop(0)
                 i += 1
     
