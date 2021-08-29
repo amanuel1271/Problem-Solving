@@ -25,7 +25,6 @@ class BSTIterator:
         
 
     def hasNext(self) -> bool:
-        #print(self.index,self.iterator)
         return self.index < len(self.iterator) - 1
     
         
