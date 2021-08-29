@@ -7,7 +7,7 @@
 class Solution:
     def rearrange(self,root):
         if not root.left and not root.right:
-            return root,root # head and tail pointers and leaf
+            return root,root # head and tail pointers
         
         if root.left:
             left_head,left_tail = self.rearrange(root.left)
