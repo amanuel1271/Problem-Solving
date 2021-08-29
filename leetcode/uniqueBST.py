@@ -1,8 +1,6 @@
 class Solution:
     def __init__(self):
-        self.dp = {}
-        self.dp[1] = 1
-        self.dp[2] = 2 
+        self.dp = {1:1,2:2} 
         
     def search_dict(self,i):
         if i in self.dp:
