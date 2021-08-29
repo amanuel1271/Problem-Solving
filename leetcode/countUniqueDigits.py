@@ -2,10 +2,7 @@
 NINE = 9
 class Solution:
     def __init__(self):
-        self.store = {}
-        self.store[0] = 0
-        self.store[1] = 0
-        self.store[2] = 9
+        self.store = {0:0,1:0,2:9}
         
     def prev_sum(self,n):
         count = 0
