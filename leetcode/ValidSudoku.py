@@ -31,8 +31,8 @@ class Solution:
             if not self.checkvalid(makelst):
                 return False
             i += 1
-            i = i % 3
-            if not i:
+            i %= 3
+            if i == 0:
                 j += 1
                 
         return True
