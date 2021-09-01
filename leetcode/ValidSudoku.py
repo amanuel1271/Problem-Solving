@@ -17,30 +17,22 @@ class Solution:
         ##check rows
         for rows in range(ROWSIZE):
             if not self.checkvalid(board[rows]):
-                return False
-            
+                return False   
         ##check cols
         for col in range(COLSIZE):
-            makelst = []
-            for rows in range(ROWSIZE):
-                makelst.append(board[rows][col])
+            makelst = [board[rows][col] for rows in range(ROWSIZE)]
             if not self.checkvalid(makelst):
-                return False
+                return False  
             
         i = 0
         j = 0
-        
         for box in range(GRIDSIZE):
-            makelst = [ board[3*j][3*i],board[3*j][3*i + 1],board[3*j][3*i + 2],
-                      board[3*j + 1][3*i],board[3*j + 1][3*i + 1],board[3*j + 1][3*i + 2], 
-                      board[3*j + 2][3*i],board[3*j + 2][3*i + 1],board[3*j + 2][3*i + 2] ]
-            
+            makelst = [board[3*j + row][3*i + col] for row in range(ROWSIZE//3) for col in range(COLSIZE//3)]
             if not self.checkvalid(makelst):
                 return False
-            
             i += 1
             i = i % 3
-            if  not i:
+            if not i:
                 j += 1
                 
         return True
