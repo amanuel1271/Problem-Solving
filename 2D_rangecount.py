@@ -1,64 +1,64 @@
-def BinarySearch(arr,elem):
-    if len(arr) == 0 or elem < arr[0]:
+def BinarySearch(arr,val):
+    if len(arr) == 0 or val < arr[0]:
         return 0
     
-    left = 0
-    right = len(arr)
-    while left + 1 < right:
-        n = (left + right) // 2
-        if elem >= arr[n]:
-            left = n
+    l = 0
+    r = len(arr)
+    while l + 1 < r:
+        n = (l + r) // 2
+        if val >= arr[n]:
+            l = n
         else:
-            right = n
+            r = n
             
-    return right
+    return r
 
 
 
 
 def Classify(o_arr,x,y_of_x):
-    index = 0
+    i = 0
     l = len(o_arr)
     
-    while index < l:
-        value = o_arr[index]
-        new_list = []
-        broke = False
+    while i < l:
+        val = o_arr[i]
+        nl = []
+        fin = False
         
-        while o_arr[index][0] == value[0]:
-            new_list.append(o_arr[index][1])
-            if index < l - 1:
-                index += 1
+        while o_arr[i][0] == val[0]:
+            nl.append(o_arr[i][1])
+            if i < l - 1:
+                i += 1
             else:
-                broke = True
+                fin = True
                 break
-        x.append(value[0])
-        y_of_x.append(sorted(new_list))
-        if broke:
-            index += 1
+        x.append(val[0])
+        y_of_x.append(sorted(nl))
+        if fin:
+            i += 1
 
             
             
 
-def StoreIndice(y_of_corr_x,all_y_list,indice_list):
-        y_len = len(all_y_list)
-        for index in range(len(y_of_corr_x)):
-            another_len = len(y_of_corr_x[index])
+def StoreIndice(y_of_x,y_list,i_list):
+        y_len = len(y_list)
+        for index in range(len(y_of_x)):
+            another_len = len(y_of_x[index])
             for i in range(y_len + 1):
                 if i == y_len:
-                    indice_list[index][i] = another_len
+                    i_list[index][i] = another_len
                     break 
-                elem =  all_y_list[i]
-                the_list = y_of_corr_x[index]
+                elem =  y_list[i]
+                the_list = y_of_x[index]
                 
                 if elem <= the_list[0]:
-                    indice_list[index][i] = 0  
+                    i_list[index][i] = 0  
                 elif elem > the_list[-1]:
-                    indice_list[index][i] = another_len 
+                    i_list[index][i] = another_len 
                 else:
                     for j in range(another_len):
                         if elem <= the_list[j]:
-                            indice_list[index][i] = j
+                            i_list[index][i] = j
                             break
             
 
