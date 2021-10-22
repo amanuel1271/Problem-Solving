@@ -77,8 +77,7 @@ class Solution(object):
         
         Classify(self.points,self.store_x,self.store_y_of_cor_x)  
         for j in range(len(self.store_y_of_cor_x)):
-            y = [0  for i in range(len(self.all_y) + 1)]
-            self.index_info.append(y)    
+            self.index_info.append([0  for i in range(len(self.all_y) + 1)])    
         StoreIndice(self.store_y_of_cor_x,self.all_y,self.index_info)
         
 
