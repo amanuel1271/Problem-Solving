@@ -1,6 +1,3 @@
-## algo midterm problem 
-
-
 def BinarySearch(arr,elem):
     if len(arr) == 0 or elem < arr[0]:
         return 0
@@ -19,18 +16,26 @@ def BinarySearch(arr,elem):
 
 
 
-def Classify(two_dim_arr,x_list,y_of_corr_x):
-    arr_len = len(two_dim_arr)
-    for index in range(arr_len):
-        value = two_dim_arr[index]
+def Classify(o_arr,x,y_of_x):
+    index = 0
+    l = len(o_arr)
+    
+    while index < l:
+        value = o_arr[index]
         new_list = []
-        while (two_dim_arr[index][0] == value[0]):   
-            new_list.append(two_dim_arr[index][1]) 
-            if index == len_ - 1:
-                break 
-                
-        x_list.append(value[0])
-        y_of_corr_x.append(sorted(new_list))
+        broke = False
+        
+        while o_arr[index][0] == value[0]:
+            new_list.append(o_arr[index][1])
+            if index < l - 1:
+                index += 1
+            else:
+                broke = True
+                break
+        x.append(value[0])
+        y_of_x.append(sorted(new_list))
+        if broke:
+            index += 1
 
             
             
@@ -40,11 +45,11 @@ def StoreIndice(y_of_corr_x,all_y_list,indice_list):
         for index in range(len(y_of_corr_x)):
             another_len = len(y_of_corr_x[index])
             for i in range(y_len + 1):
-                if i == y_Len:
+                if i == y_len:
                     indice_list[index][i] = another_len
                     break 
                 elem =  all_y_list[i]
-                the_List = y_of_corr_x[index]
+                the_list = y_of_corr_x[index]
                 
                 if elem <= the_list[0]:
                     indice_list[index][i] = 0  
@@ -79,7 +84,7 @@ class Solution(object):
 
 
 
-    def query(self, rect) -> int:
+    def query(self, rect):
         count = 0
         left_most  = rect[0][0]
         right_most = rect[0][1]
