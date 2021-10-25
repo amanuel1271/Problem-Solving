@@ -1,8 +1,7 @@
 
-## define helper functions here
-
-
-
+'''
+define helper functions here
+'''
 def error_(len_seq,win_size):
     if len_seq == 0:
         print("usage: The sequence must be of length larger than zero")
@@ -16,9 +15,9 @@ def error_(len_seq,win_size):
 ### returns the starting index of past_symbol and the past symbols
 def extract_past_symbols(i,win_len,seq):
     if i < win_len:
-        return (0,seq[0:i])
+        return (0 , seq[0:i])
     else:
-        return (i - win_len, seq[(i - win_len):i])
+        return (i - win_len , seq[(i - win_len):i])
 
 
 def no_match(past_symbols,curr_symbol):
@@ -50,10 +49,10 @@ def compute_all_found(start_index,i,past_sym,seq):
             partial_match_str = partial_match_str[:-1]
 
         match_len, i = match_len + len(partial_match_str), i + len(partial_match_str)
-        return i,('1',str(initial_index - start_index),str(match_len))
+        return i , ('1', str(initial_index - start_index), str(match_len) )
         
     else: ## finished matching
-        return i,('1',str(initial_index - start_index),str(match_len))
+        return i , ('1', str(initial_index - start_index), str(match_len) )
 
 ### returns the length of the match
 def find_match_len(start,past_sym,seq,i,indice):
@@ -63,8 +62,6 @@ def find_match_len(start,past_sym,seq,i,indice):
         j += 1
     return j
 
-
-    
 
 
 ## returns updated index and also the appropriate tuple 
@@ -87,7 +84,7 @@ def compute_partial_match(start,i,past_sym,seq):
     start_i = store_indice[store_length.index(max_len_match)]
 
 
-    return ((i + max_len_match),('1',str(i - start_i),str(max_len_match)))
+    return ( (i + max_len_match) , ('1', str(i - start_i), str(max_len_match))  )
 
 
 def tuple_to_encoded_str(tup):
@@ -101,11 +98,20 @@ def tuple_to_encoded_str(tup):
             res_str = res_str + a + b + c
     return res_str
 
+'''
+End of definition of helper functions
+'''
 
 
 
 
 
+
+
+
+'''
+Start of the class definition
+'''
 
 class MyLZ77(object):
     '''
@@ -149,10 +155,12 @@ class MyLZ77(object):
 
 
 def main():
-    sol = MyLZ77()
+    my_sol = MyLZ77()
     print('\n')
-    print(sol.encode('1001001000110101',4))
+    print(my_sol.encode('1001001000110101',4))
     print('\n')
 
 main()
+
+
 
