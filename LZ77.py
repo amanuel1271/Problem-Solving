@@ -1,7 +1,8 @@
 
-
 ## define helper functions here
-#import random
+from random import choices
+from math import log,ceil
+import matplotlib.pyplot as plt
 
 
 
@@ -92,20 +93,6 @@ def compute_partial_match(start,i,past_sym,seq):
     return ((i + max_len_match),('1',str(i - start_i),str(max_len_match)))
 
 
-def tuple_to_encoded_str(tup):
-    res_str = ""
-    for elem in tup:
-        if len(elem) == 2:
-            a,b = elem
-            res_str = res_str + a + b
-        else:
-            a,b,c = elem
-            res_str = res_str + a + b + c
-    return res_str
-
-
-
-
 def decode_helper(past_seq,info,len_match):
     assert(info[0] == '1')
     dist = int(info[1])
@@ -118,6 +105,26 @@ def decode_helper(past_seq,info,len_match):
         return relevant_str
     else:
         return relevant_str + decode_helper(past_seq,info,len_match - len(relevant_str))
+
+
+
+
+"""
+The next function generates a length n binary sequence according to Bern(p)
+I used the function choices (available using python 3.6 or higher) that is imported from random
+"""
+
+def generate_bin_seq(n,p): ## p has to be from 0 to 1
+    bin_,prob_distr,bin_seq = [0,1] , [(1-p),p] , ''
+
+    for _ in range(n):
+        bin_seq += str(choices(bin_,prob_distr)[0])
+    return bin_seq
+
+
+
+
+
 
 
 
@@ -157,23 +164,52 @@ class MyLZ77(object):
                 res_encoded_tup.append(res)
 
         ### finally return the concatenation of the strings inside the tuples
-        return tuple_to_encoded_str(res_encoded_tup)
+        return res_encoded_tup
 
 
     '''
     decodes a binary string that is encoded using LZ77 algorithm
     '''
-    def decode(self,encoded_seq):
-        i,fin_str = 0,''
+    def decode(self,encoded_tuple):
+        fin_str = ''
 
-        while i < len(encoded_seq):
-            if encoded_seq[i] == '0': ### if it didn't match
-                fin_str,i = fin_str + encoded_seq[i+1], i + 2
+        for tup in encoded_tuple:
+            if len(tup) == 2: ### No match case
+                assert(tup[0] == '0')
+                fin_str += tup[1]
             else:
-                fin_str += decode_helper(fin_str,encoded_seq[i:i+3],int(encoded_seq[i + 2]))
-                i += 3
+                fin_str += decode_helper(fin_str,tup,int(tup[2]))
+
 
         return fin_str
+
+    '''
+    calculates the compression rate of the encoded tuple
+    uses the log function by importing from math module
+    uses ceil function by importing  from math module
+    '''
+    def calc_compr_rate(self,encoded_tuple,len_seq):
+        code_len = 0
+        for tup in encoded_tuple:
+            if len(tup) == 2:
+                code_len += 2
+            else:
+                code_len += (1 + ceil(log(int(tup[1]),2)) + ceil(log(int(tup[2]),2)))
+        return code_len/len_seq
+    
+    '''
+    calculates the entropy of a Bern(p) distribution
+    '''
+    def calc_entropy(self,p):
+        inter_1 = -(p * log(p,2))
+        inter_2 = -((1-p) * log((1-p),2))
+        return inter_1 + inter_2
+
+
+        
+
+
+
             
 
 
@@ -186,19 +222,42 @@ def main():
     ori_bin_str = '1001001000110101'
     sol = MyLZ77()
 
-    print('\n')
     encoding_res = sol.encode(ori_bin_str,4)
     print(encoding_res)
 
-    print('\n')
     decoded_str = sol.decode(encoding_res)
+    print('\n')
     print(decoded_str == ori_bin_str)
-    assert(decoded_str == ori_bin_str)
+    print('\n')
+
+    LEN_OF_SEQ = 10000
+    WIN_SIZE = 100
+
+    bin_seq = generate_bin_seq(LEN_OF_SEQ,0.1)
+    encode_ = sol.encode(bin_seq,WIN_SIZE)
+    decode_ = sol.decode(encode_)
+    print(decode_ == bin_seq)
+
+    print(sol.calc_compr_rate(encode_,LEN_OF_SEQ))
+
+    p_l = [0.02,0.04,0.06,0.08,0.1,0.12,0.14,0.16,0.18,0.2]
+    compr_rate_l = []
+    entropy_l = []
+
+
+    for p in p_l:
+        en_ = sol.encode(generate_bin_seq(LEN_OF_SEQ,p),WIN_SIZE)
+        compr_rate_l.append(sol.calc_compr_rate(en_,LEN_OF_SEQ))
+        entropy_l.append(sol.calc_entropy(p))
+        
+    plt.plot(p_l,compr_rate_l)
+    plt.plot(p_l,entropy_l)
+    plt.legend(["compression rate to p", "entropy to p"])
+    plt.show()
+
+
 
 
 
 main()
-
-
-
 
