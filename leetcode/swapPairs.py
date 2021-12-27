@@ -11,25 +11,21 @@ class Solution:
                 return curr
             
             attach = prev
-            
             while attach.next:
                 attach = attach.next
             attach.next = curr
-            
             return prev
         
         def helper(prev,curr):
             if curr == None:
                 return prev
-            
-            if curr.next == None:
+            elif curr.next == None:
                 return helper(join(prev,curr),None)
             
             nextt = curr.next.next
             save = curr.next
             curr.next = None
             save.next = curr
-
             return helper(join(prev,save),nextt)
             
         return helper(None,head)
