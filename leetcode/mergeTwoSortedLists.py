@@ -40,4 +40,41 @@ class Solution:
             return self.addList(l1,l2)   
             
         return self.addList(l2,l1)
+    
+    
+    
+ /**** Recursive approach ****/
+    
+ class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        
+        def helper(added,merged):
+            if added == None:
+                return merged
+            elif merged.next == None:
+                merged.next = added
+                return merged  
+            
+            added_head = added
+            enter = False
+            while added_head.val <= merged.next.val:
+                enter = True
+                if added_head.next == None or added_head.next.val > merged.next.val:
+                    break
+                added_head = added_head.next
+                
+            if enter:
+                save_nexta = added_head.next
+                added_head.next = merged.next
+                merged.next = added
+            else:
+                save_nexta = added_head
+                
+            save_nextm = merged.next 
+            helper(save_nexta,save_nextm)
+            return merged
+        
+        if list1 == None or (list2 != None and list2.val <= list1.val):
+            return helper(list1,list2)
+        return helper(list2,list1)
         
