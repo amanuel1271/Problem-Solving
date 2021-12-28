@@ -70,8 +70,7 @@ class Solution:
             else:
                 save_nexta = added_head
                 
-            save_nextm = merged.next 
-            helper(save_nexta,save_nextm)
+            helper(save_nexta,merged.next)
             return merged
         
         if list1 == None or (list2 != None and list2.val <= list1.val):
