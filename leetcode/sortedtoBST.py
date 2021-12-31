@@ -9,15 +9,15 @@ class Solution:
         
         def helper(numlist):
             
-            len_ = len(numlist)
-            if len_ == 0:
+            lenn = len(numlist)
+            if lenn == 0:
                 return None
-            elif len_ == 1:
+            elif lenn == 1:
                 return TreeNode(numlist[0],None,None)
-            elif len_ == 2:
+            elif lenn == 2:
                 return TreeNode(numlist[1],TreeNode(numlist[0]),None)
             
-            mid = len_//2
+            mid = lenn // 2
             
             return TreeNode(numlist[mid],helper(numlist[:mid]),helper(numlist[mid+1:]))
             
