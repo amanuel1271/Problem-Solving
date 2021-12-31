@@ -2,12 +2,13 @@ class Solution:
     def decodeString(self, s: str) -> str:
         i,final_string= 0,''
         
-        while i < len(s):
-            while i < len(s) and not s[i].isdigit():
+        len_ = len(s)
+        while i < len_:
+            while i < len_ and not s[i].isdigit():
                 final_string += s[i]
                 i += 1
          
-            if i == len(s):
+            if i == len_:
                 break
                 
             num_str = ''
@@ -20,7 +21,7 @@ class Solution:
             i += 1
             bracket_list_ = []
             
-            while i < len(s) and (s[i] != ']' or bracket_list_):
+            while i < len_ and (s[i] != ']' or bracket_list_):
                 recurse_string += s[i]
                 if s[i] == "[":
                     bracket_list_.append('[')
