@@ -24,10 +24,4 @@ class Solution:
         helper(root,lookup_dict)
         
         maxx = max(lookup_dict.values())
-        for key in lookup_dict:
-            if lookup_dict[key] == maxx:
-                res.append(key)
-        return res
-        
-        
-        
+        return [key for key in lookup_dict if lookup_dict[key] == maxx ]
