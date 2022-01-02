@@ -12,15 +12,14 @@ class Solution:
             elif not root.left and not root.right:
                 return val
     
-            
+            left_val,right_val = 0,0
+        
             if root.left:
                 left_val = int(str(val) + str(root.left.val))
-            else:
-                left_val = 0
+
             if root.right:
                 right_val = int(str(val) + str(root.right.val))
-            else:
-                right_val = 0
+
             
             return rootToLeaf(root.left,left_val) + rootToLeaf(root.right,right_val)         
             
