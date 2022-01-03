@@ -1,35 +1,33 @@
 class Solution:
-    def __init__(self):
-        self.dp = {1:1,2:2} 
-        
-    def search_dict(self,i):
-        if i in self.dp:
-            return self.dp[i]
-        return self.numTrees(i)
-        
     def numTrees(self, n: int) -> int:
-        if n <= 2:
-            return n
         
-        count = 0
-        dp_symmetric = {}
+        def helper(n,dic):
+            if n in dic:
+                return dic[n]
+
+            count = 0
+            for i in range(1,n+1):
+                if i-1 in dic:
+                    left = dic[i - 1]
+                else:
+                    left = helper(i - 1,dic)
+                    
+                if n - i in dic:
+                    right = dic[n-i]
+                else:
+                    right = helper(n - i,dic)
+    
+                
+                if left == 0: left = 1
+                if right == 0: right = 1
+                    
+                count += left * right
+                
+            dic[n] = count
+            return count
         
-        for num in range(1,n+1):
-            if num == 1 or num == n:
-                count += self.search_dict(n-1) 
-                
-            elif num <= (n+1)//2:
-                dp_symmetric[num] = self.search_dict(num - 1) * self.search_dict(n - num)
-                count += dp_symmetric[num]   
-            else:
-                count += dp_symmetric[n-num+1]
-                
-        if n not in self.dp:
-            self.dp[n] = count
-            
-        return count
-            
-                
-            
+        dic = {0:0,1:1,2:2}
+        return helper(n,dic)
+        
         
         
