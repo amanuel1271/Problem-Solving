@@ -3,8 +3,9 @@ class Solution:
         def addleft(root,isleft):
             if not root:
                 return 0
+           
                 
-            return root.val + addleft(root.left,True) + addleft(root.right,False)
+            return  (root.val if isleft else 0) + addleft(root.left,True) + addleft(root.right,False)
             
                 
         return addleft(root,False)
