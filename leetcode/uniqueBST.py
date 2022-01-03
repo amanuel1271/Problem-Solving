@@ -1,6 +1,5 @@
 class Solution:
     def numTrees(self, n: int) -> int:
-        
         def helper(n,dic):
             if n in dic:
                 return dic[n]
