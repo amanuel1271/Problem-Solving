@@ -1,34 +1,25 @@
 
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        output  = []
-        
         if not root:
-            return output
+            return []
+        res = []
+        queue = []
+        queue.append(root)
         
-        output.append([root.val])
-        store_parent_node = [root]
-        
-        while any(store_parent_node):
-            inner_list = []
-            hold_roots = []
-            for root in store_parent_node:
-                if root:
-                    if root.left:
-                        inner_list.append(root.left.val)
-                        hold_roots.append(root.left)
-                    if root.right:
-                        inner_list.append(root.right.val)
-                        hold_roots.append(root.right)
-
-            if inner_list:
-                output.append(inner_list)
-            
-            store_parent_node = hold_roots
-        
+        while queue:
+            lenn = len(queue)
+            res.append([])
+            for i in range(lenn):
+                froot = queue.pop(0)
+                res[-1].append(froot.val)
                 
-            
-        return output
+                if froot.left:
+                    queue.append(froot.left)
+                if froot.right:
+                    queue.append(froot.right)
+        
+        return res
                     
                     
             
