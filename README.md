@@ -1,1 +1,1 @@
-just  practicing simple algos
+just  practicing simple leetcode algos
