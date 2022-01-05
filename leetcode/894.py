@@ -30,14 +30,3 @@ class Solution:
                         
         self.dic[n] = output
         return output
-                
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
