@@ -3,7 +3,6 @@ class Solution:
         def helper(start,end,visited,adj_lst):
             if [start,end]  in edges or [end,start] in edges:
                 return True
-
             for edge in  adj_lst[start]:
                 if edge not in visited:
                     visited.add(edge)
@@ -15,11 +14,9 @@ class Solution:
             adj_dic = {}
             for i in range(n):
                 adj_dic[i] = []
-                
             for edge in edges:
                 for i in range(2):
-                    adj_dic[edge[i]].append(edge[1-i])
-                        
+                    adj_dic[edge[i]].append(edge[1-i])   
             return adj_dic
                     
             
@@ -29,9 +26,6 @@ class Solution:
         elif not edges and start == end:
             return True
         
-        adj_lst = adjacent_list_mk(edges,n)
-        visited = set()
-        visited.add(start)
-        return helper(start,end,visited,adj_lst)
-        
+        visited = {start}
+        return helper(start,end,visited,adjacent_list_mk(edges,n))
         
