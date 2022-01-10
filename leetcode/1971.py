@@ -3,6 +3,8 @@ class Solution:
         def helper(start,visited,adj_lst):
             if [start,end]  in edges or [end,start] in edges:
                 return True
+            elif start == end:
+                return True
             for edge in  adj_lst[start]:
                 if edge not in visited:
                     visited.add(edge)
