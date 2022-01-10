@@ -23,7 +23,7 @@ class Solution:
         
         if start > n:
             return False
-        elif not edges and start == end:
+        elif start == end:
             return True
         
         visited = {start}
