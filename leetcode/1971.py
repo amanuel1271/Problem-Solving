@@ -1,12 +1,12 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
-        def helper(start,end,visited,adj_lst):
+        def helper(start,visited,adj_lst):
             if [start,end]  in edges or [end,start] in edges:
                 return True
             for edge in  adj_lst[start]:
                 if edge not in visited:
                     visited.add(edge)
-                    if helper(edge,end,visited,adj_lst):
+                    if helper(edge,visited,adj_lst):
                         return True
             return False
         
@@ -27,5 +27,5 @@ class Solution:
             return True
         
         visited = {start}
-        return helper(start,end,visited,adjacent_list_mk(edges,n))
+        return helper(start,visited,adjacent_list_mk(edges,n))
         
