@@ -1,27 +1,37 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
-        def helper(start,end,visited):
+        def helper(start,end,visited,adj_lst):
             if [start,end]  in edges or [end,start] in edges:
                 return True
 
+            for edge in  adj_lst[start]:
+                if edge not in visited:
+                    visited.add(edge)
+                    if helper(edge,end,visited,adj_lst):
+                        return True
+            return False
+        
+        def adjacent_list_mk(edges,n):
+            adj_dic = {}
+            for i in range(n):
+                adj_dic[i] = []
+                
             for edge in edges:
-                if edge[0] == start and edge[1] not in visited:
-                    visited.add(edge[1])
-                    if helper(edge[1],end,visited):
-                        return True
-                elif edge[1] == start and edge[0] not in visited:
-                    visited.add(edge[0])
-                    if helper(edge[0],end,visited):
-                        return True
+                for i in range(2):
+                    adj_dic[edge[i]].append(edge[1-i])
+                        
+            return adj_dic
                     
             
-            return False
         
         if start > n:
             return False
         elif not edges and start == end:
             return True
+        
+        adj_lst = adjacent_list_mk(edges,n)
         visited = set()
         visited.add(start)
-        return helper(start,end,visited)
+        return helper(start,end,visited,adj_lst)
+        
         
