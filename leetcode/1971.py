@@ -12,11 +12,11 @@ class Solution:
         
         def adjacent_list_mk(edges,n):
             adj_dic = {}
+            for i in range(n): # there might be a node with no edge so it is better to make sure every node val is in the dict
+                adj_dic[i] = []
 
             for edge in edges:
                 for i in range(2):
-                    if not edge[i] in adj_dic:
-                        adj_dic[edge[i]] = []
                     adj_dic[edge[i]].append(edge[1-i])
                     
             return adj_dic
