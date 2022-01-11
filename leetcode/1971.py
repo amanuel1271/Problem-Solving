@@ -1,10 +1,9 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
         def helper(start,visited,adj_lst):
-            if adj_lst[start] == end:
+            if adj_lst[start] == end or start == end:
                 return True
-            elif start == end:
-                return True
+            
             for edge in  adj_lst[start]:
                 if edge not in visited:
                     visited.add(edge)
