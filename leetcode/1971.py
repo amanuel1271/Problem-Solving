@@ -1,7 +1,7 @@
 class Solution:
     def validPath(self, n: int, edges: List[List[int]], start: int, end: int) -> bool:
         def helper(start,visited,adj_lst):
-            if [start,end]  in edges or [end,start] in edges:
+            if adj_lst[start] == end:
                 return True
             elif start == end:
                 return True
