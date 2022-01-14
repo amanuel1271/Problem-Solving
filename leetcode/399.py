@@ -30,7 +30,6 @@ class Solution:
             return False
             
         res = [float(-1) for j in range(len(queries))]
-        print(self.adjLst)
         for index,pair in enumerate(queries):
             if pair[0] not in self.adjLst or pair[1] not in self.adjLst:
                 continue
