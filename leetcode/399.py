@@ -14,10 +14,6 @@ class Solution:
                     adjLst[pair[1]] = [(pair[0],1/values[index])]
             return adjLst
         
-        self.visited = set()
-        self.val = math.inf
-        self.adjLst = constructAdjList(equations,values)
-        
         def dfs(self,start,end,acc):
             self.visited.add(start)
             if end == start:
@@ -28,8 +24,12 @@ class Solution:
                 if (neighbors[0] not in self.visited and dfs(self,neighbors[0],end,acc * neighbors[1])):
                     return True
             return False
-            
+        
+        self.visited = set()
+        self.val = math.inf
+        self.adjLst = constructAdjList(equations,values) 
         res = [float(-1) for j in range(len(queries))]
+        
         for index,pair in enumerate(queries):
             if pair[0] not in self.adjLst or pair[1] not in self.adjLst:
                 continue
