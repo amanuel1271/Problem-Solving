@@ -12,9 +12,6 @@ class Solution:
     def find(self,index):
         return self.array[index] ##returns the head of the connected vertices
     
-    def calculate_distance(self,p1,p2):
-        return abs(p1[0]- p2[0]) + abs(p1[1]-p2[1])
-    
     def minCostConnectPoints(self, points: List[List[int]]) -> int:
         edge_cost = []
         n = len(points)
@@ -22,7 +19,8 @@ class Solution:
         
         for i in range(n):
             for j in range(i + 1,n):
-                edge_cost.append((i,j,self.calculate_distance(points[i],points[j])))
+                dist = abs(points[i][0]- points[j][0]) + abs(points[i][1]-points[j][1])
+                edge_cost.append((i,j,dist))
             
         edge_cost.sort(key = lambda x:x[2]) # sorted by cost 
         cost_count,edge_count = 0,0
@@ -38,7 +36,4 @@ class Solution:
                 edge_count += 1
                 cost_count += cost
                 
-                
-                
-        
         return cost_count
