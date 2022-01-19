@@ -28,7 +28,6 @@ class Solution:
         
         visited.add(unvisited.pop())
         final_cost = 0
-        prev_min = (0,math.inf)
 
             
         while len(visited) != n:
