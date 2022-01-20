@@ -1,7 +1,9 @@
+LEFT,RIGHT,UP,DOWN = (0,-1),(0,1),(1,0),(-1,0)
+
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
         m,n = len(heights),len(heights[0])
-        dirs = [(0,1),(0,-1),(1,0),(-1,0)]
+        dirs = [LEFT,RIGHT,DOWN,UP]
         output = 0
         heap = [(0,0,0)]
         visited = set()
