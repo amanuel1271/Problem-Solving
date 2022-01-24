@@ -1,1 +1,1 @@
-just  practicing simple leetcode algos
+My solutions to some easy and medium leetcode problems
