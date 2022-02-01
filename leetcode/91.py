@@ -32,6 +32,6 @@ class Solution:
                 return second
                 
             
-            return first * dp(word[1:]) + second
+            return dp(word[1:]) + second
         
         return dp(s)
