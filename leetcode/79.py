@@ -3,12 +3,6 @@ class Solution:
         word_len = len(word)
         m,n = len(board),len(board[0])
         
-        start_set = set()
-        for i in range(m):
-            for j in range(n):
-                if board[i][j] == word[0]:
-                    start_set.add((i,j,0))
-                    
         def dfs(x,y,i,path):
             if i == word_len-1:
                 return True
@@ -19,8 +13,11 @@ class Solution:
                             return True
             return False
         
-        while start_set:
-            i,j,index = start_set.pop()
-            if dfs(i,j,index,set()):
-                return True
+        
+        for i in range(m):
+            for j in range(n):
+                if board[i][j] == word[0]:
+                    if dfs(i,j,0,set()):
+                        return True
+        
         return False
