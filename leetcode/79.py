@@ -1,10 +1,9 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        word_len = len(word)
         m,n = len(board),len(board[0])
         
         def dfs(x,y,i,path):
-            if i == word_len-1:
+            if i == len(word)-1:
                 return True
             for xl,xr in [(x+1,y),(x-1,y),(x,y-1),(x,y+1)]:
                 if 0 <= xl < m and 0 <= xr < n and (xl,xr) not in path:
