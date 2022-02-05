@@ -13,15 +13,15 @@ class Solution:
         
         self.acc = []
         
-        def helper(ans,digit):
+        def dfs(ans,digit):
             if digit == '':
                 self.acc.append(ans)
                 return
             
             for letter in digit_to_letter[digit[0]]:
-                helper(ans + letter,digit[1:])
+                dfs(ans + letter,digit[1:])
         
         if digits == '': return []
         
-        helper('',digits)
+        dfs('',digits)
         return self.acc
