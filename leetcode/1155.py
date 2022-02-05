@@ -4,6 +4,8 @@ class Solution:
         
         @lru_cache(None)
         def dp(dice_num,target):
+            if target < 0:
+                return 0
             if dice_num == 1:
                 return 1 if 1 <= target <= k else 0
             
