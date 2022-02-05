@@ -3,7 +3,7 @@ class Solution:
         self.acc = []
         def helper(mod_str,opening,closing):
             
-            if opening == closing == n:
+            if closing == n:
                 self.acc.append(mod_str)
                 return
             
