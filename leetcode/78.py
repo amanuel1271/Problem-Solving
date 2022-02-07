@@ -1,22 +1,16 @@
 class Solution:
     def subsets(self, nums: List[int]) -> List[List[int]]:
-        def my_combination(choice_list,k):
-            if k == 1:
-                return [[nums] for nums in choice_list]
+        res = []
+        
+        def dfs(i,subset):
+            if i == len(nums):
+                res.append(subset[:])
+                return
             
-            res = []
+            subset.append(nums[i])
+            dfs(i+1,subset)
+            subset.pop()
+            dfs(i+1,subset)
             
-            for i in range(len(choice_list)):
-                for combs in my_combination(choice_list[i+1:],k-1):
-                    res.append([choice_list[i]] + combs)  
-            return res
-        
-        
-        n = len(nums)
-        res = [[]]
-        
-        for k in range(1,n+1):
-            for combs in my_combination(nums,k):
-                res.append(combs)
-        
+        dfs(0,[])
         return res
