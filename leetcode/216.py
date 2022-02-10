@@ -1,6 +1,6 @@
 class Solution:
     def combinationSum3(self, k: int, n: int) -> List[List[int]]:
-        res = []
+        fres = []
         def helper(choice_list,k):
             if k == 1:
                 return [[nums] for nums in choice_list]
@@ -21,5 +21,5 @@ class Solution:
         choice_list = [i for i in range(1,10)]
         for cand in helper(choice_list,k):
             if sum(cand) == n:
-                res.append(cand)
-        return res
+                fres.append(cand)
+        return fres
