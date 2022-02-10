@@ -4,10 +4,8 @@ class Solution:
         
         def isPalindrome(string):
             size = len(string)
-            if size <= 1:
-                return True
-            
             l,r = 0,size-1
+            
             while l < r:
                 if string[l] != string[r]:
                     return False
@@ -15,7 +13,7 @@ class Solution:
             
             return True
 
-        def helper(string,acc):
+        def dfs(string,acc):
             size = len(string)
             if size == 0:
                 if acc != []:
@@ -24,7 +22,7 @@ class Solution:
             
             for i in range(1,len(string) + 1):
                 if isPalindrome(string[:i]):
-                    helper(string[i:],acc + [string[:i]])
+                    dfs(string[i:],acc + [string[:i]])
         
-        helper(s,[])
+        dfs(s,[])
         return res
