@@ -6,12 +6,9 @@ class Solution:
             if dot == 3:
                 if string == '0':
                     acc.append(res + string)
-                    return
                 elif len(string) != 0 and string[0] != '0' and 1 <= int(string) <= 255:
                     acc.append(res + string)
-                    return
-                else:
-                    return
+                return
             elif string == '':
                 return
                 
