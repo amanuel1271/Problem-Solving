@@ -1,9 +1,7 @@
 class Solution(object):
     def largestNumber(self, nums):
         def compare(str1,str2):
-            if str1+str2 > str2+str1:
-                return True
-            return False
+            return str1+str2 > str2+str1
         
         for i in range(len(nums)-1,-1,-1):
             for j in range(i):
