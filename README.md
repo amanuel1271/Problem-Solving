@@ -1,1 +1,1 @@
-My solutions to some easy and medium leetcode problems
+My solutions  medium leetcode problems
