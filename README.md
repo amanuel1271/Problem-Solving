@@ -1,1 +1,1 @@
-My solutions to the basic ds and algo leetcode problems
+My solutions to basic ds and algo leetcode problems
