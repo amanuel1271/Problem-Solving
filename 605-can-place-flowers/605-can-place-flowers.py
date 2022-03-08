@@ -4,7 +4,7 @@ class Solution:
         size = len(flowerbed)
         
         if size == 1:
-            return True if (n <= 1 and not flowerbed[0] or n == 0) else False
+            return True if (n <= 1 and not flowerbed[0]) or n == 0 else False
         
         if flowerbed[0] == 0 and flowerbed[1] == 0:
                 can_place += 1
