@@ -18,8 +18,7 @@ class Solution:
         if flowerbed[size-2] == 0 and flowerbed[size-1] == 0:
             can_place += 1
             flowerbed[size-2] = 1
-            
-        print(can_place)
+
         return can_place >= n
             
         
