@@ -7,7 +7,6 @@ class Solution:
         for i,digit in enumerate(strRep):
             storeIndex[digit] = i
             
-        print(storeIndex)
         for index in range(len(strRep)):
             for j in range(9,int(strRep[index]),-1):
                 if str(j) in storeIndex:
