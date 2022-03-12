@@ -1,25 +1,25 @@
 class Solution:
     def checkValidString(self, s: str) -> bool:
-        left_par_stack = []     # store the index of "("
-        star_stack = []         # store the index of "*"
+        left_par_stack = deque()     
+        star_stack = deque()        
         
         for i in range(len(s)):
-            if s[i] == "(":                 # When encounter "(" or "*", we store it separately as "money" for future use.
+            if s[i] == "(":                 
                 left_par_stack.append(i)
             elif s[i] == "*":
                 star_stack.append(i)
-            elif s[i] == ")":               # When encounter ")", it's time we need to pay,
-                if left_par_stack:          # we give priority to pay with "(", so the right-most "(" will be consumed.
+            elif s[i] == ")":               
+                if left_par_stack:          
                     left_par_stack.pop()
-                elif star_stack:            # Otherwise, we pay with "*".
+                elif star_stack:           
                     star_stack.pop()
                 else:
-                    return False            # We don't have enough money to pay, game over.
+                    return False            
         
-        while left_par_stack:               # In situ that some "(" haven't been consumed.
+        while left_par_stack:  
             if not star_stack:
                 break
-            elif star_stack[-1] > left_par_stack[-1]: # Only when the idx of "*" is greater than idx of "(" that can we apply "*" as ")"
+            elif star_stack[-1] > left_par_stack[-1]:
                 star_stack.pop()
                 left_par_stack.pop()
             elif star_stack[-1] < left_par_stack[-1]:
