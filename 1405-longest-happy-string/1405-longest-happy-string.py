@@ -14,22 +14,17 @@ class Solution:
                 
         heapify(maxheap)
 
-        while True:
-            if not maxheap:
-                break
-                
+        while maxheap:   
             rcount, ch = heappop(maxheap)
             if (not prev and rcount <= -2) or (rcount <= -2 and rcount <= prev[0]):
                 ans += ch * 2
                 rcount += 2
             else:
                 ans += ch 
-                rcount += 1
-                
+                rcount += 1  
             if prev != None:
                 if prev[0] < 0:
                     heappush(maxheap,prev)
-            
             prev = (rcount,ch)
         
         return ans
