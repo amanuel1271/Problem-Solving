@@ -19,7 +19,7 @@ class Solution:
                 break
                 
             rcount, ch = heappop(maxheap)
-            if (not prev and rcount <= -2) or (rcount <= -2 and rcount < prev[0]):
+            if (not prev and rcount <= -2) or (rcount <= -2 and rcount <= prev[0]):
                 ans += ch * 2
                 rcount += 2
             else:
