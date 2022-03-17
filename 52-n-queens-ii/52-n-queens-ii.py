@@ -7,6 +7,7 @@ class Solution:
         def backtrack(r):
             if r == n:
                 self.count += 1
+                return
              
             for c in range(n):
                 if c in col or r+c in negDiag or r-c in posDiag:
