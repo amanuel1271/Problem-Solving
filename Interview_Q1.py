@@ -6,10 +6,10 @@ class ShipGame:
         self.num_ships_first = 0
         self.num_ships_second = 0
         self.state = 'UNFINISHED'
-        self.ship_loc_first_row = dict()
-        self.ship_loc_first_col = dict()
-        self.ship_loc_second_col = dict()
-        self.ship_loc_second_row = dict()
+        self.ship1row = dict()
+        self.ship1col = dict()
+        self.ship2col = dict()
+        self.ship2row = dict()
 
         
     def place_ship(self,player,length,closest,ori): 
@@ -49,11 +49,11 @@ class ShipGame:
 
 
         if player == 'first':
-            is_ship = check_and_place(self.first_board,self.ship_loc_first_row,self.ship_loc_first_col)
+            is_ship = check_and_place(self.first_board,self.ship1row,self.ship1col)
             if is_ship:
                 self.num_ships_first += 1
         else:
-            is_ship = check_and_place(self.second_board,self.ship_loc_second_row,self.ship_loc_second_col)
+            is_ship = check_and_place(self.second_board,self.ship2row,self.ship2col)
             if is_ship:
                 self.num_ships_second += 1
 
@@ -76,16 +76,16 @@ class ShipGame:
 
         if player == 'first':
 
-            if col in self.ship_loc_second_col and row in self.ship_loc_second_col[col]:
+            if col in self.ship2col and row in self.ship2col[col]:
                 self.ship_loc_second_col[col].remove(row)
 
-                if len(self.ship_loc_second_col[col]) == 0:
+                if len(self.ship2[col]) == 0:
                     self.num_ships_second -= 1
 
-            elif row in self.ship_loc_second_row and col in self.ship_loc_second_row[row]:
-                self.ship_loc_second_row[row].remove(col)
+            elif row in self.ship2row and col in self.ship2row[row]:
+                self.ship2[row].remove(col)
 
-                if len(self.ship_loc_second_row[row]) == 0:
+                if len(self.ship2row[row]) == 0:
                     self.num_ships_second -= 1
 
 
@@ -96,21 +96,19 @@ class ShipGame:
 
         else:
 
-            if col in self.ship_loc_first_col and row in self.ship_loc_first_col[col]:
-                self.ship_loc_first_col[col].remove(row)
+            if col in self.ship1col and row in self.ship1col[col]:
+                self.ship1col[col].remove(row)
 
-                if len(self.ship_loc_first_col[col]) == 0:
+                if len(self.ship1col[col]) == 0:
                     self.num_ships_first -= 1
 
-            elif row in self.ship_loc_first_row and col in self.ship_loc_first_row[row]:
-                self.ship_loc_first_row[row].remove(col)
+            elif row in self.ship1row and col in self.ship1row[row]:
+                self.ship1row[row].remove(col)
 
-                if len(self.ship_loc_first_row[row]) == 0:
+                if len(self.ship1row[row]) == 0:
                     self.num_ships_first -= 1
             
 
-
-                
             if self.num_ships_first == 0:
                 self.state = 'SECOND_WON'
 
