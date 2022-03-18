@@ -77,13 +77,13 @@ class ShipGame:
         if player == 'first':
 
             if col in self.ship2col and row in self.ship2col[col]:
-                self.ship_loc_second_col[col].remove(row)
+                self.ship2col[col].remove(row)
 
-                if len(self.ship2[col]) == 0:
+                if len(self.ship2col[col]) == 0:
                     self.num_ships_second -= 1
 
             elif row in self.ship2row and col in self.ship2row[row]:
-                self.ship2[row].remove(col)
+                self.ship2row[row].remove(col)
 
                 if len(self.ship2row[row]) == 0:
                     self.num_ships_second -= 1
