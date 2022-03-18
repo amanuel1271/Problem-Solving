@@ -1,13 +1,8 @@
 class Solution:
     def findOriginalArray(self, changed: List[int]) -> List[int]:
-        size = len(changed)
-        minheap = changed[:]
+        minheap,original = changed[:],[]
         heapify(minheap)
-        seen = defaultdict(int)
-        
-            
-        
-        original = []
+        seen,size = defaultdict(int),len(changed)
         
         while minheap:
             number = heappop(minheap)
