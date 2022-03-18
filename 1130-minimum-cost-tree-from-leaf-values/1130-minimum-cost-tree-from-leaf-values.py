@@ -1,5 +1,6 @@
 class Solution:
     def mctFromLeafValues(self, arr: List[int]) -> int:
+        
         @lru_cache(None)
         def dp(i, j):
             if i == j:
