@@ -9,7 +9,7 @@ class Solution:
             if not (number % 2 == 0 and seen[number//2] > 0):            
                 original.append(number)
                 seen[number] += 1
-            elif number % 2 == 0 and  seen[number//2] > 0:
+            else:
                 seen[number//2] -= 1
  
         return original if size % 2 == 0 and len(original) * 2 == size else []
