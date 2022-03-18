@@ -2,7 +2,7 @@ class ShipGame:
     def __init__(self):
         self.first_board = [['' for i in range(10)] for j in range(10)]
         self.second_board = [['' for i in range(10)] for j in range(10)]
-        self.turn = 'FIRST'
+        self.turn = 'first'
         self.num_ships_first = 0
         self.num_ships_second = 0
         self.state = 'UNFINISHED'
