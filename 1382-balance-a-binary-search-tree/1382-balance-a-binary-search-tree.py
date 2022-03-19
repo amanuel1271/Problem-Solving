@@ -18,10 +18,11 @@ class Solution:
         inorder(root)
         
         def make_balanced(lst):
-            if len(lst) == 0:
+            size = len(lst)
+            if size == 0:
                 return None 
             
-            mid = len(lst) // 2
+            mid = size//2
             
             root = TreeNode(lst[mid])
             root.left = make_balanced(lst[:mid])
