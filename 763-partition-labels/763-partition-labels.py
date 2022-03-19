@@ -11,7 +11,6 @@ class Solution:
             return letter_to_indices
         
         ch_index = char_to_index()
-        
         ans,visited = [],set()
         start,end = 0,-math.inf
         
@@ -22,7 +21,7 @@ class Solution:
                 
             if i == end:
                 ans.append(end-start + 1)
-                start,end = i+1,-math.inf
+                start = i+1
                 continue
                 
         if start < len(s):
