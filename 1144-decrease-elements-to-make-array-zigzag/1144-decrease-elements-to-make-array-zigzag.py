@@ -4,7 +4,7 @@ class Solution:
         move_1,move_2 = 0,0
         
         for i in range(1,size):
-            if i % 2:
+            if i % 2 == 1:
                 left,right = math.inf,math.inf
                 if i-1 >= 0:
                     left = copy[i-1]
