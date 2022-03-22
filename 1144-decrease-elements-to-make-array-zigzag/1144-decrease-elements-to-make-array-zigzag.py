@@ -3,33 +3,30 @@ class Solution:
         copy,size = nums[:],len(nums)
         move_1,move_2 = 0,0
         
-        # move_1 moves for zigzag  type 1
+        def find_valley(i,arr):
+            left,right = math.inf,math.inf
+            if i-1 >= 0:
+                left = arr[i-1]
+            if i+1 <= size - 1:
+                right = arr[i+1]
+                
+            return min(left,right) - 1
+        
+        
         for i in range(1,size):
-            if i % 2 == 1:
-                left,right = math.inf,math.inf
-                if i-1 >= 0:
-                    left = copy[i-1]
-                if i+1 <= size - 1:
-                    right = copy[i+1]
-                minn = min(left,right) - 1
+            if i % 2:
+                minn = find_valley(i,copy)
                 if copy[i] <= minn:
                     continue
                 move_1 += copy[i] - minn
                 copy[i] = minn
-                
-         # move_2 moves for zigzag type 2   
         for i in range(size):
             if i % 2 == 0:
-                left,right = math.inf,math.inf
-                if i-1 >= 0:
-                    left = nums[i-1]
-                if i+1 <= size - 1:
-                    right = nums[i+1]
-                minn = min(left,right) -1
+                minn = find_valley(i,nums)
                 if nums[i] <= minn:
                     continue
                 move_2 += copy[i] - minn
                 copy[i] = minn
                 
-        #choose the minimum between the two zigzag moves
+                
         return min(move_1,move_2)
