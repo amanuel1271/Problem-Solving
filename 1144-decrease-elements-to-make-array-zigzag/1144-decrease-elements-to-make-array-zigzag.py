@@ -10,13 +10,11 @@ class Solution:
                     left = copy[i-1]
                 if i+1 <= size - 1:
                     right = copy[i+1]
-                    
                 minn = min(left,right) - 1
                 if copy[i] <= minn:
                     continue
                 move_1 += copy[i] - minn
                 copy[i] = minn
-        
         for i in range(size):
             if i % 2 == 0:
                 left,right = math.inf,math.inf
@@ -24,11 +22,9 @@ class Solution:
                     left = nums[i-1]
                 if i+1 <= size - 1:
                     right = nums[i+1]
-                    
                 minn = min(left,right) -1
                 if nums[i] <= minn:
                     continue
-                    
                 move_2 += copy[i] - minn
                 copy[i] = minn
                 
