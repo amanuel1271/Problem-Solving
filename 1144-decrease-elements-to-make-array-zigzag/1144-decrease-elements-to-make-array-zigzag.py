@@ -3,7 +3,7 @@ class Solution:
         copy,size = nums[:],len(nums)
         move_1,move_2 = 0,0
         
-        # move_1 moves for zigzag 1
+        # move_1 moves for zigzag  type 1
         for i in range(1,size):
             if i % 2 == 1:
                 left,right = math.inf,math.inf
@@ -17,7 +17,7 @@ class Solution:
                 move_1 += copy[i] - minn
                 copy[i] = minn
                 
-         # move_2 moves for zigzag 1     
+         # move_2 moves for zigzag type 2   
         for i in range(size):
             if i % 2 == 0:
                 left,right = math.inf,math.inf
