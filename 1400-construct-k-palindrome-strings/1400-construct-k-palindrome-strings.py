@@ -1,13 +1,10 @@
 class Solution:
     def canConstruct(self, s: str, k: int) -> bool:
-        size = len(s)
-        if size < k:
+        if len(s) < k:
             return False
-        
-        count = Counter(s)
+
         odd_count = 0
-        
-        for ch,cnt in count.items():
+        for ch,cnt in Counter(s).items():
             if cnt % 2 == 1:
                 odd_count += 1
                 
