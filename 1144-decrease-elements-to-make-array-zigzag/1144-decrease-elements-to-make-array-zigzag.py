@@ -25,8 +25,8 @@ class Solution:
                 minn = find_valley(i,nums)
                 if nums[i] <= minn:
                     continue
-                move_2 += copy[i] - minn
-                copy[i] = minn
+                move_2 += nums[i] - minn
+                nums[i] = minn
                 
                 
         return min(move_1,move_2)
