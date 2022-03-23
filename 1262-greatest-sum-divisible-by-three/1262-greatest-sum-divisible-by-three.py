@@ -1,17 +1,15 @@
 class Solution:
     def maxSumDivThree(self, nums: List[int]) -> int:
-        row_size,col_size = 3,len(nums)
-        dp = [[0 for _ in range(col_size)] for _ in range(row_size)]
-        dp[nums[0]%3][0] = nums[0]
+        dp = [0,0,0]
         
-        
-        for i in range(1,col_size):
-            for j in range(3):
-                dp[j][i] = max(dp[j][i-1],dp[j][i])
-                x = dp[j][i-1] + nums[i]
-                dp[x%3][i] = max([dp[x%3][i], x, dp[x%3][i-1]])
+        for col in range(len(nums)):
+            first,second,third = nums[col] + dp[0],nums[col] + dp[1],nums[col] + dp[2]
+            
+            dp[first%3] = max(dp[first%3],first)
+            dp[second%3] = max(dp[second%3],second)
+            dp[third%3] = max(dp[third%3],third)
                 
-        return dp[0][-1]
+        return dp[0]
 
         
         
