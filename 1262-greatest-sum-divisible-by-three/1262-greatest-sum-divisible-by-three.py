@@ -10,7 +10,6 @@ class Solution:
                 dp[j][i] = max(dp[j][i-1],dp[j][i])
                 x = dp[j][i-1] + nums[i]
                 dp[x%3][i] = max([dp[x%3][i], x, dp[x%3][i-1]])
-                #dp[j][i] = max(dp[j][i-1],dp[j][i])
                 
         return dp[0][-1]
 
