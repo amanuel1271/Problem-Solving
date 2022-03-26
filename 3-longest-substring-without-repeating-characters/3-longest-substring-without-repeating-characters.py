@@ -13,8 +13,8 @@ class Solution:
                 
             max_count = max(count,max_count)
             
-        max_count = max(count,max_count)
-        return max_count
+
+        return max(count,max_count)
                 
             
         
