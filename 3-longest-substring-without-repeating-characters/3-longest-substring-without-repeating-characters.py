@@ -9,8 +9,7 @@ class Solution:
                 if s[j] in visited:
                     break
                 count += 1
-                visited.add(s[j])
-                
+                visited.add(s[j])  
             max_count = max(count,max_count)
             
 
