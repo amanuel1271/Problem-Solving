@@ -1,6 +1,6 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        count,max_count = 0,-math.inf
+        count,max_count = 0,0
         
         for i,ch in enumerate(s):
             visited = {ch}
