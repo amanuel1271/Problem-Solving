@@ -14,17 +14,14 @@ class Solution:
                     
         while visit:
             row,col = visit.pop()
-            
             if row not in row_seen:
                 for c in range(n):
                     matrix[row][c] = 0
-                
+                row_seen.add(row)  
             if col not in col_seen:
                 for r in range(m):
                     matrix[r][col] = 0
-                    
-            row_seen.add(row)
-            col_seen.add(col)
-            
+                col_seen.add(col)
+                
                     
                     
