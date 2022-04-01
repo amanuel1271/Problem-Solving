@@ -16,18 +16,18 @@ class UndergroundSystem:
             return
         name,start_time = self.id_reg[id]
         if name in self.time_to_finish and stationName in self.time_to_finish[name] :
-            self.time_to_finish[name][stationName].append(t-start_time)
+            prev_val,prev_count = self.time_to_finish[name][stationName][0],self.time_to_finish[name][stationName][1]
+            self.time_to_finish[name][stationName] = (prev_val + (t-start_time),prev_count + 1)
         elif name in self.time_to_finish:
-            self.time_to_finish[name][stationName] = [t-start_time]
+            self.time_to_finish[name][stationName] = (t-start_time,1)
         else:
-            self.time_to_finish[name] = {stationName:[t-start_time]}
+            self.time_to_finish[name] = {stationName:(t-start_time,1)}
             
         del self.id_reg[id]
         
 
     def getAverageTime(self, startStation: str, endStation: str) -> float:
-        size = len(self.time_to_finish[startStation][endStation])
-        return sum(self.time_to_finish[startStation][endStation]) / size
+        return self.time_to_finish[startStation][endStation][0] / (self.time_to_finish[startStation][endStation][1])
         
 
 
