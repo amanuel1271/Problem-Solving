@@ -20,8 +20,7 @@ class UndergroundSystem:
         elif name in self.time_to_finish:
             self.time_to_finish[name][stationName] = [t-start_time]
         else:
-            self.time_to_finish[name] = {}
-            self.time_to_finish[name][stationName] = [t-start_time]
+            self.time_to_finish[name] = {stationName:[t-start_time]}
             
         del self.id_reg[id]
         
