@@ -1,6 +1,6 @@
 class Solution:
     def longestStrChain(self, words: List[str]) -> int:
-        @lru_cache(None)
+
         def isPre(word1,word2):
             size1,size2 = len(word1),len(word2)
             if size1 + 1 != size2:
