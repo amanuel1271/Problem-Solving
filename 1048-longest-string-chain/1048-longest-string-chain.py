@@ -31,7 +31,6 @@ class Solution:
                     word_to_neighbors[cur_word].append(words[j])
                     
         self.ans = 1
-        visited = set()
                 
         
         @lru_cache(None)
@@ -41,14 +40,10 @@ class Solution:
             
             ans = 0
             for neighbors in word_to_neighbors[ch]:
-                visited.add(neighbors)
                 ans = max(1 + dfs(neighbors),ans)
-            
             return ans
                 
         for word in words:
-            if word not in visited:
-                visited.add(word)
                 self.ans = max(dfs(word),self.ans)
                 
         return self.ans
