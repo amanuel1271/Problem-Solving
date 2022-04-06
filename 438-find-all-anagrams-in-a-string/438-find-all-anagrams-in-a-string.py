@@ -11,7 +11,7 @@ class Solution:
         if size_s < size_p:
             return []
         
-        for i in range(r+1):
+        for i in range(size_p):
             s_count[s[i]] = s_count.get(s[i],0) + 1
         
         while r < size_s - 1:
