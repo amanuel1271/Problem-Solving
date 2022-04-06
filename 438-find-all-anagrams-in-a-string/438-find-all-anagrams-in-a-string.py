@@ -1,13 +1,14 @@
 class Solution:
     def findAnagrams(self, s: str, p: str) -> List[int]:
         p_count,s_count = Counter(p),{}
+        size_s,size_p = len(s) + 1,len(p)
         
-        l,r,res = 0,len(p)-1,[]
+        l,r,res = 0,size_p-1,[]
         s = ' ' + s
-        size_s = len(s)
-        
-        if size_s < r+1:
+        if size_s < size_p:
             return []
+        
+        
         
         for i in range(r+1):
             s_count[s[i]] = s_count.get(s[i],0) + 1
