@@ -42,11 +42,10 @@ class Solution:
         elif repeated_start_char is None:
             return integer_portion + fraction_part
         
-        return_str,first,i = '.',0,0
+        return_str,i = '.',0
         for ch in fraction_part[1:]:
             if ch == repeated_start_char and i == save_index:
                 return_str += '(' + ch
-                first += 1
             else:
                 return_str += ch
             
