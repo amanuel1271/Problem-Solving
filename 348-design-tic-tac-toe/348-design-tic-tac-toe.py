@@ -25,9 +25,6 @@ class TicTacToe:
 
             return p if (p_row[row] == self.n or p_col[col] == self.n or pos_diag[0] == self.n or neg_diag[0] == self.n) else 0
         
-        print(self.first_row)
-        print(self.second_row)
-        
         if player == 1:
             return player_move(self.first_row,self.first_col,self.first_pos_diag,self.first_neg_diag,1)
         else:
