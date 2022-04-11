@@ -19,8 +19,7 @@ class Solution:
         
         for i in range(size):
             minn = min(left_end[i],right_end[i])
-            if minn > height[i]:
-                count += minn - height[i]
+            count += minn - height[i]
                 
 
         return count
