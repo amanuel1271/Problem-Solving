@@ -1,10 +1,10 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-        self.acc = []
+        acc = []
         def helper(mod_str,opening,closing):
             
             if closing == n:
-                self.acc.append(mod_str)
+                acc.append(mod_str)
                 return
             
             elif closing < opening:
@@ -15,5 +15,5 @@ class Solution:
             
         
         helper('',0,0)       
-        return self.acc
+        return acc
     
