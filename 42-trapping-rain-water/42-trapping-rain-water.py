@@ -22,5 +22,6 @@ class Solution:
             if minn > height[i]:
                 count += minn - height[i]
                 
+
         return count
         
