@@ -2,7 +2,7 @@ class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
         ones = 0
         zeroes = s.count('0')
-        ans = zeroes
+        ans = min(zeroes,len(s)-zeroes)
         
         
             
