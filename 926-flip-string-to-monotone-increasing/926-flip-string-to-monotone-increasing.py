@@ -1,26 +1,20 @@
 class Solution:
     def minFlipsMonoIncr(self, s: str) -> int:
-        size = len(s)
+        ones = s.count('1')
+        zeroes = len(s) - ones
+        ones_so_far,store_zeroes_right = 0, [0 for _ in range(len(s))]
+        ans = min(ones,zeroes)
         
-        @lru_cache(None)
-        def move(i,prev):
-            if i == size:
-                return 0
+        z = 0
+        for i in range(len(s)-1,-1,-1):
+            store_zeroes_right[i] = z
+            z += (int(s[i]) + 1) % 2
             
-            ith = int(s[i])
-            flip = (ith + 1) % 2
-            
-            if prev == '' or prev == '0':
-                return min(1 + move(i+1,str(flip)),move(i+1,str(ith)))
-            
-            if ith == 1:
-                return move(i+1,'1')
-            else:
-                return 1 + move(i+1,'1')
-            
-        
-        return move(0,'')
-            
+        for j in range(len(s)):
+            ones_so_far += int(s[j])
+            ans = min(ans,ones_so_far + store_zeroes_right[j])
+    
+        return ans
                 
             
         
