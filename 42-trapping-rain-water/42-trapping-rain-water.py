@@ -14,8 +14,7 @@ class Solution:
             
         count = 0
         for i in range(size):
-            minn = min(left_end[i],right_end[i])
-            count += minn - height[i]
+            count += min(left_end[i],right_end[i]) - height[i]
                 
 
         return count
