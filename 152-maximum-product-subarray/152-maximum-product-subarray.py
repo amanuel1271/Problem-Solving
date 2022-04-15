@@ -6,9 +6,7 @@ class Solution:
         
         
         for n in nums:
-            tmp = curmax * n
-            curmax = max(curmax * n,n * curmin,n)
-            curmin = min(tmp,n * curmin,n)
+            curmax,curmin = max(curmax*n,curmin*n,n),min(curmax * n,curmin * n,n)
             res = max(res,curmax)
             
         return res
