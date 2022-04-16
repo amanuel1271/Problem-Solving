@@ -5,19 +5,18 @@ class Solution:
         
         @lru_cache(None)
         def dp(amt):
-            if amt == 0:
-                return 0
-            elif amt < 0:
-                return -1
-            elif amt in coins:
+            if amt in coins:
                 return 1
+            elif amt <= 0:
+                return amt
             
             minn = math.inf
             
             for coin in coins:
                 res = dp(amt-coin)
-                if res == -1:
+                if res <  0:
                     continue
+                    
                 minn = min(minn,res)
             
             return minn + 1 if minn != math.inf else -1
