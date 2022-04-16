@@ -1,7 +1,7 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         
-        coins = list(set(coins)) # dont care about dup
+        coins = set(coins) # dont care about dup
         
         @lru_cache(None)
         def dp(amt):
@@ -9,6 +9,8 @@ class Solution:
                 return 0
             elif amt < 0:
                 return -1
+            elif amt in coins:
+                return 1
             
             minn = math.inf
             
