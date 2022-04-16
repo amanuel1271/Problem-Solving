@@ -1,27 +1,16 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
         
-        coins = set(coins) # dont care about dup
+        dp = [math.inf for _ in range(amount+1)]
+        dp[0] = 0
         
-        @lru_cache(None)
-        def dp(amt):
-            if amt < 0:
-                return math.inf
-            elif amt == 0:
-                return 0
-            elif amt in coins:
-                return 1
-            
-            minn = math.inf
-            
-            for coin in coins:       
-                minn = min(minn,1 + dp(amt-coin))
-            
-            return minn
-            
-    
-        ans = dp(amount)
-        return ans if ans != math.inf else -1
+        for amt in range(amount+1):
+            for coin in coins:
+                if coin <= amt:
+                    dp[amt] = min(dp[amt],dp[amt-coin] + 1)
+                    
+        
+        return -1 if dp[amt] == math.inf else dp[amt]
                 
         
             
