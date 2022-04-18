@@ -19,7 +19,6 @@ class Solution:
             for option in [last_jump-1,last_jump,last_jump+1]:
                 if option >= 1:
                     target = option + stones[i]
-                    indice = -1
                     if target in store_ind:
                         indice = store_ind[target]
                     else:
