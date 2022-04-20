@@ -16,6 +16,7 @@ class Solution:
                     
             if j - i >= 3:
                 count += ((j - i - 2)*(j - i - 1)//2)   
+                
             i = j - 1
         
         return count
