@@ -10,7 +10,6 @@ class Solution:
             elif not (s[r].isalnum()) and not (s[l].isalnum()):
                 l += 1
                 r -= 1
-                
             else:
                 if s[l].lower() != s[r].lower():
                     return False
