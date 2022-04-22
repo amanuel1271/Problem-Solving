@@ -1,9 +1,13 @@
 class Solution:
     def cherryPickup(self, grid: List[List[int]]) -> int:
         m,n = len(grid),len(grid[0])
+        memo = {}
         
-        @lru_cache(None)
+
         def traverse(i,j1,j2):
+            if (i,j1,j2) in memo:
+                return memo[(i,j1,j2)]
+            
             if i > m-1:
                 return 0
             
@@ -21,6 +25,7 @@ class Solution:
                             maxx = max(traverse(i+1,y1,y2),maxx)
                                 
             coins_collected += maxx
+            memo[(i,j1,j2)] = coins_collected
             return coins_collected
         
         
