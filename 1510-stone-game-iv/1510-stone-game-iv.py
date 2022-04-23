@@ -1,7 +1,7 @@
 class Solution:
     def winnerSquareGame(self, n: int) -> bool:
         
-        @lru_cache(maxsize=None)
+        @lru_cache(None)
         def dfs(remain):
             if remain == 0:
                 return False
