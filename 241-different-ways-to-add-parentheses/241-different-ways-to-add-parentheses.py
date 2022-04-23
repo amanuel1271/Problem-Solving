@@ -1,6 +1,8 @@
 class Solution:
     def diffWaysToCompute(self, expression: str) -> List[int]:
         
+        operation_dict = {'+':lambda x,y: x + y,'-':lambda x,y: x - y,'*':lambda x,y: x * y}
+        
         @lru_cache(None)
         def helper(expression):
 
@@ -8,19 +10,13 @@ class Solution:
                 return [int(expression)]
 
             res = []
-
             for i, v in enumerate(expression):
-                if v == '+' or v == '-' or v == '*':
+                if v in operation_dict:
                     left_res = helper(expression[:i])
                     right_res = helper(expression[i + 1:])
                     for left_v in left_res:
                         for right_v in right_res:
-                            if v == '+':
-                                res.append(left_v + right_v)
-                            elif v == '-':
-                                res.append(left_v - right_v)
-                            else:
-                                res.append(left_v * right_v)
+                            res.append(operation_dict[v](left_v,right_v))
             return res
         
         return helper(expression)
