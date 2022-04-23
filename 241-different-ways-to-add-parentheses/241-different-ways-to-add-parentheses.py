@@ -13,8 +13,8 @@ class Solution:
                 if v == '+' or v == '-' or v == '*':
                     left_res = helper(expression[:i])
                     right_res = helper(expression[i + 1:])
-                    for left_i, left_v in enumerate(left_res):
-                        for right_i, right_v in enumerate(right_res):
+                    for left_v in left_res:
+                        for right_v in right_res:
                             if v == '+':
                                 res.append(left_v + right_v)
                             elif v == '-':
