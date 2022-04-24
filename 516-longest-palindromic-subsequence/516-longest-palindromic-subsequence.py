@@ -9,7 +9,7 @@ class Solution:
                 elif i + 1 == j and s[i] == s[j]:
                     dp[i][j] = 2
                 elif s[i] == s[j]:
-                    dp[i][j] = max(dp[i+1][j-1] + 2,dp[i+1][j], dp[i][j-1])
+                    dp[i][j] = dp[i+1][j-1] + 2
                 else:
                     dp[i][j] = max(dp[i+1][j], dp[i][j-1])
         return dp[0][-1]
