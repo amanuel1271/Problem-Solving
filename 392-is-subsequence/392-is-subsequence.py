@@ -1,14 +1,13 @@
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        r,c = len(s),len(t)
-        dp = [[0 for _ in range(c + 1)] for _ in range(r + 1)]
+        l,r = 0,0
+        bound_1,bound_2 = len(s),len(t)
         
-        for row in range(r-1,-1,-1):
-            for col in range(c-1,-1,-1):
-                if s[row] == t[col]:
-                    dp[row][col] = 1 + dp[row + 1][col + 1]
-                else:
-                    dp[row][col] = max(dp[row + 1][col],dp[row][col + 1])
-                    
-        return dp[0][0] == r
+        
+        while l < bound_1 and r < bound_2:
+            if s[l] == t[r]:
+                l += 1
+            r += 1
+            
+        return l == bound_1
         
