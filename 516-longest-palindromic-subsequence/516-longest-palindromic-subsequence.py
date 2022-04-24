@@ -1,17 +1,18 @@
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
-        dp = [[0 for _ in range(len(s))] for _ in range(len(s))]
-        for k in range(1, len(s) + 1):
-            for i in range(len(s) - k + 1):
-                j = k + i - 1
-                if i == j:
-                    dp[i][j] = 1
-                elif i + 1 == j and s[i] == s[j]:
-                    dp[i][j] = 2
-                elif s[i] == s[j]:
-                    dp[i][j] = dp[i+1][j-1] + 2
-                else:
-                    dp[i][j] = max(dp[i+1][j], dp[i][j-1])
-        return dp[0][-1]
         
+        @lru_cache(None)
+        def maxMatchCount(left, right):           
+            if left > right:
+                return 0
+            
+            if left == right:
+                return 1            
+            
+            if s[left] == s[right]:
+                return maxMatchCount(left+1, right-1) + 2
+            else:
+                return max(maxMatchCount(left+1, right), maxMatchCount(left, right-1))
+        
+        return maxMatchCount(0,len(s)-1)
         
