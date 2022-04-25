@@ -15,15 +15,14 @@ class Solution:
             
             return isBST(node.left,minn,node.val) and isBST(node.right,node.val,maxx)
         
-        #@lru_cache(None)
+        
         def countNodes(node):
             if not node:
                 return 0
             return 1 + countNodes(node.left) + countNodes(node.right)
             
             
-        
-        
+    
         def helper(node):
             if not node:
                 return 0
