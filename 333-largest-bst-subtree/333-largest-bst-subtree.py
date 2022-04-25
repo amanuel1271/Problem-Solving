@@ -15,7 +15,7 @@ class Solution:
             
             return isBST(node.left,minn,node.val) and isBST(node.right,node.val,maxx)
         
-        @lru_cache(None)
+        #@lru_cache(None)
         def countNodes(node):
             if not node:
                 return 0
