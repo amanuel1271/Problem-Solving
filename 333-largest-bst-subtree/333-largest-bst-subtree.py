@@ -6,7 +6,6 @@
 #         self.right = right
 class Solution:
     def largestBSTSubtree(self, root: Optional[TreeNode]) -> int:
-        @lru_cache(None)
         def isBST(node,minn,maxx):
             if not node:
                 return True
