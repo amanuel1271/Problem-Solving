@@ -4,15 +4,15 @@ class Solution:
         self.ans = 0
         
         def backtrack(N, S):
-            if N == 1:
+            if N > n:
                 self.ans += 1
                 return
             
             for i in S:
                 if N%i == 0 or i%N == 0:
-                    backtrack(N-1, S-{i})
+                    backtrack(N+1, S-{i})
                     
-        backtrack(n, S)
+        backtrack(1, S)
         return self.ans
             
         
