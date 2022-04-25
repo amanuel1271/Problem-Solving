@@ -4,7 +4,7 @@ class Solution:
         self.ans = 0
         
         def backtrack(N, S):
-            if N > n:
+            if N ==  n + 1:
                 self.ans += 1
                 return
             
