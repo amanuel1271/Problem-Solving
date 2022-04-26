@@ -1,22 +1,21 @@
 class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
-        overall_score = sum(nums)
         size = len(nums)
 
         
         @lru_cache(None)
-        def dfs(i,j,p1_score,turn_1):
-            if j < i:
-                return p1_score >= overall_score - p1_score
+        def dfs(i,j,turn):
+            if j == i:
+                return turn * nums[j]
             
-            if turn_1:
-                return dfs(i+1,j,p1_score + nums[i],0) or dfs(i,j-1,p1_score + nums[j],0)
-            else:
-                return dfs(i+1,j,p1_score,1) and dfs(i,j-1,p1_score,1)
+            move_1 = turn * nums[i] + dfs(i+1,j,-1 * turn)
+            move_2 = turn * nums[j] + dfs(i,j-1,-1 * turn)
+            
+            return max(move_1,move_2) if turn == 1 else min(move_1,move_2)
                 
         
 
-        return dfs(0,size-1,0,1)
+        return dfs(0,size-1,1) >= 0
                 
                 
             
