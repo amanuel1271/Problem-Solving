@@ -9,7 +9,7 @@ class Solution:
                 peak = start + 1
                 while peak < size-1 and  arr[peak+1] > arr[peak]:
                     peak += 1
-
+                    
                 if peak < size-1:
                     end = peak
                     if end == size - 1 or arr[end + 1] == arr[end]:
@@ -21,8 +21,7 @@ class Solution:
                     res = max(res,end-start + 1)
                     start = end
                 else:
-                    start = peak + 1
-                    
+                    start = peak + 1     
             else:
                 start += 1
                 
