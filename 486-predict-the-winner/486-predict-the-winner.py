@@ -9,7 +9,6 @@ class Solution:
             if j < i:
                 return p1_score >= overall_score - p1_score
             
-            move_1,move_2 = False,False
             if turn_1:
                 return dfs(i+1,j,p1_score + nums[i],0) or dfs(i,j-1,p1_score + nums[j],0)
             else:
