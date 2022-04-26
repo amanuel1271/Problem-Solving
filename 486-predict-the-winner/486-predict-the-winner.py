@@ -2,6 +2,7 @@ class Solution:
     def PredictTheWinner(self, nums: List[int]) -> bool:
         overall_score = sum(nums)
         size = len(nums)
+
         
         @lru_cache(None)
         def dfs(i,j,p1_score,turn_1):
