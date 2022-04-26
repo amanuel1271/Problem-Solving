@@ -7,11 +7,9 @@ class Solution:
             if i == size_1 and j == size_2 and k == size_3:
                 return True
             
-            if i < size_1 and k < size_3 and s3[k] == s1[i]:
-                if dfs(i+1,j,k+1):
+            if i < size_1 and k < size_3 and s3[k] == s1[i] and dfs(i+1,j,k+1):
                     return True
-            if j < size_2 and k < size_3 and s3[k] == s2[j]:
-                if dfs(i,j+1,k+1):
+            if j < size_2 and k < size_3 and s3[k] == s2[j] and dfs(i,j+1,k+1):
                     return True
                 
                 
