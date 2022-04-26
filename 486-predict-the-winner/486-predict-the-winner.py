@@ -4,7 +4,7 @@ class Solution:
         size = len(nums)
 
         
-        #@lru_cache(None)
+        @lru_cache(None)
         def dfs(i,j,p1_score,turn_1):
             if j < i:
                 return p1_score >= overall_score - p1_score
