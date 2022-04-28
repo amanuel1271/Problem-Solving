@@ -15,5 +15,5 @@ class Solution:
             
             return max(option_1,option_2) if turn % 2 == 0 else min(option_1,option_2)
         
-        return play(0,len(piles)-1)
+        return play(0,len(piles)-1) >= 0
         
