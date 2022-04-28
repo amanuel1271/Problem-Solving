@@ -8,7 +8,7 @@ class Solution:
         dq.append(0)
         
         for i in range(1, n):
-            if dq and dq[0] < i-k:
+            if dq[0] < i-k:
                 dq.popleft()
                 
             score[i] = score[dq[0]] + nums[i]
