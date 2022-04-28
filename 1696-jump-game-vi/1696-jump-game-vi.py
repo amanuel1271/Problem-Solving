@@ -1,14 +1,13 @@
 class Solution:
     def maxResult(self, nums: List[int], k: int) -> int:
         n = len(nums)
-        score = [0]*n
+        score = [0] * n
         score[0] = nums[0]
         dq = deque()
         
         dq.append(0)
         
         for i in range(1, n):
-            
             if dq and dq[0] < i-k:
                 dq.popleft()
                 
