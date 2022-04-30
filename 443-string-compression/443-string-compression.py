@@ -33,8 +33,8 @@ class Solution:
             i += 1
         
         res,cur_index = write(count,cur_index,i)
-        for _ in range(size - cur_index):
-            chars.pop()
+        # for _ in range(size - cur_index):
+        #     chars.pop()
             
         return cur_index
             
