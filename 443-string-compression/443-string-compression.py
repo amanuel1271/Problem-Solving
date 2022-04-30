@@ -21,9 +21,8 @@ class Solution:
                 if reset:
                     count = 1
             i += 1
-        
-        _,cur_index = write(count,cur_index,i)    
-        return cur_index
+          
+        return write(count,cur_index,i)[1]
             
                     
         
