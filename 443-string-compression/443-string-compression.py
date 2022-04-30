@@ -32,7 +32,6 @@ class Solution:
             
             i += 1
         
-        #print(chars,cur_index)
         res,cur_index = write(count,cur_index,i)
         for _ in range(size - cur_index):
             chars.pop()
