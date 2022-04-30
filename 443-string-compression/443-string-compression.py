@@ -17,12 +17,12 @@ class Solution:
             if chars[i] == chars[i-1]:
                 count += 1
             else:
-                res,cur_index = write(count,cur_index,i)
-                if res:
+                reset,cur_index = write(count,cur_index,i)
+                if reset:
                     count = 1
             i += 1
         
-        res,cur_index = write(count,cur_index,i)    
+        _,cur_index = write(count,cur_index,i)    
         return cur_index
             
                     
