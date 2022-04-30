@@ -22,6 +22,7 @@ class Solution:
                     count = 1
             i += 1
           
+        
         return write(count,cur_index,i)[1]
             
                     
