@@ -10,6 +10,7 @@ class Solution:
                     chars[cur_index] = ch
                     cur_index += 1
             return (True,cur_index)
+          
             
         cur_index,count,i,size = 0,1,1,len(chars)
         while i < size:
