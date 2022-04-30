@@ -15,13 +15,8 @@ class Solution:
             return (True,cur_index)
             
             
-        if len(chars) == 1:
-            return 1
         
-        cur_index = 0
-        count = 1
-        i,size = 1,len(chars)
-        
+        cur_index,count,i,size = 0,1,1,len(chars)
         while i < size:
             if chars[i] == chars[i-1]:
                 count += 1
