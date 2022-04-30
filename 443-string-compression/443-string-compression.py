@@ -29,13 +29,9 @@ class Solution:
                 res,cur_index = write(count,cur_index,i)
                 if res:
                     count = 1
-            
             i += 1
         
-        res,cur_index = write(count,cur_index,i)
-        # for _ in range(size - cur_index):
-        #     chars.pop()
-            
+        res,cur_index = write(count,cur_index,i)    
         return cur_index
             
                     
