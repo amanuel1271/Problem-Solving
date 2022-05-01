@@ -15,7 +15,6 @@ class Solution:
                     s_pointer = s_pointer.next
 
                 f_pointer.next = s_pointer
-                #f_pointer = f_pointer.next
                 
             else:
                 if s_pointer:
