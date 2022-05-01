@@ -11,7 +11,6 @@ class Solution:
             elif secondList[j][0] > firstList[i][1]:
                 i += 1
                 continue
-            
             res.append([max(firstList[i][0],secondList[j][0]),min(firstList[i][1],secondList[j][1])])
             if firstList[i][1] == secondList[j][1]:
                 i += 1
@@ -21,6 +20,5 @@ class Solution:
             else:
                 i += 1
                 
-        
         return res
         
