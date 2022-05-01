@@ -1,16 +1,9 @@
 class Solution:
     def constructAdjList(self,equations,values):
-        adjLst = {}
+        adjLst = defaultdict(list)
         for index,pair in enumerate(equations):
-            if pair[0] in adjLst:
-                adjLst[pair[0]].append((pair[1],values[index]))
-            else:
-                adjLst[pair[0]] = [(pair[1],values[index])]
-                
-            if pair[1] in adjLst:
+                adjLst[pair[0]].append((pair[1],values[index])) 
                 adjLst[pair[1]].append((pair[0],1/values[index]))
-            else:
-                adjLst[pair[1]] = [(pair[0],1/values[index])]
         return adjLst
     
     def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
