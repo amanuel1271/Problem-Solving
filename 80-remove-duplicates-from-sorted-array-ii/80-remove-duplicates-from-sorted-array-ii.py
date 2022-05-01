@@ -16,8 +16,7 @@ class Solution:
             if count >= 3:
                 nums.pop(i)
             else:
-                i += 1
-                
+                i += 1 
             ptr += 1
             
         return i
