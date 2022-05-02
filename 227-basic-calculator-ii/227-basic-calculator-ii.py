@@ -1,35 +1,27 @@
 class Solution:
-    def calculate(self, s: str) -> int:
-        s = s.replace(" ","")
-        list_rep = list(s)
-        operator_list = list(filter(lambda ch: ch in '*/+-',list_rep))
-        replace = (((s.replace("+"," ")).replace("-"," ")).replace('*'," ")).replace('/'," ")
-        operand_list =  replace.split()
-        op_dic = {'+': lambda x,y : int(x) + int(y),
-                 '-': lambda x,y : int(x) - int(y),
-                 '*': lambda x,y : int(x) * int(y),
-                 '/': lambda x,y : int(x) // int(y)}
-        
-        def op_precedence(pre_str,size):
-            i,ptr = 0,0
-            while ptr < size:
-                if operator_list[i] in pre_str:
-                    res = op_dic[operator_list[i]](operand_list[i],operand_list[i+1])
-                    operator_list.pop(i)
-                    operand_list[i] = str(res)
-                    operand_list.pop(i+1)
+    def calculate(self, s):
+        if not s:
+            return "0"
+        stack, num, sign = [], 0, "+"
+        for i in range(len(s)):
+            if s[i].isdigit():
+                num = num*10+ord(s[i])-ord("0")
+            if (not s[i].isdigit() and not s[i].isspace()) or i == len(s)-1:
+                if sign == "-":
+                    stack.append(-num)
+                elif sign == "+":
+                    stack.append(num)
+                elif sign == "*":
+                    stack.append(stack.pop()*num)
                 else:
-                    i += 1  
-                ptr += 1
-            
-        
-        
-        op_precedence('*/',len(operator_list))
-        op_precedence('+-',len(operator_list))
-        #print(operand_list)
-        
-        return int(operand_list[0])
-            
+                    tmp = stack.pop()
+                    if tmp//num < 0 and tmp%num != 0:
+                        stack.append(tmp//num+1)
+                    else:
+                        stack.append(tmp//num)
+                sign = s[i]
+                num = 0
+        return sum(stack)
             
         
         
