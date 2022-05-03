@@ -1,21 +1,15 @@
 class Solution:
     def toAdjLst(self,pairs,slen):
-        adjList = {}
-        for i in range(slen):
-            adjList[i] = []
-            
+        adjList = defaultdict(list)
         for pair in pairs:
             adjList[pair[0]].append(pair[1])
-            adjList[pair[1]].append(pair[0])
-            
+            adjList[pair[1]].append(pair[0]) 
         return adjList
                
     def smallestStringWithSwaps(self, s: str, pairs: List[List[int]]) -> str:
         slen = len(s)
         resStr = ['0' for i in range(slen)]
-        
         adjList = self.toAdjLst(pairs,slen)
-        
         sset = set()
         checked = set()
         for j in range(slen):
@@ -23,8 +17,7 @@ class Solution:
             
         
         while sset:
-            index = sset.pop()
-                
+            index = sset.pop() 
             Q = deque([index])
             visited = {index}
             component = []
