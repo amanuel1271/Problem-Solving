@@ -12,7 +12,7 @@ class Solution:
                 else:
                     r = i
                     
-        return 0 if l == 0 and r == 0 else r-l+1
+        return 0 if r-l+1 == 1 else r-l+1
             
                 
             
