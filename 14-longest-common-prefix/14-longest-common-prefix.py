@@ -6,7 +6,7 @@ class Solution:
                 i += 1
                 j += 1
                 
-            return '' if i == 0 else s1[:i]
+            return s1[:i]
             
         common = strs[0]
         for word in strs[1:]:
