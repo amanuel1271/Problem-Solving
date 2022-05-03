@@ -10,9 +10,9 @@ class Solution:
             
         common = strs[0]
         for word in strs[1:]:
-            common = common_prefix(common,word)
             if not common:
                 break
+            common = common_prefix(common,word)
                 
         return common
         
