@@ -8,7 +8,5 @@ class Solution:
             count += store[120-(t%60)]
             if t%60 == 0:
                 count += store[0]
-            store[t%60] = store[t%60] + 1
-            
-            
+            store[t%60] = store[t%60] + 1   
         return count
