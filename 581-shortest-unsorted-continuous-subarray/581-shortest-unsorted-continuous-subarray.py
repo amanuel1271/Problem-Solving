@@ -27,8 +27,6 @@ class Solution:
                 r = i
                 break
         
-        
-        
         return 0 if r-l+1 <= 1 else r-l+1
         
                 
