@@ -22,7 +22,6 @@ class Solution:
         while True:
             visited.add(pos)
             res.append(matrix[pos[0]][pos[1]])
-            
             nextx,nexty = pos[0] + move[orientation][0],pos[1] + move[orientation][1]
             if (0 <= nextx < m and 0 <= nexty < n) and (nextx,nexty) not in visited:
                 pos = (nextx,nexty)
@@ -32,8 +31,7 @@ class Solution:
                 if (0 < nextx < m and 0 <= nexty < n) and (nextx,nexty) not in visited:
                     pos = (nextx,nexty)
                 else:
-                    break
-                    
+                    break       
         return res
                 
                 
