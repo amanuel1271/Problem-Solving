@@ -21,13 +21,15 @@ class Solution:
         
         while True:
             visited.add(pos)
-            res.append(matrix[pos[0]][pos[1]])
-            nextx,nexty = pos[0] + move[orientation][0],pos[1] + move[orientation][1]
+            x,y = pos
+            res.append(matrix[x][y])
+            
+            nextx,nexty = x + move[orientation][0],y + move[orientation][1]
             if (0 <= nextx < m and 0 <= nexty < n) and (nextx,nexty) not in visited:
                 pos = (nextx,nexty)
             else:
                 orientation = next_orientation[orientation]
-                nextx,nexty = pos[0] + move[orientation][0],pos[1] + move[orientation][1]
+                nextx,nexty = x + move[orientation][0], y + move[orientation][1]
                 if (0 < nextx < m and 0 <= nexty < n) and (nextx,nexty) not in visited:
                     pos = (nextx,nexty)
                 else:
