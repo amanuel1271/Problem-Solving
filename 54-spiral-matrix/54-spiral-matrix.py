@@ -24,7 +24,6 @@ class Solution:
             x,y = pos
             dx,dy = move[orientation]
             res.append(matrix[x][y])
-            
             nextx,nexty = x + dx,y + dy
             if (0 <= nextx < m and 0 <= nexty < n) and (nextx,nexty) not in visited:
                 pos = (nextx,nexty)
