@@ -20,6 +20,7 @@ class Solution:
         res = []
         
         while True:
+            
             visited.add(pos)
             x,y = pos
             dx,dy = move[orientation]
@@ -34,7 +35,8 @@ class Solution:
                 if (0 < nextx < m and 0 <= nexty < n) and (nextx,nexty) not in visited:
                     pos = (nextx,nexty)
                 else:
-                    break       
+                    break     
+                    
         return res
                 
                 
