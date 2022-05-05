@@ -10,11 +10,14 @@ class Node:
 class Solution:
     def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
         self.pre = None
+        def connect(prev,cur):
+            prev.right = cur
+            cur.left = prev
+            
         def helper(node):
             if node:
                 helper(node.left)
-                node.left = self.pre
-                self.pre.right = node
+                connect(self.pre,node)
                 self.pre = node
                 helper(node.right)
         
@@ -22,8 +25,7 @@ class Solution:
             dummy = Node(0)
             self.pre = dummy
             helper(root)
-            self.pre.right = dummy.right
-            dummy.right.left = self.pre
+            connect(self.pre,dummy.right)
             return dummy.right
         
             
