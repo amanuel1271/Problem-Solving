@@ -9,7 +9,6 @@ class Node:
 
 class Solution:
     def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        self.pre = None
         def connect(prev,cur):
             prev.right = cur
             cur.left = prev
