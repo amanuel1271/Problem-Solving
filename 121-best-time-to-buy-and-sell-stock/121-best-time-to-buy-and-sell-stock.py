@@ -3,8 +3,8 @@ class Solution:
         minn,best = prices[0],0
         
         for price in prices:
-                minn = min(minn,price)
-                best = max(best,price-minn)
+            minn = min(minn,price)
+            best = max(best,price-minn)
         
         return best
             
