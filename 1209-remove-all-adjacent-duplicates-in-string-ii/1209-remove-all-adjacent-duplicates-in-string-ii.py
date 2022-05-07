@@ -3,15 +3,13 @@ class Solution:
         stack = deque()
         
         for ch in s:
-            if not stack:
+            if not stack or ch != stack[-1][0]:
                 stack.append([ch,1])
             else:
-                if ch == stack[-1][0]:
-                    stack[-1][1] += 1
-                    if stack[-1][1] == k:
-                        stack.pop()
-                else:
-                    stack.append([ch,1])
+                stack[-1][1] += 1
+                if stack[-1][1] == k:
+                    stack.pop()
+
                     
         ans = ''
         while stack:
