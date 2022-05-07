@@ -14,7 +14,7 @@ class Solution:
             target = -nums[i]
             
             if target < 2*nums[j]:
-                continue
+                break
             while j < k:
                 if target == nums[j] + nums[k]:
                     res.append([nums[i],nums[j],nums[k]])
