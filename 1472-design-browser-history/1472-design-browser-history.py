@@ -3,28 +3,28 @@ class BrowserHistory:
     def __init__(self, homepage: str):
         self.stack = [homepage]
         self.stack_size = 1
-        self.ptr = 0
+        self.index = 0
         
         
 
     def visit(self, url: str) -> None:
-        while self.stack_size  > self.ptr + 1:
+        while self.stack_size  > self.index + 1:
             self.stack.pop()
             self.stack_size -= 1
         
         self.stack.append(url)
-        self.ptr += 1
+        self.index += 1
         self.stack_size += 1
         
 
     def back(self, steps: int) -> str:
-        self.ptr = max(self.ptr - steps,0)
-        return self.stack[self.ptr]
+        self.index = max(self.index - steps,0)
+        return self.stack[self.index]
         
             
     def forward(self, steps: int) -> str:
-        self.ptr = min(self.stack_size - 1,self.ptr + steps)
-        return self.stack[self.ptr]
+        self.index = min(self.stack_size - 1,self.index + steps)
+        return self.stack[self.index]
         
 
 
