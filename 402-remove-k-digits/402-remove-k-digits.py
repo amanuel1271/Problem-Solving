@@ -3,7 +3,7 @@ class Solution:
         stack = []
         
         for ch in num:
-            while stack and int(ch) < int(stack[-1]) and k > 0:
+            while stack and ch < stack[-1] and k > 0:
                 stack.pop()
                 k -= 1
                 
@@ -11,6 +11,6 @@ class Solution:
             
         final_stack = stack[:-k] if k else stack
         res = ''.join(final_stack).lstrip('0')
-        return  res if res != '' else '0'
+        return res if res != '' else '0'
                 
         
