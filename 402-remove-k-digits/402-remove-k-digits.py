@@ -9,7 +9,8 @@ class Solution:
                 
             stack.append(ch)
             
-        res = stack[:-k] if k else stack
-        return '0' if not res else str(int(''.join(res)))
+        final_stack = stack[:-k] if k else stack
+        res = ''.join(final_stack).lstrip('0')
+        return  res if res != '' else '0'
                 
         
