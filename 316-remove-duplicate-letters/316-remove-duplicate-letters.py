@@ -12,8 +12,7 @@ class Solution:
             while stack and ch < stack[-1] and count[stack[-1]] > 1:
                 count[stack[-1]] -= 1
                 visited.remove(stack.pop())
-            
-
+                
             stack.append(ch)
             visited.add(ch)
                 
