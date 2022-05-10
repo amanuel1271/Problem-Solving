@@ -8,7 +8,7 @@ class BrowserHistory:
         
 
     def visit(self, url: str) -> None:
-        while self.stack_size  > self.index + 1:
+        for _ in range(self.index,self.stack_size-1):
             self.stack.pop()
             self.stack_size -= 1
         
