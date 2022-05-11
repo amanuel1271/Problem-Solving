@@ -1,8 +1,7 @@
 class Solution:
     def validateStackSequences(self, pushed: List[int], popped: List[int]) -> bool:
         stack = []
-        size = len(pushed)
-        push_i,pop_j = 0,0
+        size,push_i,pop_j = len(pushed),0,0
         
         while push_i < size or pop_j < size:
             if stack and stack[-1] == popped[pop_j]:
