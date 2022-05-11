@@ -2,28 +2,28 @@
 
 class Solution:
     def numIslands(self, grid):
-        #  attempt using stack and dfs
-        s = {(i,j) for i,row in enumerate(grid) for j, col in enumerate(row) if col == '1'}
-        num = 0 
+        m,n = len(grid),len(grid[0])
+        visited = set()
+        count = 0
         
-        while s:
-            num += 1
-            x,y = s.pop()
-            stack = deque([(x,y)])
+        def dfs(i,j):
+            if (i,j) in visited or i < 0 or i > m-1 or j < 0 or j > n-1 or grid[i][j] == '0':
+                return
             
-            while stack:
-                x,y = stack[-1]
-                if (x + 1,y) not in s and (x - 1,y) not in s and (x,y + 1) not in s and (x,y - 1) not in s:
-                    stack.pop()
-                for nei in [(x - 1,y),(x + 1,y), (x, y - 1), (x, y + 1)]:
-                    if nei in s:
-                        stack.append(nei)
-                        s.remove(nei)
-                        break
-                        
-        return num
+            visited.add((i,j))
+            dfs(i+1,j)
+            dfs(i-1,j)
+            dfs(i,j+1)
+            dfs(i,j-1)
                 
                 
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == '1' and (i,j) not in visited:
+                    dfs(i,j)
+                    count += 1
+                    
+        return count
                     
                 
         
