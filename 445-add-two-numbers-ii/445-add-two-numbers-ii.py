@@ -16,7 +16,6 @@ class Solution:
             l2 = l2.next
             
         carry = 0
-        
         while stack1 or stack2:
             op1,op2 = 0,0
             if stack1:
@@ -32,10 +31,8 @@ class Solution:
         
         dummy = ListNode(0)
         ptr = dummy
-        
         while res_stack:
             ptr.next = ListNode(res_stack.pop())
-            ptr = ptr.next
-            
+            ptr = ptr.next 
         return dummy.next
     
