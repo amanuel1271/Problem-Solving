@@ -13,6 +13,8 @@ class Solution:
         root = TreeNode(preorder[0])         
         stack = [root] 
         
+        
+    
         for i in range(1, n):
             node, child = stack[-1], TreeNode(preorder[i])
             while stack and stack[-1].val < child.val: 
