@@ -7,9 +7,8 @@ class StockSpanner:
 
     def next(self, price: int) -> int:
         ans = [price,self.index]
-        prev_index = self.index - 1
         while self.stack and self.stack[-1][0] != -math.inf and self.stack[-1][0] <= price:
-            _,prev_index = self.stack.pop()
+            self.stack.pop()
         
         res = ans[1] - self.stack[-1][1]
         self.stack.append(ans) 
