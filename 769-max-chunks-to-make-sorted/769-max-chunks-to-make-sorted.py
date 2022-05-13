@@ -1,15 +1,12 @@
 class Solution:
     def maxChunksToSorted(self, arr: List[int]) -> int:
-        chunkCount,expectedSum,currSum = 0,0,0
+        stack = []
         
-        for i in range(len(arr)):
-            expectedSum += i
-            currSum += arr[i]
-            
-            if expectedSum == currSum:
-                chunkCount += 1
-
-                
-        return chunkCount
-            
+        for num in arr:
+            largest = num
+            while stack and stack[-1] > num:
+                largest = max(largest,stack.pop())
         
+            stack.append(largest)
+            
+        return len(stack)
