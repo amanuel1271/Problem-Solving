@@ -10,9 +10,8 @@ class StockSpanner:
         while self.stack and self.stack[-1][0] != -math.inf and self.stack[-1][0] <= price:
             self.stack.pop()
             
-        res = ans[1] - self.stack[-1][1]
+        res,self.index = ans[1] - self.stack[-1][1],self.index + 1
         self.stack.append(ans) 
-        self.index += 1
         return res
 
 
