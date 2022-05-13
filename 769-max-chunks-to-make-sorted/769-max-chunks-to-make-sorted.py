@@ -4,7 +4,7 @@ class Solution:
         
         for num in arr:
             largest = num
-            while stack and stack[-1] > num:
+            while stack and num < stack[-1]:
                 largest = max(largest,stack.pop())
         
             stack.append(largest)
