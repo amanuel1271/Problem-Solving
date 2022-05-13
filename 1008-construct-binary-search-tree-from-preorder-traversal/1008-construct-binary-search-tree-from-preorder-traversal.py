@@ -7,7 +7,7 @@
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
         n = len(preorder)
-        if not n:
+        if n == 0:
             return None
         
         root = TreeNode(preorder[0])         
