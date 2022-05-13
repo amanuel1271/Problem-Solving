@@ -9,7 +9,6 @@ class Solution:
         def helper(root):
             if not root:
                 return None
-            
             if not root.left and not root.right:
                 return root
             
