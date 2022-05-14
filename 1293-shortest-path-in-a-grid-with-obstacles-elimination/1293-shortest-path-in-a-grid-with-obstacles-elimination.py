@@ -6,7 +6,8 @@ class Solution:
         
         state = (0, 0, k)
         queue = deque([(0, state)])
-        seen = set([state])
+        seen = set()
+        seen.add(state)
 
         while queue:
             steps, (row, col, k) = queue.popleft()
