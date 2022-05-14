@@ -13,14 +13,14 @@ class Solution:
                 if not node:
                     return 0
                 
-                depth = max(dfs(node.left),dfs(node.right))+1
+                height = max(dfs(node.left),dfs(node.right))+1
                 
-                if self.ret_size < depth:
+                if self.ret_size < height:
                     ret.append([])
                     self.ret_size += 1
                     
-                ret[depth-1].append(node.val)
-                return depth
+                ret[height-1].append(node.val)
+                return height
             
             dfs(root)
             return ret
