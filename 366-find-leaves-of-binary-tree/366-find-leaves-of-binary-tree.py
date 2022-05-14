@@ -7,6 +7,7 @@
 class Solution:
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
             ret = []
+            self.ret_size = 0
             
             def dfs(node):
                 if not node:
@@ -14,8 +15,9 @@ class Solution:
                 
                 depth = max(dfs(node.left),dfs(node.right))+1
                 
-                if len(ret) < depth:
+                if self.ret_size < depth:
                     ret.append([])
+                    self.ret_size += 1
                     
                 ret[depth-1].append(node.val)
                 return depth
