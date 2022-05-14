@@ -14,13 +14,10 @@ class Solution:
             if not node.left and not node.right:
                 return True
             
-            left = dfs_leaf(node.left)
-            right = dfs_leaf(node.right)
-            
-            if left:
+            if dfs_leaf(node.left):
                 res[-1].append(node.left.val)
                 node.left = None
-            if right:
+            if dfs_leaf(node.right):
                 res[-1].append(node.right.val)
                 node.right = None
                 
