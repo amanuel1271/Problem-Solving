@@ -6,27 +6,20 @@
 #         self.right = right
 class Solution:
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
-        res = []
+            ret = []
+            
+            def dfs(node):
+                if not node:
+                    return 0
+                
+                depth = max(dfs(node.left),dfs(node.right))+1
+                
+                if len(ret) < depth:
+                    ret.append([])
+                    
+                ret[depth-1].append(node.val)
+                return depth
+            
+            dfs(root)
+            return ret
         
-        def dfs_leaf(node):
-            if not node:
-                return False
-            elif not node.left and not node.right:
-                return True
-            
-            if dfs_leaf(node.left):
-                res[-1].append(node.left.val)
-                node.left = None
-            if dfs_leaf(node.right):
-                res[-1].append(node.right.val)
-                node.right = None
-    
-            return False
-           
-        while root.left or root.right:
-            res.append([])
-            dfs_leaf(root)
-            
-        res.append([root.val])
-        return res
-            
