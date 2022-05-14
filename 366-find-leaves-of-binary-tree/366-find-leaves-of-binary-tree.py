@@ -22,6 +22,8 @@ class Solution:
                 ret[height-1].append(node.val)
                 return height
             
+            
+            
             dfs(root)
             return ret
         
