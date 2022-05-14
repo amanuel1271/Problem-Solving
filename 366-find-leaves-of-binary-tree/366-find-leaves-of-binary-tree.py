@@ -27,6 +27,7 @@ class Solution:
             res.append([])
             dfs_leaf(root)
             
+            
         res.append([root.val])
         return res
             
