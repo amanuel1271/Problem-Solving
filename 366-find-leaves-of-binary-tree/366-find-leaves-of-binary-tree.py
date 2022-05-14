@@ -23,9 +23,8 @@ class Solution:
             if right:
                 res[-1].append(node.right.val)
                 node.right = None
-            
-            return False
                 
+            return False
                 
 
         while root.left or root.right:
