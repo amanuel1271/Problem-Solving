@@ -25,6 +25,7 @@ class Solution:
                 node.right = None
                 
             return False
+        
                 
         while root.left or root.right:
             res.append([])
