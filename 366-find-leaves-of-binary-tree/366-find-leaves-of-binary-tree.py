@@ -26,7 +26,6 @@ class Solution:
                 
             return False
                 
-
         while root.left or root.right:
             res.append([])
             dfs_leaf(root)
