@@ -11,7 +11,7 @@ class Solution:
         def dfs_leaf(node):
             if not node:
                 return False
-            if not node.left and not node.right:
+            elif not node.left and not node.right:
                 return True
             
             if dfs_leaf(node.left):
@@ -20,10 +20,10 @@ class Solution:
             if dfs_leaf(node.right):
                 res[-1].append(node.right.val)
                 node.right = None
-                
+    
             return False
         
-                
+             
         while root.left or root.right:
             res.append([])
             dfs_leaf(root)
