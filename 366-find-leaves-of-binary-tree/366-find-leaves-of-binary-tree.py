@@ -8,6 +8,7 @@ class Solution:
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
             ret = []
             self.ret_size = 0
+            
             def dfs(node):
                 if not node:
                     return 0
