@@ -1,7 +1,8 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        right,left = [],[]
         size = len(nums)
+        right,left = [],[0]*size
+
         
         cur = 1
         for num in nums:
@@ -11,8 +12,7 @@ class Solution:
         cur = 1
         for i in range(size-1,-1,-1):
             cur *= nums[i]
-            left.append(cur)
-        left.reverse()
+            left[i] = cur
         
         ans = [0]*size
         for i in range(size):
