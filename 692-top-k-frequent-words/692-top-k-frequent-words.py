@@ -53,10 +53,7 @@ class Solution:
                 res.append(word)
                 j += 1
                 if j == k:
-                    broke = True
-                    break
-            if broke:
-                break
+                    return res
                 
         return res
         
