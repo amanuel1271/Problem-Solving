@@ -1,12 +1,12 @@
 class Solution:
     def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
         names = {}
-        graph = defaultdict(set)
+        graph = defaultdict(list)
         for acc in accounts:
             name = acc[0]
             for email in acc[1:]:
-                graph[acc[1]].add(email)
-                graph[email].add(acc[1])
+                graph[acc[1]].append(email)
+                graph[email].append(acc[1])
                 names[email] = name
         
                 
