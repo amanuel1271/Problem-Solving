@@ -9,7 +9,6 @@ class Solution:
                 graph[email].append(acc[1])
                 names[email] = name
         
-                
         comps, seen, ans, i = defaultdict(list), set(), [], 0
         def dfs(node, i):
             comps[i].append(node)
