@@ -31,7 +31,6 @@ class Solution:
                 else:
                     left = mid+1   
             return False
-        
         return vanilla_bs()
             
                     
