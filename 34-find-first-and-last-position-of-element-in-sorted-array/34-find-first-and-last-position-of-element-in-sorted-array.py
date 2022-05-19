@@ -15,6 +15,8 @@ class Solution:
         if not nums:
             return [-1,-1]
         
+        
+        
         l = binary_search()
         return [l,bisect.bisect_left(nums, target + 1)-1] if l != -1 else [-1,-1]
         
