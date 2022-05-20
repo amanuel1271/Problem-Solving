@@ -17,9 +17,7 @@ class Trie:
             index = find_index(ch)
             if tmp.nextnodes[index] is None:
                 tmp.nextnodes[index] = TrieNode()
-                tmp = tmp.nextnodes[index]
-            else:
-                tmp = tmp.nextnodes[index]   
+            tmp = tmp.nextnodes[index]   
         tmp.terminal = True
 
         
@@ -29,8 +27,7 @@ class Trie:
             index = find_index(ch)
             if tmp.nextnodes[index] is None:
                 return False
-            else:
-                tmp = tmp.nextnodes[index]  
+            tmp = tmp.nextnodes[index]  
         return tmp.terminal
         
 
@@ -40,8 +37,7 @@ class Trie:
             index = find_index(ch)
             if tmp.nextnodes[index] is None:
                 return False
-            else:
-                tmp = tmp.nextnodes[index]      
+            tmp = tmp.nextnodes[index]      
         return True
         
 
