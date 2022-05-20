@@ -22,6 +22,7 @@ class Trie:
                 tmp = tmp.nextnodes[index]   
         tmp.terminal = True
 
+        
     def search(self, word: str) -> bool:
         tmp = self.root
         for ch in word:
@@ -40,8 +41,7 @@ class Trie:
             if tmp.nextnodes[index] is None:
                 return False
             else:
-                tmp = tmp.nextnodes[index] 
-                
+                tmp = tmp.nextnodes[index]      
         return True
         
 
