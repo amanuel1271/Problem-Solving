@@ -11,7 +11,7 @@ class Trie:
     def insert(self, word: str) -> None:
         tmp = self.root
         for ch in word:
-            index = ord(ch)-ord('a')
+            index = ord(ch)- ord('a')
             if tmp.nextnodes[index] is None:
                 tmp.nextnodes[index] = TrieNode()
             tmp = tmp.nextnodes[index]   
@@ -21,7 +21,7 @@ class Trie:
     def search(self, word: str) -> bool:
         tmp = self.root
         for ch in word:
-            index = ord(ch)-ord('a')
+            index = ord(ch)- ord('a')
             if tmp.nextnodes[index] is None:
                 return False
             tmp = tmp.nextnodes[index]  
@@ -31,7 +31,7 @@ class Trie:
     def startsWith(self, prefix: str) -> bool:
         tmp = self.root
         for ch in prefix:
-            index = ord(ch)-ord('a')
+            index = ord(ch)- ord('a')
             if tmp.nextnodes[index] is None:
                 return False
             tmp = tmp.nextnodes[index]      
