@@ -4,7 +4,7 @@ class Solution:
             ans,tens,num = 0,0,ord(digit) - ord('0')
 
             for ch in string[::-1]:
-                ans += ((ord(ch) - ord('0')) * num) * (10**tens)
+                ans += ((ord(ch) - ord('0')) * num) * (10 ** tens)
                 tens += 1
                 
             return ans
