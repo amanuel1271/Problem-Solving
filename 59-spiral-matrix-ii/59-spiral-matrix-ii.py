@@ -7,9 +7,9 @@ class Solution:
         move = {'E':(0,1),'S':(1,0),'W':(0,-1),'N':(-1,0)}
         row_pos,col_pos = 0,0
         
-        res[0][0],count = 1,2
+        res[0][0] = 1
         
-        for i in range(2,n*n+1):
+        for count in range(2,n*n+1):
             dx,dy = move[ori]
             row_pos,col_pos = row_pos + dx ,col_pos  + dy
             if not (0 <= row_pos < n and 0 <= col_pos < n and res[row_pos][col_pos] == math.inf):
@@ -19,7 +19,6 @@ class Solution:
                 row_pos,col_pos = row_pos + dx ,col_pos  + dy
 
             res[row_pos][col_pos] = count
-            count += 1
                 
         return res
                 
