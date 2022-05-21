@@ -2,9 +2,7 @@ class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         
         def binary_search():
-            l,r = 0,len(intervals)-1
-            ans = -1
-            
+            l,r,ans = 0,len(intervals)-1,-1
             while l <= r:
                 mid = (l+r)//2
                 if intervals[mid][0] == newInterval[0]:
@@ -13,8 +11,7 @@ class Solution:
                     ans = mid
                     l = mid + 1   
                 else:
-                    r = mid - 1
-                    
+                    r = mid - 1    
             return ans
         
         def not_intersect(range1,range2):
