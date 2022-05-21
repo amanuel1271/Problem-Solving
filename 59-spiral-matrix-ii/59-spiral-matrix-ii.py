@@ -19,7 +19,6 @@ class Solution:
                 row_pos,col_pos = row_pos + dx ,col_pos  + dy
 
             
-  
             res[row_pos][col_pos] = count
             count += 1
                 
