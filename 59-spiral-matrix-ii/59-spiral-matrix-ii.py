@@ -6,7 +6,6 @@ class Solution:
         next_ori = {'E':'S','S':'W','W':'N','N':'E'}
         move = {'E':(0,1),'S':(1,0),'W':(0,-1),'N':(-1,0)}
         row_pos,col_pos = 0,0
-        
         res[0][0] = 1
         
         for count in range(2,n*n+1):
