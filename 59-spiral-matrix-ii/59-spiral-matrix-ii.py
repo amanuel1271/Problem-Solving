@@ -17,7 +17,6 @@ class Solution:
                 dx,dy = move[ori]
                 row_pos,col_pos = row_pos + dx ,col_pos  + dy
             res[row_pos][col_pos] = count
-                
         return res
                 
                         
