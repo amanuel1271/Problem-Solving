@@ -1,25 +1,48 @@
 class Solution:
     def search(self, nums: List[int], target: int) -> bool:
-
-        l, r = 0, len(nums)-1
+        l,r = 0,len(nums)-1
+        
         while l <= r:
             mid = (l+r)//2
-            if nums[mid] == target:
+            if target == nums[mid]:
                 return True
-            while l < mid and nums[l] == nums[mid]: # tricky part
+            
+            while l < mid and nums[l] == nums[mid]:
                 l += 1
-            # the first half is ordered
-            if nums[l] <= nums[mid]:
-                # target is in the first half
-                if nums[l] <= target <= nums[mid]:
-                    r = mid - 1
+                
+            if nums[l] <= nums[mid]: #increasing
+                if nums[l] <= target < nums[mid]:
+                    r = mid-1
                 else:
-                    l = mid + 1
-            # the second half is ordered
+                    l = mid + 1   
             else:
-                # target is in the second half
-                if nums[mid] <= target <= nums[r]:
+                if nums[mid] < target <= nums[r]:
                     l = mid + 1
                 else:
-                    r = mid - 1
+                    r = mid-1   
         return False
+    
+    
+    
+    # l, r = 0, len(nums)-1
+    # while l <= r:
+    #     mid = l + (r-l)//2
+    #     if nums[mid] == target:
+    #         return True
+    #     while l < mid and nums[l] == nums[mid]: # tricky part
+    #         l += 1
+    #     # the first half is ordered
+    #     if nums[l] <= nums[mid]:
+    #         # target is in the first half
+    #         if nums[l] <= target < nums[mid]:
+    #             r = mid - 1
+    #         else:
+    #             l = mid + 1
+    #     # the second half is ordered
+    #     else:
+    #         # target is in the second half
+    #         if nums[mid] < target <= nums[r]:
+    #             l = mid + 1
+    #         else:
+    #             r = mid - 1
+    # return False
