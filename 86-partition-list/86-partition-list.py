@@ -18,7 +18,7 @@ class Solution:
                 least.next = least.next.next
             else:
                 least = least.next
-                
+ 
         least.next = big_dummy.next
         return small_dummy.next
         
