@@ -8,8 +8,7 @@ class Solution:
         if left == right:
             return head
         
-        p = dummy = ListNode(0)
-        dummy.next = head
+        p = dummy = ListNode(0,head)
         for _ in range(left - 1):
             p = p.next
             
@@ -18,7 +17,6 @@ class Solution:
         for _ in range(right - left + 1):
             cur.next, pre, cur = pre, cur, cur.next
             
-        p.next.next = cur
-        p.next = pre
+        p.next.next,p.next = cur,pre
         return dummy.next
         
