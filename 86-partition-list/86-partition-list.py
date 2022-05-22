@@ -8,8 +8,7 @@ class Solution:
         big_dummy = ListNode(-101)
         greater = big_dummy
         
-        small_dummy = ListNode(-101)
-        small_dummy.next = head
+        small_dummy = ListNode(-101,head)
         least = small_dummy
         
         while least.next:
