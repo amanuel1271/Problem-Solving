@@ -15,7 +15,9 @@ class Solution:
         cur = p.next
         pre = None
         for _ in range(right - left + 1):
-            cur.next, pre, cur = pre, cur, cur.next
+            temp = cur.next
+            cur.next = pre
+            cur,pre = temp,cur
             
         p.next.next,p.next = cur,pre
         return dummy.next
