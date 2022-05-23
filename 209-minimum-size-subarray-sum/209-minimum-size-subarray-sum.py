@@ -4,16 +4,11 @@ class Solution:
         
         
         min_len = math.inf
-        while l < len(nums) - 1:
-            # if l != 0:
-            #     window_sum -= nums[l]
-            #     l += 1
-                
+        while l < len(nums) - 1:  
             while r < len(nums)-1 and window_sum < target:
                 r += 1
                 window_sum += nums[r]
             if window_sum >= target:
-                print(l,r,window_sum)
                 min_len = min(min_len,r-l+1)
                 
             window_sum -= nums[l]
