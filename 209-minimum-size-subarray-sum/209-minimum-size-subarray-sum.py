@@ -16,8 +16,6 @@ class Solution:
         while l < len(nums) - 1:
             window_sum -= nums[l]
             l += 1
-            if r >= len(nums):
-                r = len(nums)-1
             while r < len(nums)-1 and window_sum < target:
                 r += 1
                 window_sum += nums[r]
