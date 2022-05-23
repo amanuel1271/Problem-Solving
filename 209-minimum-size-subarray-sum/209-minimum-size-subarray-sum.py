@@ -22,8 +22,6 @@ class Solution:
                 
         return min_len
             
-            
-            
         
         
         
