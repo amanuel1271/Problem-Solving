@@ -5,6 +5,7 @@ class Solution:
         
         primes = [1] * n
         primes[0] = primes[1] = 0
+        
         for i in range(2, int(n ** 0.5) + 1):
             if primes[i]:
                 for j in range(i * i, n, i):
