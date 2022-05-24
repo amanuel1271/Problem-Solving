@@ -6,7 +6,7 @@ class Solution:
         for t in time:
             count += store[60-(t%60)]
             if t%60 == 0:
-                count += store[0]
+                count += store[0] 
             store[t%60] = store[t%60] + 1   
             
             
