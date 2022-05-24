@@ -16,8 +16,7 @@ class WordDictionary(object):
         node.isWord = True
 
     def search(self, word):
-        node = self.root
-        return self.dfs(node, word)
+        return self.dfs(self.root, word)
     
     def dfs(self, node, word):
         if not word:
