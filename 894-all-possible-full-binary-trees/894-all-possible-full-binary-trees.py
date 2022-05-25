@@ -23,9 +23,9 @@ class Solution:
                 if not n-1-j in self.dic:
                     self.dic[n-1-j]  = self.allPossibleFBT(n-1-j) 
                     
-                for tree_1 in self.dic[j]:
-                    for tree_2 in self.dic[n-1-j]:
-                        output.append(TreeNode(0,tree_1,tree_2))  
+                for left_tree in self.dic[j]:
+                    for right_tree in self.dic[n-1-j]:
+                        output.append(TreeNode(0,left_tree,right_tree))  
                         
         self.dic[n] = output
         return output
