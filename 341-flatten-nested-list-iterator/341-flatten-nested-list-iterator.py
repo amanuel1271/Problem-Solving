@@ -33,10 +33,12 @@ class NestedIterator:
     def hasNext(self) -> bool:
         if self.index >= len(self.nestedList):
             return False
+        
         if self.nestedList[self.index].isInteger():
             self.value = self.nestedList[self.index].getInteger()
             self.index += 1
             return True
+        
         def dfs(lst):
             for element in lst:
                 if element.isInteger():
@@ -49,6 +51,7 @@ class NestedIterator:
         
         if dfs(self.nestedList[self.index].getList()):
             return True
+        
         self.index += 1
         return self.hasNext()
         
