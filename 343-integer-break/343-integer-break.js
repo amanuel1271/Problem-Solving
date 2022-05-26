@@ -19,15 +19,10 @@ var integerBreak = function(n) {
         }
         
         const fetchCached = n => {
-            let res = 0;
-            if (n in ans){
-                res = ans[n];
-            }
-            else{
+            if (!(n in ans)){
                 ans[n] = helper(n);
-                res = ans[n];
             }
-            return res;  
+            return ans[n];  
         };
         
         let maxPossible = 1;
