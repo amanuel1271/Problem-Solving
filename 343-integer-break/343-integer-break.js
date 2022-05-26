@@ -6,6 +6,13 @@ var integerBreak = function(n) {
 
     const ans = {};
     
+    const fetchCached = n => {
+        if (!(n in ans)){
+            ans[n] = helper(n);
+        }
+        return ans[n];  
+    };
+    
     
     const helper = (n) => {
         if (n in ans){
@@ -17,13 +24,6 @@ var integerBreak = function(n) {
         else if (n === 3){
             return 2;
         }
-        
-        const fetchCached = n => {
-            if (!(n in ans)){
-                ans[n] = helper(n);
-            }
-            return ans[n];  
-        };
         
         let maxPossible = 1;
         for(let num1 = 1;num1 <= Math.floor(n/2);num1++){
