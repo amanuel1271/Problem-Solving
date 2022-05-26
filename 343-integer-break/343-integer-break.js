@@ -11,7 +11,6 @@ var integerBreak = function(n) {
         if (n in ans){
             return ans[n];
         }
-        
         if (n === 2){
             return 1;
         }
@@ -41,7 +40,6 @@ var integerBreak = function(n) {
             break2 = (num2 <= 3)? num2:fetchCached(num2);
             maxx = Math.max(maxx,break1 * break2);
         }
-        
         ans[n] = maxx;
         return ans[n];
     };
