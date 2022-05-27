@@ -5,7 +5,10 @@ class Solution:
         
         while left <= right:
             mid = (left + right)//2
-            if mid <= (x/mid):
+            
+            if mid == (x/mid):
+                return mid
+            elif mid < (x/mid):
                 left = mid + 1
                 ans = mid
             else:
