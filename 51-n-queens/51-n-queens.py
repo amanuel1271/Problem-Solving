@@ -7,7 +7,7 @@ class Solution:
         
         def backtrack(r):
             if r == n:
-                fin_ans = [''.join(row) for row in res[:]]
+                fin_ans = [''.join(row) for row in res]
                 ans.append(fin_ans)
                 return
              
