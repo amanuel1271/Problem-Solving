@@ -5,7 +5,7 @@ class Solution:
         
         while left <= right:
             mid = (left + right)//2
-            if mid**2  <= x:
+            if mid <= (x/mid):
                 left = mid + 1
                 ans = mid
             else:
