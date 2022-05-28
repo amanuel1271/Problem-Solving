@@ -6,7 +6,6 @@ class Solution:
         
         left,right = 1,max(nums)
         ans = 0
-        
         while left <= right:
             mid = (left + right)//2
             if divide_array(mid) > threshold:
