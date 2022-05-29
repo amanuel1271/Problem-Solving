@@ -3,8 +3,8 @@ class Solution:
         wordList = set(wordList)
         queue = collections.deque([[beginWord, 1]])
         
-        if beginWord in wordList:
-            wordList.remove(beginWord)
+        # if beginWord in wordList:
+        #     wordList.remove(beginWord)
             
         while queue:
             word, length = queue.popleft()
