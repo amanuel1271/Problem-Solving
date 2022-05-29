@@ -4,9 +4,7 @@ class Solution:
         def isPossible(penalty):
             count = 0
             for num in nums:
-                operations = num // penalty
-                if num % penalty  == 0:
-                    operations -= 1
+                operations = (num-1) // penalty
                 count += operations 
             return count <= maxOperations
         
