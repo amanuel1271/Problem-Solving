@@ -1,7 +1,6 @@
 class Solution:
     def isAdditiveNumber(self, num: str) -> bool:
-        
-        
+
         def dfs(i,stack,sequence_len):
             if i == len(num):
                 return sequence_len >= 3
@@ -17,7 +16,6 @@ class Solution:
         
             top = stack.pop()
             bottom = stack.pop()
-            
             for j in range(i,len(num)):
                 summ = int(num[i:j+1])
                 if summ == bottom + top:
