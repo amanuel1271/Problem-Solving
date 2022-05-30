@@ -3,11 +3,12 @@ class Solution:
         n = len(s)
         
         @lru_cache(None)
-        def isPalindrome(l, r):  # l, r inclusive
-            if l >= r: return True
-            if s[l] != s[r]: return False
-            return isPalindrome(l+1, r-1)
-        
+        def isPalindrome(i,j):
+            if i >= j: 
+                return True
+            if s[i] != s[j]:
+                return False
+            return isPalindrome(i+1,j-1)
 
         @lru_cache(None)
         def dfs(j): 
