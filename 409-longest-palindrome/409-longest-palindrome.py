@@ -8,8 +8,9 @@ class Solution:
             if len(odd_list) == 0:
                 return 0,0
             
-            rest_sum = sum(odd_list) - max(odd_list) - len(odd_list) + 1
-            return max(odd_list),rest_sum
+            maxx = max(odd_list)
+            rest_sum = sum(odd_list) - maxx - len(odd_list) + 1
+            return maxx,rest_sum
             
 
         even_list = list(filter(lambda x: (x%2 == 0),cnt_to_char))
