@@ -2,6 +2,7 @@ class Solution:
     def longestPalindrome(self, s: str) -> int:
         ch_freq  = Counter(s)
         cnt_to_char = [ch_freq[ch] for ch in ch_freq]
+        
         def max_odd():
             odd_list = list(filter(lambda x: (x%2 == 1),cnt_to_char))
             if len(odd_list) == 0:
