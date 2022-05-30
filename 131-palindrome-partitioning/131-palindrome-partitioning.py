@@ -2,11 +2,12 @@ class Solution:
     def partition(self, s: str) -> List[List[str]]:
         res = []
         
+        @lru_cache(None)
         def isPalindrome(string):
             size = len(string)
             l,r = 0,size-1
             
-            while l < r:
+            while l <= r:
                 if string[l] != string[r]:
                     return False
                 l,r = l+1,r-1
