@@ -7,15 +7,12 @@ class Solution:
             
             if len(stack) <= 1:
                 for j in range(i,len(num)):
-                    
                     stack.append(int(num[i:j+1]))
                     if dfs(j+1,stack[:],sequence_len + 1):
                         return True
                     stack.pop()
-                    
                     if num[i] == '0':
-                        break
-                        
+                        break      
                 return False
         
             top = stack.pop()
@@ -26,15 +23,12 @@ class Solution:
                 if summ == bottom + top:
                     stack.append(top)
                     stack.append(summ)
-                    
                     if dfs(j+1,stack[:],sequence_len + 1):
                             return True
-                        
                     stack.pop()
                     stack.pop()
                 if num[i] == '0':
-                        break
-                        
+                        break         
             return False
         
         return dfs(0,[],0)
