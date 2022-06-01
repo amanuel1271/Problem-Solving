@@ -10,7 +10,7 @@ class Solution:
             for ch in s2:
                 found_bigger = False
                 
-                #0(1) because it loops at most 26 times
+                #O(1) because it loops at most 26 times
                 for i in range(ord(ch) - ord('a'),26):
                     if count[i] > 0:
                         found_bigger = True
