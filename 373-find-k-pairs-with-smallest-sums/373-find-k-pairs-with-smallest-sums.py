@@ -1,7 +1,7 @@
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
         ret = []
-        if len(nums1) * len(nums2) > 0:
+        if len(nums1) > 0 and len(nums2) > 0:
             queue = [(nums1[0] + nums2[0], (0, 0))]
             visited = set()
             while len(ret) < k and queue:
