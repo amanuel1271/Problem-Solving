@@ -8,14 +8,14 @@ class Solution:
             
             
             
-        def bfs(queue,visited):
-            while queue:
-                x,y = queue.popleft()
+        def bfs(q,visited):
+            while q:
+                x,y = q.popleft()
                 for next_x,next_y in [(x+1,y),(x,y+1),(x-1,y),(x,y-1)]:
                     if 0 <= next_x < m and 0 <= next_y < n and (next_x,next_y) not in visited:
                         if heights[next_x][next_y] >= heights[x][y]:
                             visited.add((next_x,next_y))
-                            queue.append((next_x,next_y))
+                            q.append((next_x,next_y))
                             
         
         bfs(pacific_queue,pacific_set)
