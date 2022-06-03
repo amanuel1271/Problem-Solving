@@ -1,15 +1,10 @@
 class Solution:
     def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
         m,n = len(heights),len(heights[0])
-        pacific_queue = deque([])
-        atlantic_queue = deque([])
-        
         pacific_set = set([(0,c) for c in range(n)] + [(r,0) for r in range(m)])
-        for pos in pacific_set:
-            pacific_queue.append(pos)
+        pacific_queue = deque(list(pacific_set))
         atlantic_set = set([(m-1,c) for c in range(n)] + [(r,n-1) for r in range(m)])
-        for pos in atlantic_set:
-            atlantic_queue.append(pos)
+        atlantic_queue = deque(list(atlantic_set))
             
         
         def bfs(queue,visited):
