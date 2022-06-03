@@ -6,6 +6,8 @@ class Solution:
         atlantic_set = set([(m-1,c) for c in range(n)] + [(r,n-1) for r in range(m)])
         atlantic_queue = deque(list(atlantic_set))
             
+            
+            
         def bfs(queue,visited):
             while queue:
                 x,y = queue.popleft()
