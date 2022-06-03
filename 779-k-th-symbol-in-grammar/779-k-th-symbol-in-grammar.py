@@ -4,8 +4,5 @@ class Solution:
             return 0
         
         findprev = self.kthGrammar(n-1,ceil(k/2))
-        if k % 2 == 0:
-            return 1 - findprev
-        else:
-            return findprev
+        return 1 - findprev if k%2 == 0 else findprev
         
