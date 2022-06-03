@@ -5,7 +5,7 @@ class Solution:
         l = 0
         for r in range(len(s)):
             window_counts[s[r]] += 1
-            if r - l + 1 - max(window_counts.values()) > k:
+            while r - l + 1 - max(window_counts.values()) > k:
                 window_counts[s[l]] -= 1 
                 l += 1
             longest_window = max(longest_window, r - l + 1)
