@@ -8,7 +8,6 @@ class Solution:
             
         
         def bfs(queue,visited):
-            
             while queue:
                 x,y = queue.popleft()
                 for next_x,next_y in [(x+1,y),(x,y+1),(x-1,y),(x,y-1)]:
