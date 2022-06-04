@@ -1,7 +1,5 @@
 class Solution:
     def discountPrices(self, sentence: str, discount: int) -> str:
-        print(sentence.split())
-        #rint(format(10,'.2f'))
         
         split_s= sentence.split()
         
