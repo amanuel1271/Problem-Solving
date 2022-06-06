@@ -10,9 +10,9 @@ class Solution:
         res = [[root.val]]
         
         while Q:
-            size = len(Q)
+            queue_len = len(Q)
             row_vals = []
-            for i in range(size):
+            for i in range(queue_len):
                 node = Q.popleft()
                 if node.left:
                     Q.append(node.left)
@@ -20,7 +20,6 @@ class Solution:
                 if node.right:
                     Q.append(node.right)
                     row_vals.append(node.right.val)
-            
             if row_vals != []:
                 res.append(row_vals)
         
