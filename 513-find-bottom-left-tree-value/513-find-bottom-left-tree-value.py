@@ -7,21 +7,19 @@
 class Solution:
     def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
         Q = deque([root])
-        res = [[root.val]]
+        res = root.val
         
         while Q:
             queue_len = len(Q)
-            row_vals = []
             for i in range(queue_len):
                 node = Q.popleft()
+                if i == 0:
+                    res = node.val
                 if node.left:
                     Q.append(node.left)
-                    row_vals.append(node.left.val)
+
                 if node.right:
                     Q.append(node.right)
-                    row_vals.append(node.right.val)
-            if row_vals != []:
-                res.append(row_vals)
         
 
-        return res[-1][0]
+        return res
