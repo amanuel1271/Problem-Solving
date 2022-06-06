@@ -6,14 +6,6 @@
 #         self.right = right
 class Solution:
     def convertBST(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-#         node_to_sum = {None: 0}
-        
-#         def node_sum(node):
-#             if node in node_to_sum:
-#                 return node_to_sum[node]
-            
-#             node_to_sum[node] = node.val + node_sum(node.left) + node_sum(node.right)
-#             return node_to_sum[node]
         
 
         def dfs(node,prev_total):  # has to return the sum so far
