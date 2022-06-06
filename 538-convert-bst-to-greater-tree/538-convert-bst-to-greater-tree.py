@@ -19,13 +19,11 @@ class Solution:
         def dfs(node,prev_total):
             if not node:
                 return
-            
             right_sum = node_sum(node.right)
             node.val += right_sum + prev_total
             dfs(node.right,prev_total)
             dfs(node.left,node.val)
             
-
         dfs(root,0)
         return root
         
