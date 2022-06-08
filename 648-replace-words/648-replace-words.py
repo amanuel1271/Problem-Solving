@@ -10,12 +10,9 @@ class Trie:
     def insert(self,word):
         tmp = self.root
         for ch in word:
-            if ch in tmp.children:
-                tmp = tmp.children[ch]
-            else:
+            if ch not in tmp.children:
                 tmp.children[ch] = TrieNode()
-                tmp = tmp.children[ch]
-                
+            tmp = tmp.children[ch]     
         tmp.end = True
         
     def search(self,word):
