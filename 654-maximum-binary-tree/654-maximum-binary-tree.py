@@ -6,17 +6,15 @@
 #         self.right = right
 class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
-        
         ## to avoid unnecessary copying
         def maxIndex(i,j):
             maxi = i
             for k in range(i+1,j+1):
                 if nums[k] > nums[maxi]:
-                    maxi = k
-                    
+                    maxi = k    
             return maxi
             
-        
+        #### O(N**2) solution, not a good solution
         def helper(i,j):
             if i > j:
                 return None
