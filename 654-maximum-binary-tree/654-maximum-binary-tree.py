@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
-        ## to avoid unnecessary copying
+        ## to avoid unnecessary copying and to conserve space
         def maxIndex(i,j):
             maxi = i
             for k in range(i+1,j+1):
