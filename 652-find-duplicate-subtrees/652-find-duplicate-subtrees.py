@@ -17,12 +17,10 @@ class Solution:
             post_order = dfs(node.left) + ' ' + dfs(node.right) + ' ' + str(node.val)
             
             if post_order in post_order_dic and post_order not in res_set:
-                print(post_order)
                 res.append(post_order_dic[post_order])
                 res_set.add(post_order)
             elif post_order not in post_order_dic:
-                post_order_dic[post_order] = node
-                
+                post_order_dic[post_order] = node 
             return post_order
         
         dfs(root)
