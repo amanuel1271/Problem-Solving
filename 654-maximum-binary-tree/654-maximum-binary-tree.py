@@ -14,7 +14,7 @@ class Solution:
                     maxi = k    
             return maxi
             
-        #### O(N**2) solution, not a good solution
+        #### O(N**2) solution, not  good solution
         def helper(i,j):
             if i > j:
                 return None
