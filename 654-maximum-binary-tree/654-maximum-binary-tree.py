@@ -7,8 +7,6 @@
 class Solution:
     def constructMaximumBinaryTree(self, nums: List[int]) -> Optional[TreeNode]:
         
-        index_map = {nums[i]:i for i in range(len(nums))}
-        
         ## to avoid unnecessary copying
         def maxIndex(i,j):
             maxi = i
