@@ -13,7 +13,7 @@ class Solution:
                     node = node.right
                 else:
                     node = node.left  
-            
+                    
             if node and node.val == low:
                 node.left = None
             elif node and node.val == high:
