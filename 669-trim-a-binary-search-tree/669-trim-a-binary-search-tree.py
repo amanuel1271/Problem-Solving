@@ -5,34 +5,24 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
-        def restructure(node):
-            while node and not (low <= node.val <= high):
-                if node.val < low:
-                    node = node.right
-                else:
-                    node = node.left  
-                    
-            if node and node.val == low:
-                node.left = None
-            elif node and node.val == high:
-                node.right = None
-                
-            return node
-            
+    def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:  
                 
         def traverse(node):
             if not node:
-                return
+                return None
+            
+            if node.val < low:
+                return traverse(node.right)
+            elif node.val > high:
+                return traverse(node.left)
             
             if node.left:
-                node.left = restructure(node.left)
-                traverse(node.left)
+                node.left = traverse(node.left)
             if node.right:
-                node.right = restructure(node.right)
-                traverse(node.right)
+                node.right = traverse(node.right)
                 
-        root = restructure(root)
-        traverse(root)
-        return root
+            return node
+                
+
+        return traverse(root)
         
