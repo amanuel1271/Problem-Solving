@@ -6,7 +6,6 @@
 #         self.right = right
 class Solution:
     def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
-        #### restructure root
         def restructure(node):
             while node and not (low <= node.val <= high):
                 if node.val < low:
@@ -32,7 +31,6 @@ class Solution:
             if node.right:
                 node.right = restructure(node.right)
                 traverse(node.right)
-                
                 
         root = restructure(root)
         traverse(root)
