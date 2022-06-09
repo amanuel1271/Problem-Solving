@@ -18,13 +18,13 @@ class Solution:
             
             if node.val == low:
                 node.left = None
+            else:
+                node.left = trim_(node.left)
             if node.val == high:
                 node.right = None
-                
-            if node.left:
-                node.left = trim_(node.left)
-            if node.right:
+            else:
                 node.right = trim_(node.right)
+                
                 
             return node
                 
