@@ -25,6 +25,7 @@ class Solution:
         def traverse(node):
             if not node:
                 return
+            
             if node.left:
                 node.left = restructure(node.left)
                 traverse(node.left)
@@ -33,8 +34,6 @@ class Solution:
                 traverse(node.right)
                 
                 
-                
-        
         root = restructure(root)
         traverse(root)
         return root
