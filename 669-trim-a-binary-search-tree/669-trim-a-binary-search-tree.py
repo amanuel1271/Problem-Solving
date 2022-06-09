@@ -16,6 +16,11 @@ class Solution:
             elif node.val > high:
                 return traverse(node.left)
             
+            if node.val == low:
+                node.left = None
+            if node.val == high:
+                node.right = None
+                
             if node.left:
                 node.left = traverse(node.left)
             if node.right:
