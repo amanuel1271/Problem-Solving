@@ -7,18 +7,18 @@
 class Solution:
     def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:  
                 
-        def trim_(node):
+        def trim(node):
             if not node:
                 return None
             
             if node.val < low:
-                return trim_(node.right)
+                return trim(node.right)
             elif node.val > high:
-                return trim_(node.left)
+                return trim(node.left)
             
-            node.left = None if node.val == low else trim_(node.left)
-            node.right = None if node.val == high else trim_(node.right) 
+            node.left = None if node.val == low else trim(node.left)
+            node.right = None if node.val == high else trim(node.right) 
             return node
                 
-        return trim_(root)
+        return trim(root)
         
