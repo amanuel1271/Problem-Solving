@@ -16,18 +16,9 @@ class Solution:
             elif node.val > high:
                 return trim_(node.left)
             
-            if node.val == low:
-                node.left = None
-            else:
-                node.left = trim_(node.left)
-            if node.val == high:
-                node.right = None
-            else:
-                node.right = trim_(node.right)
-                
-                
+            node.left = None if node.val == low else trim_(node.left)
+            node.right = None if node.val == high else trim_(node.right) 
             return node
                 
-
         return trim_(root)
         
