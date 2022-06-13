@@ -4,6 +4,8 @@ class Solution:
         
         for num,per in brackets:
             amt = max(min(income,num) - last,0)
+            if not amt:
+                break
             ans += amt * (per/100)
             last = num
             
