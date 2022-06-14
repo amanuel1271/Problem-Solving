@@ -8,8 +8,10 @@ class Solution:
             elif j == len(s2):
                 return sum([ord(ch) for ch in s1[i:]])
             
-            return delete(i+1,j+1) if s1[i] == s2[j] else min(delete(i+1,j) + ord(s1[i]),delete(i,j+1) + ord(s2[j]))
-
+            if s1[i] == s2[j]:
+                return delete(i+1,j+1)
+            
+            return min(delete(i+1,j) + ord(s1[i]),delete(i,j+1) + ord(s2[j]))
             
         return delete(0,0)
         
