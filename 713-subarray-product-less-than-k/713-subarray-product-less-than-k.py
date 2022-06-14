@@ -3,11 +3,11 @@ class Solution:
         if k <= 1:
             return 0
         
-        l,prod,count = 0,1,0
+        l,window_product,count = 0,1,0
         for r in range(len(nums)):
-            prod *= nums[r]
-            while prod >= k:
-                prod //= nums[l]
+            window_product *= nums[r]
+            while window_product >= k:
+                window_product //= nums[l]
                 l += 1
                 
             count += r-l+1
