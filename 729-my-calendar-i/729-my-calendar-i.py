@@ -31,10 +31,10 @@ class MyCalendar:
                 l = mid+1
         return index
     
-    def no_overlaps(self,tup1,tup2):
+    def overlaps(self,tup1,tup2):
         x1,x2 = tup1
         x3,x4 = tup2
-        return x3 >= x2 or x4 <= x1
+        return not(x3 >= x2 or x4 <= x1)
         
 
     def book(self, start: int, end: int) -> bool:
@@ -43,7 +43,7 @@ class MyCalendar:
             boundary_1 = self.sorted_by_start[lower_index]
             boundary_2 = (start,end)
         
-            if  not self.no_overlaps(boundary_1,boundary_2):
+            if self.overlaps(boundary_1,boundary_2):
                 return False
 
             
@@ -51,7 +51,7 @@ class MyCalendar:
         if upper_index != -1:
             boundary_1 = self.sorted_by_start[upper_index]
             boundary_2 = (start,end)
-            if not self.no_overlaps(boundary_1,boundary_2):
+            if self.overlaps(boundary_1,boundary_2):
                 return False
             
         elif upper_index == -1 and lower_index == -1:
