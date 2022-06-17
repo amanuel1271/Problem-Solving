@@ -29,7 +29,7 @@ class Solution:
                     
             return head,tail
         
-        dummy = Node(0,None,None,head)
+        dummy = Node(10,None,None,head)
         flatten_child(dummy)
         if dummy.next:
             dummy.next.prev = None
