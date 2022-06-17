@@ -17,8 +17,7 @@ class Solution:
                 tail = ptr
                 if ptr.child:
                     front,back = flatten_child(ptr.child)
-                    ptr.next,back.next = front,ptr.next
-                    tail = back
+                    ptr.next,back.next,tail = front,ptr.next,back
                     ptr.next.prev = ptr
                     if back.next:
                         back.next.prev = back
