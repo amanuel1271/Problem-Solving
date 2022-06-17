@@ -3,7 +3,7 @@ class Solution:
         res = []
         size = len(s)
         
-        def construct(i,constructed_string):
+        def construct(i = 0,constructed_string = ''):
             if i == size:
                 res.append(constructed_string)
                 return
@@ -16,7 +16,7 @@ class Solution:
                 construct(i+1,constructed_string + ch)
                 
         
-        construct(0,'')
+        construct()
         return res
             
         
