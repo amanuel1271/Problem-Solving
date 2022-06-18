@@ -24,12 +24,7 @@ class Solution:
             heapq.heappush(maxheap,(-level_sum,level))
             level += 1
             
-        max_level_sum,min_level = maxheap[0]
-        while maxheap and maxheap[0][0] == max_level_sum:
-            min_level = min(min_level,heapq.heappop(maxheap)[1])
-            
-
-        return min_level
+        return maxheap[0][1]
             
         
         
