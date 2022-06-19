@@ -5,8 +5,6 @@ class Solution:
         def calculate(n):
             if n < k:
                 return math.inf
-            elif n == k:
-                return 1
             elif n%10 == k:
                 return 1
             
