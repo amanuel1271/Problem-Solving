@@ -5,7 +5,8 @@ class Solution:
         
         
         for ch in s:
-            ch_map[ch] = True
+            if ch not in ch_map:
+                ch_map[ch] = True
             
             if ch.lower() in ch_map and ch.upper() in ch_map:
                 maxx = max(maxx,ord(ch.upper()))
