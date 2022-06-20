@@ -7,9 +7,7 @@ class Solution:
         
 
         def safe_dfs(start,visited):
-            if not graph[start]:
-                return True
-            elif start in safe_nodes:
+            if not graph[start] or start in safe_nodes:
                 return True
             elif start in unsafe_nodes:
                 return False
