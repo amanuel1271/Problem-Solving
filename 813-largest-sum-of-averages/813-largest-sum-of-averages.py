@@ -7,12 +7,12 @@ class Solution:
             elif k == n:
                 return sum(nums[:n])
             elif k == 1:
-                return  sum(nums[:n]) / float(n)
+                return  float(sum(nums[:n]) / n)
             
             cur,res = 0,0
             for i in range(n - 1, -1, -1):
                 cur += nums[i]
-                res = max(res, search(i, k - 1) + (cur / float(n - i)))
+                res = max(res, search(i, k - 1) + float(cur /(n - i)) )
             return res
         
         return search(len(nums), k)
