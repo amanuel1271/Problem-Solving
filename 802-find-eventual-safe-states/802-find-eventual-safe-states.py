@@ -19,13 +19,14 @@ class Solution:
                 if neighbor in visited:
                     unsafe_nodes.add(neighbor)
                     return False
+                
                 visited.add(neighbor)
                 if not safe_dfs(neighbor,visited):
                     unsafe_nodes.add(neighbor)
                     return False
+                
                 visited.remove(neighbor)
                 safe_nodes.add(neighbor)
-                
             return True
         
         for i in range(len(graph)):
