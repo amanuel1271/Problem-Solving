@@ -30,9 +30,9 @@ class Solution:
                 
             return True
         
-        for j in range(len(graph)):
-            if safe_dfs(j,set([j])):
-                res.append(j)
+        for k in range(len(graph)):
+            if safe_dfs(k,set([k])):
+                res.append(k)
 
 
         
