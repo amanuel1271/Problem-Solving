@@ -1,6 +1,7 @@
 class Solution:
     def eventualSafeNodes(self, graph: List[List[int]]) -> List[int]:
         safe_nodes = set()
+        unsafe_nodes = set()
         res = []
         
         
@@ -10,13 +11,17 @@ class Solution:
                 return True
             elif start in safe_nodes:
                 return True
+            elif start in unsafe_nodes:
+                return False
             
             
             for neighbor in graph[start]:
                 if neighbor in visited:
+                    unsafe_nodes.add(neighbor)
                     return False
                 visited.add(neighbor)
                 if not safe_dfs(neighbor,visited):
+                    unsafe_nodes.add(neighbor)
                     return False
                 visited.remove(neighbor)
                 safe_nodes.add(neighbor)
@@ -24,9 +29,9 @@ class Solution:
             return True
         
         for i in range(len(graph)):
-            if i in safe_nodes or safe_dfs(i,set([i])):
+            if safe_dfs(i,set([i])):
                 res.append(i)
-            #print(i,safe_nodes)
+
 
         
         return res
