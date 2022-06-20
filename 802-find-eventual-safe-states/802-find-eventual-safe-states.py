@@ -27,11 +27,12 @@ class Solution:
                 
                 visited.remove(neighbor)
                 safe_nodes.add(neighbor)
+                
             return True
         
-        for i in range(len(graph)):
-            if safe_dfs(i,set([i])):
-                res.append(i)
+        for j in range(len(graph)):
+            if safe_dfs(j,set([j])):
+                res.append(j)
 
 
         
