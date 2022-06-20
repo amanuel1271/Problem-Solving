@@ -4,7 +4,7 @@ class Solution:
         @lru_cache(None)
         def search(n, k):
             if n < k: return 0
-            elif n == k:
+            elif k == n:
                 return sum(nums[:n])
             elif k == 1:
                 return  sum(nums[:n]) / float(n)
