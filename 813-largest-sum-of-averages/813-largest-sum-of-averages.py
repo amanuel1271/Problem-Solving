@@ -8,7 +8,7 @@ class Solution:
                 return  sum(nums[:n]) / float(n)
             
             cur,res = 0,0
-            for i in range(n - 1, 0, -1):
+            for i in range(n - 1, -1, -1):
                 cur += nums[i]
                 res = max(res, search(i, k - 1) + cur / float(n - i))
             return res
