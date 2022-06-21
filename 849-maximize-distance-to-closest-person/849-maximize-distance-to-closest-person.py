@@ -4,11 +4,11 @@ class Solution:
         while i < len(seats) and seats[i] == 0:
             i += 1
             
-        j = len(seats)-1
-        while j >= 0 and seats[j] == 0:
-            j -= 1
+        k = len(seats)-1
+        while k >= 0 and seats[k] == 0:
+            k -= 1
             
-        res = max(i,len(seats)-1-j)
+        res = max(i,len(seats)-1-k)
         
         is_zero,zeroes = False,0
         for i in range(len(seats)):
