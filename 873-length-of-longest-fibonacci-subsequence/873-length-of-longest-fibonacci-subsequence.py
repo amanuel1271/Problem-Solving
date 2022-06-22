@@ -1,6 +1,6 @@
 class Solution:
     def lenLongestFibSubseq(self, arr: List[int]) -> int:
-        dp = {(0,arr[0]): 1}
+        dp = {}
         max_ = 0
         
         for i in range(1,len(arr)):
