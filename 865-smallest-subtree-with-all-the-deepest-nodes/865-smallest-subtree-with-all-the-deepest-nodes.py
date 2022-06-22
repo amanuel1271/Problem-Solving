@@ -50,7 +50,7 @@ class Solution:
             size = len(last_level_nodes)
             
         #print(last_level_nodes)
-        return val_to_node[last_level_nodes[0]]
+        return val_to_node[last_level_nodes[-1]]
             
                 
                 
