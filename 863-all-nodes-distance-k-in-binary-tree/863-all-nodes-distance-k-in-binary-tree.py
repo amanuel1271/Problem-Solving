@@ -7,15 +7,16 @@
 
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
-        node_to_par = dict()
+        node_to_par = {root:None}
         
-        def dfs(node, par = None):
+        def dfs(node,par):
             if node:
                 node_to_par[node] = par
                 dfs(node.left, node)
                 dfs(node.right, node)
 
-        dfs(root)
+        dfs(root.left,root)
+        dfs(root.right,root)
         
         Q = deque([(target,k)])
         visited = {target}
