@@ -50,7 +50,7 @@ class Solution:
             size = len(last_level_nodes)
             
         #print(last_level_nodes)
-        return val_to_node[last_level_nodes.popleft()]
+        return val_to_node[last_level_nodes.pop()]
             
                 
                 
