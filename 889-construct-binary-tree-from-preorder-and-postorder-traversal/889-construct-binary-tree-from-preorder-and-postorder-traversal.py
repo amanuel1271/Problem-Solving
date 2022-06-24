@@ -6,19 +6,22 @@
 #         self.right = right
 class Solution:
     def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
-        stack = [TreeNode(preorder[0])]
-        j = 0
-        for v in preorder[1:]:
-            node = TreeNode(v)
-            while stack[-1].val == postorder[j]:
-                stack.pop()
-                j += 1
-            if not stack[-1].left:
-                stack[-1].left = node
-            else:
-                stack[-1].right = node
-                
-            stack.append(node)
+        
+        val_to_idx = {x:i for i,x in enumerate(preorder)}
+        
+        def construct(i1,i2,j1,j2):
+            if i1 > i2:
+                return None
+            root = TreeNode(preorder[i1])
+            if j1 == j2:
+                return root
             
-        return stack[0]
+            idx = val_to_idx[postorder[j2-1]] - val_to_idx[preorder[i1]]
+            root.left = construct(i1+1,i1+idx-1,j1,j1+idx-2)
+            root.right = construct(i1+idx,i2,j1+idx-1,j2-1)
+            return root
+        
+        return construct(0,len(preorder)-1,0,len(postorder)-1)
+
+    
         
