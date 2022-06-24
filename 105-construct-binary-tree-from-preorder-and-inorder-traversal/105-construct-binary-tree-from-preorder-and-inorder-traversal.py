@@ -6,21 +6,16 @@
 #         self.right = right
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
-        def helper(in_left, in_right):
-            # if there is no elements to construct subtrees
-            if in_left > in_right:
+        val_to_index = {x:i for i,x in enumerate(inorder)}
+        
+        def construct(i1,i2,j1,j2):
+            if i1 > i2 or j1 > j2:
                 return None
             
-            val = preorder.pop(0)
-            root = TreeNode(val)
-            index = idx_map[val]
-            
-            root.left = helper(in_left,index - 1)
-            root.right = helper(index + 1,in_right)
-
-            
+            root = TreeNode(preorder[i1])
+            mid = val_to_index[preorder[i1]] - val_to_index[inorder[j1]]
+            root.left = construct(i1 + 1,i1+mid,j1,j1+mid-1)
+            root.right = construct(i1+mid+1,i2,j1+mid+1,j2)
             return root
         
-        idx_map = {val:idx for idx, val in enumerate(inorder)} 
-        return helper(0, len(inorder) - 1)
-        
+        return construct(0,len(preorder)-1,0,len(inorder)-1)
