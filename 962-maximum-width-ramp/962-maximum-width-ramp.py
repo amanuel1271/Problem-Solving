@@ -17,9 +17,7 @@ class Solution:
         
         for r in range(len(nums)):
             if stack and nums[r] >= nums[stack[-1]]:
-                l = binary_search(stack,nums[r])
-                if l != -1:
-                    ans = max(ans,r-l)
+                ans = max(ans,r-binary_search(stack,nums[r]))
             else:
                 stack.append(r)
                 
