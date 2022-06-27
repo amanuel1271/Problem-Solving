@@ -3,14 +3,23 @@ class Solution:
         stack = []
         ans = 0
         
+        def binary_search(stack,target):
+            ans = -1
+            l,r = 0,len(stack)-1
+            while l <= r:
+                mid = (l+r)//2
+                if nums[stack[mid]] <= target:
+                    ans = stack[mid]
+                    r = mid-1
+                else:
+                    l = mid+1
+            return ans
         
         for r in range(len(nums)):
             if stack and nums[r] >= nums[stack[-1]]:
-                for i in range(len(stack)-1,-1,-1):
-                    if nums[r] >= nums[stack[i]]:
-                        ans = max(ans,r-stack[i])
-                    else:
-                        break
+                l = binary_search(stack,nums[r])
+                if l != -1:
+                    ans = max(ans,r-l)
             else:
                 stack.append(r)
                 
