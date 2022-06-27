@@ -4,15 +4,15 @@ class Solution:
         ans = 0
         
         
-        for j in range(len(nums)):
-            if stack and nums[j] >= nums[stack[-1]]:
+        for k in range(len(nums)):
+            if stack and nums[k] >= nums[stack[-1]]:
                 for i in range(len(stack)-1,-1,-1):
-                    if nums[j] >= nums[stack[i]]:
-                        ans = max(ans,j-stack[i])
+                    if nums[k] >= nums[stack[i]]:
+                        ans = max(ans,k-stack[i])
                     else:
                         break
             else:
-                stack.append(j)
+                stack.append(k)
                 
         return ans
         
