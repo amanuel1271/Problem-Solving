@@ -9,20 +9,14 @@ class Solution:
         def count_from_children(child,node):
             cnt = 0
             if child:
-                if child.val == 0:
-                    cnt += 1
-                    node.val -= 1
-                elif child.val > 1:
+                if child.val > 1:
                     cnt += child.val -1
                     node.val += child.val - 1
-                elif child.val < 0:
+                elif child.val <= 0:
                     cnt += 1 - child.val
-                    node.val -= 1 - child.val
-                    
+                    node.val -= 1 - child.val      
             return cnt
                 
-        
-        
         def dfs(node):
             if not node:
                 return 0
