@@ -22,7 +22,6 @@ class Solution:
             return min_swaps
                         
                         
-        
         res = min(moves_to_make_equi(tops,bottoms),moves_to_make_equi(bottoms,tops))
         return res if res != math.inf else -1
         
