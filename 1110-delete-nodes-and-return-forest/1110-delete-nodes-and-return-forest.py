@@ -9,22 +9,24 @@ class Solution:
         to_delete = set(to_delete)
         ans = []
         
+        def break_and_traverse(node,flag):
+            next_node = node.left if flag else node.right
+            if next_node:
+                save = next_node
+                if next_node.val in to_delete:
+                    if flag:
+                        node.left = None
+                    else:
+                        node.right = None
+                dfs(save)
+        
         
         def dfs(node):
             if not node:
                 return
             if node.val not in to_delete:
-                if node.left:
-                    save_left = node.left
-                    if node.left.val in to_delete:
-                        node.left = None
-                    dfs(save_left)
-
-                if node.right:
-                    save_right = node.right
-                    if node.right.val in to_delete:
-                        node.right = None
-                    dfs(save_right)
+                break_and_traverse(node,1)
+                break_and_traverse(node,0)
             else:
                 save_left = node.left
                 save_right = node.right
