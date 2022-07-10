@@ -12,9 +12,9 @@ class Solution:
             for starting_digit in range(1,9):
                 if 9-starting_digit+1 < digit_len:
                     break
-                num = int(digits[starting_digit:starting_digit+digit_len])
-                if low <= num <= high:
-                    ans.append(num)
+                num_ = int(digits[starting_digit:starting_digit+digit_len])
+                if low <= num_ <= high:
+                    ans.append(num_)
                 
         return ans
                     
