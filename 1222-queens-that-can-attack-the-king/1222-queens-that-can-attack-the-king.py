@@ -1,8 +1,8 @@
 class Solution:
     def queensAttacktheKing(self, queens: List[List[int]], king: List[int]) -> List[List[int]]:
-        is_there_queen = [[False]* 8 for _ in range(8)]
+        is_there_queen = [[0]* 8 for _ in range(8)]
         for q in queens:
-            is_there_queen[q[0]][q[1]] = True
+            is_there_queen[q[0]][q[1]] = 1
             
         ans = []
             
