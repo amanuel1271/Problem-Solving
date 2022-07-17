@@ -6,13 +6,16 @@ class Solution:
             return a
         
         # find gcd
-        gcd_res = numsDivide[0]
-        for num in numsDivide[1:]:
-            gcd_res = gcd(gcd_res,num)
-            
+        def find_gcd_arr(numsDivide):
+            gcd_res = numsDivide[0]
+            for num in numsDivide[1:]:
+                gcd_res = gcd(gcd_res,num)
+            return gcd_res
+        
+        gcd_ = find_gcd_arr(numsDivide)
         nums.sort()
         for i in range(len(nums)):
-            if gcd_res % nums[i] == 0:
+            if gcd_ % nums[i] == 0:
                 return i
             
         return -1
