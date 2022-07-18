@@ -14,11 +14,11 @@ class Solution:
         for word in products:
             insertAndUpdate(memo,word)
             
-        pre,ans = '',[]
+        pre,answer = '',[]
         for ch in searchWord:
             pre += ch
-            ans.append(memo.get(pre,[]))
+            answer.append(memo.get(pre,[]))
             
-        return ans
+        return answer
             
         
