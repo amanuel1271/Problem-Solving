@@ -1,6 +1,6 @@
 class Solution:
     def canReach(self, arr: List[int], start: int) -> bool:
-        visited = set()
+        seen_idx = set()
         
         @lru_cache(None)
         def dfs(i):
@@ -9,10 +9,10 @@ class Solution:
             elif arr[i] == 0:
                 return True
             
-            if i in visited:
+            if i in seen_idx:
                 return False
             
-            visited.add(i)
+            seen_idx.add(i)
             return dfs(i-arr[i]) or dfs(i+arr[i])
         
         return dfs(start)
