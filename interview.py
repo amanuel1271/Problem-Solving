@@ -39,26 +39,23 @@ def solution(moves):
     for move in moves:
         print(pos)
         dx,dy = ch_to_dist[move]
-        x_,y_ = pos[0] + dx,pos[1] + dy
-        lb_pos_next[pos].add((x_,y_))
-        n = (x_,y_)
+        n = pos[0] + dx,pos[1] + dy
+        lb_pos_next[pos].add(n)
 
-        if (x_,y_) not in visited:
-            visited.add((x_,y_))
+        if n not in visited:
+            visited.add(n)
         else:
             for coor in [((1,0),(1,1),(0,1)), ((0,1),(1,1),(1,0))]:
                 cond_1,res_str = check_completed(n,coor,lb_pos_next)
                 if cond_1 and res_str not in lb_pos_completed:
                     cnt += 1
                     lb_pos_completed.add(res_str)
-                    pos = n
                     break
             for coor in [((0,-1),(1,-1),(1,0)), ((1,0),(1,-1),(0,-1))]:
                 cond_1,res_str = check_completed(n,coor,lb_pos_next)
                 if cond_1 and res_str not in lb_pos_completed:
                     cnt += 1
                     lb_pos_completed.add(res_str)
-                    pos = n
                     break
 
             for coor in [((-1,0),(-1,-1),(0,-1)), ((0,-1),(-1,-1),(-1,0))]:
@@ -66,17 +63,13 @@ def solution(moves):
                 if cond_1 and res_str not in lb_pos_completed:
                     cnt += 1
                     lb_pos_completed.add(res_str)
-                    pos = n
                     break
             for coor in [((0,1),(-1,1),(-1,0)), ((-1,0),(-1,1),(0,1))]:
                 cond_1,res_str = check_completed(n,coor,lb_pos_next)
                 if cond_1 and res_str not in lb_pos_completed:
                     cnt += 1
                     lb_pos_completed.add(res_str)
-                    pos = n
                     break
-           
-
         pos = n
 
     return cnt
