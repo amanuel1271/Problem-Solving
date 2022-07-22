@@ -9,7 +9,7 @@ class Solution:
             if i == n: return 0
             ans = dp(i + 1)  # Choice 1: Don't pick
 
-            j = bisect_left(startTime, jobs[i][1])
+            j = bisect.bisect_left(startTime, jobs[i][1])
             ans = max(ans, dp(j) + jobs[i][2])  # Choice 2: Pick
             return ans
 
