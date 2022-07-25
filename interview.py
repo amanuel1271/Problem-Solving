@@ -74,6 +74,5 @@ def solution(moves):
 
     return cnt
 
-
-moves = 'URDLDLURRDLUULDR'
-print(solution(moves))
+moves = 'ULDRRULDDLURUULDRDLLURD'
+print(solution(moves)) # SHOULD PRINT 5
