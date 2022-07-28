@@ -10,7 +10,6 @@ class Solution:
             prefix_sum_dict[i] = sum_
             if i < size-k-1:
                 continue
-                
             minn = min(minn,sum_ - prefix_sum_dict[i-(size-k)])
         
         return sum_-minn
