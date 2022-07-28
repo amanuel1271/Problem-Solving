@@ -13,7 +13,7 @@ class Solution:
                 
             minn = min(minn,sum_ - prefix_sum_dict[i-(size-k)])
         
-        return sum(cardPoints) - minn
+        return sum_-minn
         
 
             
