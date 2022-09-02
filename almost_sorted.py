@@ -11,6 +11,14 @@ import sys
 #
 # The function accepts INTEGER_ARRAY arr as parameter.
 #
+
+def check_ordering(arr,idx1,idx2,size_arr):
+    if (idx2 + 1 == size_arr or arr[idx1] < arr[idx2 + 1]) and (idx1 - 1 < 0 or arr[idx2] > arr[idx1-1]):
+        return True
+    return False
+
+    
+    
 def decreasing_points(arr):
     indices = []
     for i in range(len(arr)-1):
@@ -29,14 +37,9 @@ def can_be_swapped(arr):
     if not(indice_size in [1,2]):
         return (False,0,0)
         
-    if indice_size == 1:
-        idx = indices[0]
-        if (idx + 2 == size_arr or arr[idx] < arr[idx + 2]) and (idx - 1 < 0 or arr[idx + 1] > arr[idx-1]):
-            return (True,idx,idx+1)
-    elif indice_size == 2:
-        idx1,idx2 = indices[0],indices[1] + 1
-        if (idx2 + 1 == size_arr or arr[idx1] < arr[idx2 + 1]) and (idx1 - 1 < 0 or arr[idx2] > arr[idx1-1]):
-            return (True,idx1,idx2)
+    idx1,idx2 = indices[0],indices[-1] + 1
+    if check_ordering(arr,idx1,idx2,size_arr):
+        return (True,idx1,idx2)
         
     return (False,0,0)
     
@@ -57,8 +60,8 @@ def can_be_reversed(arr):
         return (False,0,0)
         
     idx1,idx2 = indices[0],indices[-1] + 1
-    if (idx2 + 1 == size_arr or arr[idx1] < arr[idx2 + 1]) and (idx1 - 1 < 0 or arr[idx2] > arr[idx1-1]):
-            return (True,idx1,idx2)
+    if check_ordering(arr,idx1,idx2,size_arr):
+        return (True,idx1,idx2)
         
     return (False,0,0)
 
