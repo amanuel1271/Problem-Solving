@@ -23,8 +23,8 @@ def different_pairs(s):
         l,r = l+1,r-1
     return cnt
         
-def is_nine(ch):
-    return 1 if ch == "9" else 0
+def is_not_nine(ch):
+    return 0 if ch == "9" else 1
     
 def highestValuePalindrome(s, n, k):
     # Write your code here
@@ -45,12 +45,12 @@ def highestValuePalindrome(s, n, k):
             continue
             
         min_needed -= 1
-        count_nine = is_nine(s[i]) + is_nine(s[complement_index])
+        count_non_nine = is_not_nine(s[i]) + is_not_nine(s[complement_index])
         
-        if k-(2-count_nine) >= min_needed:
+        if k-count_non_nine >= min_needed:
             list_s[i] = '9'
             list_s[complement_index] = '9'
-            k -= (2-count_nine)
+            k -= count_non_nine
         else:
             k -= 1
             list_s[i] = str(max(int(s[i]),int(s[complement_index])))
@@ -64,7 +64,7 @@ def highestValuePalindrome(s, n, k):
             
             
         
-
+        
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
