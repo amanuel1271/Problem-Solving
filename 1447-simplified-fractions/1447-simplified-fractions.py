@@ -1,9 +1,9 @@
 class Solution:
     def simplifiedFractions(self, n: int) -> List[str]:
         def gcd(a,b):
-            if a == 0:
-                return b
-            return gcd(b%a,a)
+            while a:
+                a,b = b%a,a 
+            return b
         
         ans = []
         
