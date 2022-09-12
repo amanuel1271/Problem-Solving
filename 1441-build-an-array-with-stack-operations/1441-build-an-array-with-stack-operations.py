@@ -3,10 +3,8 @@ class Solution:
         i,target_size,operation_lst = 0,len(target),[]
         j = 1
         
-        while j <= n:
-            if i == target_size:
-                break
-            elif target[i] == j:
+        while i < target_size:
+            if target[i] == j:
                 operation_lst.append("Push")
                 i += 1
                 j += 1
