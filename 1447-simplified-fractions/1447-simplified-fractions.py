@@ -9,7 +9,7 @@ class Solution:
         
         for denominator in range(2,n+1):
             for numerator in range(1,denominator):
-                if numerator == 1 or gcd(numerator,denominator) == 1:
+                if gcd(numerator,denominator) == 1:
                     ans.append('{}/{}'.format(numerator,denominator))
                     
         return ans
