@@ -16,9 +16,7 @@ class Solution:
                 if has_some_apple:
                     second += child_value + 2
                 
-            if second == 0 and hasApple[node]:
-                return (True,0)
-            elif second > 0:
+            if (second == 0 and hasApple[node]) or second > 0:
                 return (True,second)
             return (False,0)
         
