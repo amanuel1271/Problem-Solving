@@ -1,6 +1,6 @@
 class Solution:
     def minTime(self, n: int, edges: List[List[int]], hasApple: List[bool]) -> int:
-        adj = [[] for _ in range(n)]
+        adj = defaultdict(list)
         for u, v in edges:
             adj[u].append(v)
             adj[v].append(u)
