@@ -8,14 +8,20 @@ class Solution:
         visited = set()
         def dfs(node):
             if node in visited:
-                return 0
+                return (False,0)
             visited.add(node)
-            secs = 0
+            second = 0
             for child in adj[node]:
-                secs += dfs(child)
-            if secs > 0:
-                return secs + 2
-            return 2 if hasApple[node] else 0
-
-        return max(dfs(0) - 2, 0)
+                has_some_apple,child_value = dfs(child)
+                if has_some_apple:
+                    second += child_value + 2
+                
+            if second == 0 and hasApple[node]:
+                return (True,0)
+            elif second > 0:
+                return (True,second)
+            return (False,0)
+        
+        return dfs(0)[1]
+                
         
