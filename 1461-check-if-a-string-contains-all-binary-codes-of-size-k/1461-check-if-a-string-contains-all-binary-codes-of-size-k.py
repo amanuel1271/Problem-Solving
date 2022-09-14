@@ -4,8 +4,6 @@ class Solution:
         
         for i in range(len(s)-k + 1):
             binary_set.add(s[i:i+k])
-            if len(binary_set) == 2**k:
-                return True
             
-        return False
+        return len(binary_set) == 2**k
         
