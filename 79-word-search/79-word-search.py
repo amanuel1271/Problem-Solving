@@ -1,27 +1,20 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        m,n = len(board),len(board[0])
+        m,n = len(board), len(board[0])
         
-        def dfs(x,y,i,path):
-            if i == len(word)-1:
+        def dfs(row,col,i, path):
+            if i == len(word) - 1 and word[i] == board[row][col]:
                 return True
-            for xl,xr in [(x+1,y),(x-1,y),(x,y-1),(x,y+1)]:
-                if 0 <= xl < m and 0 <= xr < n and (xl,xr) not in path:
-                    if board[xl][xr] == word[i+1]:
-                        if dfs(xl,xr,i+1,set.union(path,{(x,y)})):
-                            return True
+            
+            
+            for (r,c) in [(row,col+1), (row+1, col), (row-1, col), (row, col-1)]:
+                if not(0 <= r < m and 0 <= c < n) or (r,c) in path or i < len(word) - 1 and word[i+1] != board[r][c] :
+                    continue
+                path.add((r,c))
+                if dfs(r,c,i+1,path):
+                    return True
+                path.remove((r,c))
             return False
-        
-        
-        for i in range(m):
-            for j in range(n):
-                if board[i][j] == word[0]:
-                    if dfs(i,j,0,set()):
-                        return True
-        
-        return False
-                    
-            
-                
-            
-        
+
+        starting_place = [(r,c) for r in range(m) for c in range(n) if word[0] == board[r][c]]
+        return any(list(map(lambda x: dfs(x[0],x[1],0,{x}), starting_place)))
